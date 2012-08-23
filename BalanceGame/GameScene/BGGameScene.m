@@ -7,6 +7,7 @@
 //
 
 #import "BGGameScene.h"
+#import "BGGameCityLayer.h"
 #import "BGGameMainLayer.h"
 
 
@@ -14,6 +15,8 @@
 
 + (BGGameScene *)scene{
     BGGameScene *scene = [self node];
+    
+    [scene addChild:[BGGameCityLayer node]];
     
     BGGameMainLayer *mainLayer = [BGGameMainLayer node];
     [scene addChild:mainLayer];
