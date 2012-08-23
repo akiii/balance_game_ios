@@ -135,6 +135,12 @@
 		B810ACDA15E607AC00D374DD /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810ACD915E607AC00D374DD /* IntroLayer.m */; };
 		B810ACE815E60BB400D374DD /* BGGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B810ACE715E60BB400D374DD /* BGGameScene.m */; };
 		B810ACEB15E60BE800D374DD /* BGGameMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810ACEA15E60BE800D374DD /* BGGameMainLayer.m */; };
+		B810ACF515E6304200D374DD /* BGGameBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810ACF415E6304200D374DD /* BGGameBackgroundLayer.m */; };
+		B810ACF815E6306600D374DD /* BGGameCityLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810ACF715E6306600D374DD /* BGGameCityLayer.m */; };
+		B810AD1215E6373B00D374DD /* city.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1015E6373B00D374DD /* city.png */; };
+		B810AD1315E6373B00D374DD /* city-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1115E6373B00D374DD /* city-hd.png */; };
+		B810AD1A15E6379C00D374DD /* tokyo_tower-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */; };
+		B810AD1B15E6379C00D374DD /* tokyo_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1915E6379C00D374DD /* tokyo_tower.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +410,14 @@
 		B810ACE715E60BB400D374DD /* BGGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameScene.m; sourceTree = "<group>"; };
 		B810ACE915E60BE800D374DD /* BGGameMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameMainLayer.h; sourceTree = "<group>"; };
 		B810ACEA15E60BE800D374DD /* BGGameMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameMainLayer.m; sourceTree = "<group>"; };
+		B810ACF315E6304200D374DD /* BGGameBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameBackgroundLayer.h; sourceTree = "<group>"; };
+		B810ACF415E6304200D374DD /* BGGameBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameBackgroundLayer.m; sourceTree = "<group>"; };
+		B810ACF615E6306600D374DD /* BGGameCityLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameCityLayer.h; sourceTree = "<group>"; };
+		B810ACF715E6306600D374DD /* BGGameCityLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameCityLayer.m; sourceTree = "<group>"; };
+		B810AD1015E6373B00D374DD /* city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city.png; sourceTree = "<group>"; };
+		B810AD1115E6373B00D374DD /* city-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city-hd.png"; sourceTree = "<group>"; };
+		B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tokyo_tower-hd.png"; sourceTree = "<group>"; };
+		B810AD1915E6379C00D374DD /* tokyo_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tokyo_tower.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +493,10 @@
 		B810AB5B15E607AA00D374DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B810AD1015E6373B00D374DD /* city.png */,
+				B810AD1115E6373B00D374DD /* city-hd.png */,
+				B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */,
+				B810AD1915E6379C00D374DD /* tokyo_tower.png */,
 				B810AB5C15E607AA00D374DD /* Default.png */,
 				B810AB5E15E607AA00D374DD /* Default-Landscape~ipad.png */,
 				B810AB6015E607AA00D374DD /* fps_images.png */,
@@ -846,6 +864,10 @@
 				B810ACE715E60BB400D374DD /* BGGameScene.m */,
 				B810ACE915E60BE800D374DD /* BGGameMainLayer.h */,
 				B810ACEA15E60BE800D374DD /* BGGameMainLayer.m */,
+				B810ACF315E6304200D374DD /* BGGameBackgroundLayer.h */,
+				B810ACF415E6304200D374DD /* BGGameBackgroundLayer.m */,
+				B810ACF615E6306600D374DD /* BGGameCityLayer.h */,
+				B810ACF715E6306600D374DD /* BGGameCityLayer.m */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -913,6 +935,10 @@
 				B810AB7115E607AA00D374DD /* Icon@2x.png in Resources */,
 				B810AB7415E607AA00D374DD /* iTunesArtwork in Resources */,
 				B810ACB215E607AB00D374DD /* ChangeLog in Resources */,
+				B810AD1215E6373B00D374DD /* city.png in Resources */,
+				B810AD1315E6373B00D374DD /* city-hd.png in Resources */,
+				B810AD1A15E6379C00D374DD /* tokyo_tower-hd.png in Resources */,
+				B810AD1B15E6379C00D374DD /* tokyo_tower.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1055,8 @@
 				B810ACDA15E607AC00D374DD /* IntroLayer.m in Sources */,
 				B810ACE815E60BB400D374DD /* BGGameScene.m in Sources */,
 				B810ACEB15E60BE800D374DD /* BGGameMainLayer.m in Sources */,
+				B810ACF515E6304200D374DD /* BGGameBackgroundLayer.m in Sources */,
+				B810ACF815E6306600D374DD /* BGGameCityLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
