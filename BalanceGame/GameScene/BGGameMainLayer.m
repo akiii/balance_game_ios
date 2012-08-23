@@ -19,6 +19,16 @@
     return self;
 }
 
+- (void)onEnter{
+    [super onEnter];
+    
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    CCSprite *tower = [CCSprite spriteWithFile:@"tokyo_tower.png"];
+    tower.position = ccp(screenSize.width/2, screenSize.height/2);
+    [self addChild:tower];
+}
+
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
     NSLog(@"x : %f, y : %f, z : %f", acceleration.x, acceleration.y, acceleration.z);
 }
