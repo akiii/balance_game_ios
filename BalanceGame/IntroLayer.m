@@ -56,6 +56,8 @@
 	
 	// In one second transition to the new scene
 	[self scheduleOnce:@selector(makeTransition:) delay:1];
+    
+    NSLog(@"start game!!");
 }
 
 -(void) makeTransition:(ccTime)dt
