@@ -145,6 +145,8 @@
 		B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */; };
 		B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */; };
 		B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD6015E74C1F00D374DD /* BGGameTower.m */; };
+		B810AD6315E75A2F00D374DD /* fire.pvr in Resources */ = {isa = PBXBuildFile; fileRef = B810AD6215E75A2F00D374DD /* fire.pvr */; };
+		B810AD6515E7612700D374DD /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD6415E7612700D374DD /* fire.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -430,6 +432,8 @@
 		B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopMainLayer.m; sourceTree = "<group>"; };
 		B810AD5F15E74C1F00D374DD /* BGGameTower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameTower.h; sourceTree = "<group>"; };
 		B810AD6015E74C1F00D374DD /* BGGameTower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameTower.m; sourceTree = "<group>"; };
+		B810AD6215E75A2F00D374DD /* fire.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.pvr; sourceTree = "<group>"; };
+		B810AD6415E7612700D374DD /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +510,8 @@
 		B810AB5B15E607AA00D374DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B810AD6215E75A2F00D374DD /* fire.pvr */,
+				B810AD6415E7612700D374DD /* fire.png */,
 				B810AD1D15E6390700D374DD /* city-hd.png */,
 				B810AD1E15E6390700D374DD /* city.png */,
 				B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */,
@@ -967,6 +973,8 @@
 				B810AD1B15E6379C00D374DD /* tokyo_tower.png in Resources */,
 				B810AD1F15E6390700D374DD /* city-hd.png in Resources */,
 				B810AD2015E6390700D374DD /* city.png in Resources */,
+				B810AD6315E75A2F00D374DD /* fire.pvr in Resources */,
+				B810AD6515E7612700D374DD /* fire.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
