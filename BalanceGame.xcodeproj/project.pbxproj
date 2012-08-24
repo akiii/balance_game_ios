@@ -144,6 +144,7 @@
 		B810AD5815E71CC600D374DD /* BGTopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5715E71CC600D374DD /* BGTopScene.m */; };
 		B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */; };
 		B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */; };
+		B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD6015E74C1F00D374DD /* BGGameTower.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -427,6 +428,8 @@
 		B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopBackgroundLayer.m; sourceTree = "<group>"; };
 		B810AD5C15E71CF100D374DD /* BGTopMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTopMainLayer.h; sourceTree = "<group>"; };
 		B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopMainLayer.m; sourceTree = "<group>"; };
+		B810AD5F15E74C1F00D374DD /* BGGameTower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameTower.h; sourceTree = "<group>"; };
+		B810AD6015E74C1F00D374DD /* BGGameTower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameTower.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -878,6 +881,8 @@
 				B810ACF415E6304200D374DD /* BGGameBackgroundLayer.m */,
 				B810ACF615E6306600D374DD /* BGGameCityLayer.h */,
 				B810ACF715E6306600D374DD /* BGGameCityLayer.m */,
+				B810AD5F15E74C1F00D374DD /* BGGameTower.h */,
+				B810AD6015E74C1F00D374DD /* BGGameTower.m */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -1083,6 +1088,7 @@
 				B810AD5815E71CC600D374DD /* BGTopScene.m in Sources */,
 				B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */,
 				B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */,
+				B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
