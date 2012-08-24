@@ -24,17 +24,31 @@
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     self.tower = [CCSprite spriteWithFile:@"tokyo_tower.png"];
+    self.tower.anchorPoint = ccp(1, 0);
     self.tower.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:self.tower];
     
+    [self moveTower];
+}
+
+- (void)moveTower{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+
     ccTime moveTime = 1.0;
     float angle = 15;
-
-    self.tower.anchorPoint = ccp(0, 0);
-    id moveLeft = [CCSequence actions:[CCRotateBy actionWithDuration:moveTime angle:-angle], [CCRotateBy actionWithDuration:moveTime angle:angle], nil];
-
-    [self.tower runAction:moveLeft];
-//    [self.tower runAction:[CCRotateTo actionWithDuration:3.0 angle:30]];
+    
+    id moveLeft = [CCSequence actions:[CCRotateBy actionWithDuration:moveTime/2 angle:-angle], [CCRotateBy actionWithDuration:moveTime/2 angle:angle], nil];
+    id moveRight = [CCSequence actions:[CCRotateBy actionWithDuration:moveTime/2 angle:angle], [CCRotateBy actionWithDuration:moveTime/2 angle:-angle], nil];
+    
+    [self.tower runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
+        self.tower.anchorPoint = ccp(0, 0);
+        self.tower.position = ccp(self.tower.position.x - self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
+        [self.tower runAction:moveLeft];
+    }], [CCDelayTime actionWithDuration:moveTime + 0.1], [CCCallBlock actionWithBlock:^(){
+        self.tower.anchorPoint = ccp(1, 0);
+        self.tower.position = ccp(self.tower.position.x + self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
+        [self.tower runAction:moveRight];
+    }], [CCDelayTime actionWithDuration:moveTime + 0.1], nil]]];
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
