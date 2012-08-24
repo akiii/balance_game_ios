@@ -11,11 +11,11 @@
 #define MOVE_TIME 0.3
 
 @interface BGGameTower()
-@property (readwrite, retain) CCParticleSystem *fire;
+@property (readwrite, retain) CCParticleSystem *fire, *smoke;
 @end
 
 @implementation BGGameTower
-@synthesize fire;
+@synthesize fire, smoke;
 
 - (void)shakeWithAngle:(float)angle{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -48,10 +48,24 @@
 }
 
 - (void)fireWithAcceleration:(UIAcceleration *)acceleration{
+    self.smoke = [CCParticleSmoke node];
+    //    self.smoke.texture = [[CCTextureCache sharedTextureCache] addImage:@"fire.pvr"];
+    self.smoke.scaleX = 0.7;
+    self.smoke.scaleY = 1.0;
+    self.smoke.life = 0.75;
+    if (acceleration.y > 0) {
+        self.smoke.gravity = ccp(-200, -50);
+    }else {
+        self.smoke.gravity = ccp(200, -100);
+    }
+    self.smoke.autoRemoveOnFinish = YES;
+    self.smoke.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
+    [self addChild:self.smoke];
+    
 	self.fire = [CCParticleFire node];
     self.fire.texture = [[CCTextureCache sharedTextureCache] addImage:@"fire.pvr"];
-    self.fire.scaleX = 0.8;
-    self.fire.scaleY = 1.5;
+    self.fire.scaleX = 0.6;
+    self.fire.scaleY = 1.0;
     self.fire.life = 0.7;
     self.fire.endColor = ccc4f(255, 0, 0, 255);
     if (acceleration.y > 0) {
@@ -59,6 +73,7 @@
     }else {
         self.fire.gravity = ccp(300, -100);
     }
+    self.fire.gravity = self.smoke.gravity;
     self.fire.autoRemoveOnFinish = YES;
     self.fire.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
     [self addChild:self.fire];
