@@ -14,5 +14,4 @@
 }
 - (void)shakeWithAngle:(float)angle;
 - (void)fallWithAcceleration:(UIAcceleration *)acceleration;
-- (void)fire;
 @end
