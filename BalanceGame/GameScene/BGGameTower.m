@@ -49,7 +49,6 @@
 
 - (void)fireWithAcceleration:(UIAcceleration *)acceleration{
     self.smoke = [CCParticleSmoke node];
-    //    self.smoke.texture = [[CCTextureCache sharedTextureCache] addImage:@"fire.pvr"];
     self.smoke.scaleX = 0.7;
     self.smoke.scaleY = 1.0;
     self.smoke.life = 0.75;
