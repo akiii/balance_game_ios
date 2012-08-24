@@ -28,31 +28,30 @@
     self.tower.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:self.tower];
     
-    [self moveTower];
+    [self moveTowerWithAcceleration:nil];
 }
 
-- (void)moveTower{
+- (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-
-    ccTime moveTime = 1.0;
-    float angle = 15;
+    ccTime moveTime = 0.5;
+    float angle = 60 * pow(acceleration.y, 2) + 30 * pow(acceleration.z, 2);
     
-    id moveLeft = [CCSequence actions:[CCRotateBy actionWithDuration:moveTime/2 angle:-angle], [CCRotateBy actionWithDuration:moveTime/2 angle:angle], nil];
-    id moveRight = [CCSequence actions:[CCRotateBy actionWithDuration:moveTime/2 angle:angle], [CCRotateBy actionWithDuration:moveTime/2 angle:-angle], nil];
+    id moveLeft = [CCRotateBy actionWithDuration:moveTime/2 angle:-angle];
+    id moveRight = [CCRotateBy actionWithDuration:moveTime/2 angle:angle];
     
-    [self.tower runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
-        self.tower.anchorPoint = ccp(0, 0);
-        self.tower.position = ccp(self.tower.position.x - self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
-        [self.tower runAction:moveLeft];
-    }], [CCDelayTime actionWithDuration:moveTime + 0.1], [CCCallBlock actionWithBlock:^(){
-        self.tower.anchorPoint = ccp(1, 0);
-        self.tower.position = ccp(self.tower.position.x + self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
-        [self.tower runAction:moveRight];
-    }], [CCDelayTime actionWithDuration:moveTime + 0.1], nil]]];
+    if ([self.tower numberOfRunningActions] == 0) {
+        [self.tower runAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
+            self.tower.anchorPoint = ccp(0, 0);
+            self.tower.position = ccp(self.tower.position.x - self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
+        }], moveLeft, [moveLeft reverse], [CCCallBlock actionWithBlock:^(){
+            self.tower.anchorPoint = ccp(1, 0);
+            self.tower.position = ccp(self.tower.position.x + self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
+        }], moveRight, [moveRight reverse], nil]];
+    }
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
-    NSLog(@"x : %f, y : %f, z : %f", acceleration.x, acceleration.y, acceleration.z);
+    [self moveTowerWithAcceleration:acceleration];
 }
 
 - (void)dealloc{
