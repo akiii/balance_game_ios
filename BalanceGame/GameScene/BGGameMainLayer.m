@@ -9,14 +9,17 @@
 #import "BGGameMainLayer.h"
 
 @interface BGGameMainLayer()
+@property (assign) BOOL gameOver;
 @property (nonatomic, retain) CCSprite *tower;
 @end
 
 @implementation BGGameMainLayer
-@synthesize tower;
+@synthesize gameOver, tower;
 
 - (void)onEnter{
     [super onEnter];
+    
+    self.gameOver = NO;
     
     self.isTouchEnabled = YES;
     self.isAccelerometerEnabled = YES;
@@ -33,25 +36,42 @@
 
 - (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-    ccTime moveTime = 0.5;
+    ccTime moveTime = 0.3;
     float angle = 60 * pow(acceleration.y, 2) + 30 * pow(acceleration.z, 2);
     
-    id moveLeft = [CCRotateBy actionWithDuration:moveTime/2 angle:-angle];
-    id moveRight = [CCRotateBy actionWithDuration:moveTime/2 angle:angle];
-    
-    if ([self.tower numberOfRunningActions] == 0) {
-        [self.tower runAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
-            self.tower.anchorPoint = ccp(0, 0);
-            self.tower.position = ccp(self.tower.position.x - self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
-        }], moveLeft, [moveLeft reverse], [CCCallBlock actionWithBlock:^(){
-            self.tower.anchorPoint = ccp(1, 0);
-            self.tower.position = ccp(self.tower.position.x + self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
-        }], moveRight, [moveRight reverse], nil]];
+    if (!gameOver) {
+        if (angle < 50) {
+            id moveLeft = [CCRotateBy actionWithDuration:moveTime/2 angle:-angle];
+            id moveRight = [CCRotateBy actionWithDuration:moveTime/2 angle:angle];
+            if ([self.tower numberOfRunningActions] == 0) {
+                [self.tower runAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
+                    self.tower.anchorPoint = ccp(0, 0);
+                    self.tower.position = ccp(self.tower.position.x - self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
+                }], moveLeft, [moveLeft reverse], [CCCallBlock actionWithBlock:^(){
+                    self.tower.anchorPoint = ccp(1, 0);
+                    self.tower.position = ccp(self.tower.position.x + self.tower.contentSize.width, self.position.y + screenSize.height/2 - self.tower.contentSize.height/2);
+                }], moveRight, [moveRight reverse], nil]];
+            }
+        }else {
+            gameOver = YES;
+        }
+    }
+    if (gameOver) {
+        [self.tower stopAllActions];
+        if (acceleration.y > 0) {
+            id moveRight = [CCRotateBy actionWithDuration:moveTime angle:90];
+            [self.tower runAction:moveRight];
+        }else {
+            id moveLeft = [CCRotateBy actionWithDuration:moveTime angle:-90];
+            [self.tower runAction:moveLeft];
+        }
     }
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
-    [self moveTowerWithAcceleration:acceleration];
+    if (!gameOver) {
+        [self moveTowerWithAcceleration:acceleration];
+    }
 }
 
 - (void)dealloc{
