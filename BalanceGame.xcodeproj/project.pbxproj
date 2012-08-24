@@ -141,6 +141,9 @@
 		B810AD1B15E6379C00D374DD /* tokyo_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1915E6379C00D374DD /* tokyo_tower.png */; };
 		B810AD1F15E6390700D374DD /* city-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1D15E6390700D374DD /* city-hd.png */; };
 		B810AD2015E6390700D374DD /* city.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1E15E6390700D374DD /* city.png */; };
+		B810AD5815E71CC600D374DD /* BGTopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5715E71CC600D374DD /* BGTopScene.m */; };
+		B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */; };
+		B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -418,6 +421,12 @@
 		B810AD1915E6379C00D374DD /* tokyo_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tokyo_tower.png; sourceTree = "<group>"; };
 		B810AD1D15E6390700D374DD /* city-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city-hd.png"; sourceTree = "<group>"; };
 		B810AD1E15E6390700D374DD /* city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city.png; sourceTree = "<group>"; };
+		B810AD5615E71CC600D374DD /* BGTopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTopScene.h; sourceTree = "<group>"; };
+		B810AD5715E71CC600D374DD /* BGTopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopScene.m; sourceTree = "<group>"; };
+		B810AD5915E71CDE00D374DD /* BGTopBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTopBackgroundLayer.h; sourceTree = "<group>"; };
+		B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopBackgroundLayer.m; sourceTree = "<group>"; };
+		B810AD5C15E71CF100D374DD /* BGTopMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTopMainLayer.h; sourceTree = "<group>"; };
+		B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopMainLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +491,7 @@
 				B810ACD615E607AC00D374DD /* HelloWorldLayer.m */,
 				B810ACD815E607AC00D374DD /* IntroLayer.h */,
 				B810ACD915E607AC00D374DD /* IntroLayer.m */,
+				B810AD5515E71C9600D374DD /* TopScene */,
 				B810ACE415E60BA200D374DD /* GameScene */,
 				B810AB5B15E607AA00D374DD /* Resources */,
 				B810AB7515E607AA00D374DD /* libs */,
@@ -872,6 +882,19 @@
 			path = GameScene;
 			sourceTree = "<group>";
 		};
+		B810AD5515E71C9600D374DD /* TopScene */ = {
+			isa = PBXGroup;
+			children = (
+				B810AD5615E71CC600D374DD /* BGTopScene.h */,
+				B810AD5715E71CC600D374DD /* BGTopScene.m */,
+				B810AD5915E71CDE00D374DD /* BGTopBackgroundLayer.h */,
+				B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */,
+				B810AD5C15E71CF100D374DD /* BGTopMainLayer.h */,
+				B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */,
+			);
+			path = TopScene;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1057,6 +1080,9 @@
 				B810ACEB15E60BE800D374DD /* BGGameMainLayer.m in Sources */,
 				B810ACF515E6304200D374DD /* BGGameBackgroundLayer.m in Sources */,
 				B810ACF815E6306600D374DD /* BGGameCityLayer.m in Sources */,
+				B810AD5815E71CC600D374DD /* BGTopScene.m in Sources */,
+				B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */,
+				B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
