@@ -47,6 +47,15 @@
     }
     if (gameOver) {
         [self.tower fallWithAcceleration:acceleration];
+        
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
+        CCLabelTTF *l = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:72];
+        l.color = ccc3(255, 0, 0);
+        l.scale = 0.0;
+        l.position = ccp(screenSize.width/2, screenSize.height/2);
+        [self addChild:l];
+        
+        [l runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:0.8 scale:1.0] rate:10]];
     }
 }
 
