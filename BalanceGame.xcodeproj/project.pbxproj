@@ -148,6 +148,10 @@
 		B810AD6315E75A2F00D374DD /* fire.pvr in Resources */ = {isa = PBXBuildFile; fileRef = B810AD6215E75A2F00D374DD /* fire.pvr */; };
 		B810AD6515E7612700D374DD /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD6415E7612700D374DD /* fire.png */; };
 		B85B303A15E9F56A00A71141 /* BGGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B303915E9F56900A71141 /* BGGameManager.m */; };
+		B85B304815EA227D00A71141 /* touch_normal_button_blue-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B85B304415EA227D00A71141 /* touch_normal_button_blue-hd.png */; };
+		B85B304915EA227D00A71141 /* touch_normal_button_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B85B304515EA227D00A71141 /* touch_normal_button_blue.png */; };
+		B85B304A15EA227D00A71141 /* touch_normal_button_pink-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B85B304615EA227D00A71141 /* touch_normal_button_pink-hd.png */; };
+		B85B304B15EA227D00A71141 /* touch_normal_button_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = B85B304715EA227D00A71141 /* touch_normal_button_pink.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -437,6 +441,10 @@
 		B810AD6415E7612700D374DD /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		B85B303815E9F56900A71141 /* BGGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameManager.h; sourceTree = "<group>"; };
 		B85B303915E9F56900A71141 /* BGGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameManager.m; sourceTree = "<group>"; };
+		B85B304415EA227D00A71141 /* touch_normal_button_blue-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch_normal_button_blue-hd.png"; sourceTree = "<group>"; };
+		B85B304515EA227D00A71141 /* touch_normal_button_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touch_normal_button_blue.png; sourceTree = "<group>"; };
+		B85B304615EA227D00A71141 /* touch_normal_button_pink-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch_normal_button_pink-hd.png"; sourceTree = "<group>"; };
+		B85B304715EA227D00A71141 /* touch_normal_button_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touch_normal_button_pink.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,6 +527,10 @@
 				B810AD1E15E6390700D374DD /* city.png */,
 				B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */,
 				B810AD1915E6379C00D374DD /* tokyo_tower.png */,
+				B85B304415EA227D00A71141 /* touch_normal_button_blue-hd.png */,
+				B85B304515EA227D00A71141 /* touch_normal_button_blue.png */,
+				B85B304615EA227D00A71141 /* touch_normal_button_pink-hd.png */,
+				B85B304715EA227D00A71141 /* touch_normal_button_pink.png */,
 				B810AB5C15E607AA00D374DD /* Default.png */,
 				B810AB5E15E607AA00D374DD /* Default-Landscape~ipad.png */,
 				B810AB6015E607AA00D374DD /* fps_images.png */,
@@ -980,6 +992,10 @@
 				B810AD2015E6390700D374DD /* city.png in Resources */,
 				B810AD6315E75A2F00D374DD /* fire.pvr in Resources */,
 				B810AD6515E7612700D374DD /* fire.png in Resources */,
+				B85B304815EA227D00A71141 /* touch_normal_button_blue-hd.png in Resources */,
+				B85B304915EA227D00A71141 /* touch_normal_button_blue.png in Resources */,
+				B85B304A15EA227D00A71141 /* touch_normal_button_pink-hd.png in Resources */,
+				B85B304B15EA227D00A71141 /* touch_normal_button_pink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
