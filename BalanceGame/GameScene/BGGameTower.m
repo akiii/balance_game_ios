@@ -78,4 +78,10 @@
     [self addChild:self.fire];
 }
 
+- (void)dealloc{
+    self.fire = nil;
+    self.smoke = nil;
+    [super dealloc];
+}
+
 @end
