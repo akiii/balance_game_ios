@@ -147,6 +147,7 @@
 		B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD6015E74C1F00D374DD /* BGGameTower.m */; };
 		B810AD6315E75A2F00D374DD /* fire.pvr in Resources */ = {isa = PBXBuildFile; fileRef = B810AD6215E75A2F00D374DD /* fire.pvr */; };
 		B810AD6515E7612700D374DD /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD6415E7612700D374DD /* fire.png */; };
+		B85B303A15E9F56A00A71141 /* BGGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B303915E9F56900A71141 /* BGGameManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -434,6 +435,8 @@
 		B810AD6015E74C1F00D374DD /* BGGameTower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameTower.m; sourceTree = "<group>"; };
 		B810AD6215E75A2F00D374DD /* fire.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.pvr; sourceTree = "<group>"; };
 		B810AD6415E7612700D374DD /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		B85B303815E9F56900A71141 /* BGGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameManager.h; sourceTree = "<group>"; };
+		B85B303915E9F56900A71141 /* BGGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -889,6 +892,8 @@
 				B810ACF715E6306600D374DD /* BGGameCityLayer.m */,
 				B810AD5F15E74C1F00D374DD /* BGGameTower.h */,
 				B810AD6015E74C1F00D374DD /* BGGameTower.m */,
+				B85B303815E9F56900A71141 /* BGGameManager.h */,
+				B85B303915E9F56900A71141 /* BGGameManager.m */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */,
 				B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */,
 				B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */,
+				B85B303A15E9F56A00A71141 /* BGGameManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
