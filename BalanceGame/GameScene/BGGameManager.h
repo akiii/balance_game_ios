@@ -23,8 +23,10 @@ typedef enum {
 }
 @property (readonly) GameState currentGameState;
 @property (readonly) ccTime gameTime, awayTouchTime;
-@property (readonly) BOOL onLeftTouchArea, onRightTouchArea;
+@property (readonly) BOOL onLeftTouchArea, onRightTouchArea, isBalloonHidden;
 @property (nonatomic, copy) void (^onShowTouchWarning)(BOOL flag);
+@property (nonatomic, copy) void (^onShowBalloon)(NSArray *words);
+@property (nonatomic, copy) void (^onNotShowBalloon)();
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
 - (void)setOnLeftTouchArea:(BOOL)flag;
 - (void)setOnRightTouchArea:(BOOL)flag;

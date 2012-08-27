@@ -10,8 +10,8 @@
 
 
 @implementation BGGameManager
-@synthesize currentGameState = _currentGameState, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea;
-@synthesize onShowTouchWarning, onSendAcceleration;
+@synthesize currentGameState = _currentGameState, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden;
+@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration;
 
 - (id)init{
     if (self = [super init]) {
@@ -19,6 +19,7 @@
         _gameTime = 0;
         _awayTouchTime = 3.0;
         _onLeftTouchArea = _onRightTouchArea = NO;
+        _isBalloonHidden = YES;
         
         [self schedule:@selector(timer:)];
     }
@@ -34,8 +35,30 @@
                 if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
             }else {
                 if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
-                _currentGameState = GameStatePlaing;
+                _currentGameState = GameStateQuestion;
             }
+            break;
+            
+        case GameStateQuestion:
+            if (_isBalloonHidden) {
+                NSArray *words = [NSArray arrayWithObjects:@"あああああああああああああああ", @"いいいいいいいいいいいいいいい", nil];
+                NSMutableArray *labels = [NSMutableArray array];
+                for (NSString *str in words) {
+                    CCLabelTTF *l = [CCLabelTTF labelWithString:str fontName:@"American Typewriter" fontSize:26];
+                    l.color = ccc3(0, 0, 0);
+                    [labels addObject:l];
+                }
+                if (self.onShowBalloon) self.onShowBalloon(labels);
+                _isBalloonHidden = NO;
+            }
+            
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                _currentGameState = GameStatePlaing;
+                if (self.onNotShowBalloon) self.onNotShowBalloon();
+                _isBalloonHidden = YES;
+            });
             break;
             
         case GameStatePlaing:
