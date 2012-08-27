@@ -10,21 +10,18 @@
 #import "BGGameTower.h"
 
 @interface BGGameMainLayer()
-@property (assign) BOOL gameOver;
 @property (nonatomic, retain) BGGameTower *tower;
 @property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
 @property (nonatomic, retain) CCLabelTTF *touchWarningLabel, *gameOverLabel;
 @end
 
 @implementation BGGameMainLayer
-@synthesize gameOver, tower, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
+@synthesize tower, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
 @synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
 
 - (void)onEnter{
     [super onEnter];
-    
-    self.gameOver = NO;
-    
+        
     self.isTouchEnabled = YES;
     [[CCDirector sharedDirector].view setMultipleTouchEnabled:YES];
     self.isAccelerometerEnabled = YES;
@@ -55,11 +52,11 @@
             [self.tower shakeWithAngle:TOWER_ANGLE(acceleration)];
             break;
             
-        case GameStateOver:
-            [self.tower fallWithAcceleration:acceleration];
-            
-            CGSize screenSize = [CCDirector sharedDirector].winSize;
+        case GameStateOver:            
             if (self.gameOverLabel == nil) {
+                CGSize screenSize = [CCDirector sharedDirector].winSize;
+                [self.tower fallWithAcceleration:acceleration];
+
                 ccTime actionTime = 0.8;
                 self.gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:72];
                 self.gameOverLabel.color = ccc3(255, 0, 0);
@@ -82,7 +79,6 @@
                     [self addChild:menu];
                 });
             }
-            
             break;
             
         default:
