@@ -9,8 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+typedef enum {
+    GameStateTouch,
+    GameStateQuestion,
+    GameStatePlaing,
+    GameStateOver,
+} GameState;
+
 @interface BGGameManager : CCNode {
     
 }
-
+@property (readonly) GameState currentGameState;
+@property (readonly) ccTime gameTime;
+@property (readonly) BOOL onLeftTouchArea, onRightTouchArea;
+- (void)setOnLeftTouchArea:(BOOL)flag;
+- (void)setOnRightTouchArea:(BOOL)flag;
 @end
