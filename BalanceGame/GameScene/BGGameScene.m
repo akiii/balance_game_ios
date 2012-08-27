@@ -29,6 +29,14 @@
         [mainLayer getTouchWarningState:flag];
     };
     
+    manager.onShowBalloon = ^(NSArray *words){
+        [mainLayer showBalloonWithWords:words];
+    };
+    
+    manager.onNotShowBalloon = ^(){
+        [mainLayer notShowBalloon];
+    };
+    
     manager.onSendAcceleration = ^(UIAcceleration *acceleration){
         [mainLayer moveTowerWithAcceleration:acceleration];
     };
