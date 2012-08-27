@@ -10,13 +10,14 @@
 
 
 @implementation BGGameManager
-@synthesize currentGameState = _currentGameState, gameTime = _gameTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea;
+@synthesize currentGameState = _currentGameState, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea;
 @synthesize onShowTouchWarning, onSendAcceleration;
 
 - (id)init{
     if (self = [super init]) {
         _currentGameState = GameStateTouch;
         _gameTime = 0;
+        _awayTouchTime = 3.0;
         _onLeftTouchArea = _onRightTouchArea = NO;
         
         [self schedule:@selector(timer:)];
@@ -40,10 +41,18 @@
         case GameStatePlaing:
             if (!_onLeftTouchArea || !_onRightTouchArea) {
                 if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
+                _awayTouchTime -= dt;
+                if (_awayTouchTime < 0) {
+                    _currentGameState = GameStateOver;
+                }
             }else {
+                _awayTouchTime = 3;
                 if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
             }
             break;
+            
+        case GameStateOver:
+            if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
 
         default:
             break;
@@ -64,6 +73,10 @@
             if (TOWER_ANGLE(acceleration) > 50) {
                 _currentGameState = GameStateOver;
             }
+            if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
+            break;
+            
+        case GameStateOver:
             if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
             break;
             
