@@ -12,10 +12,12 @@
 @interface BGGameMainLayer()
 @property (assign) BOOL gameOver;
 @property (nonatomic, retain) BGGameTower *tower;
+@property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
 @end
 
 @implementation BGGameMainLayer
-@synthesize gameOver, tower;
+@synthesize gameOver, tower, leftTouchArea, rightTouchArea;
+@synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState;
 
 - (void)onEnter{
     [super onEnter];
@@ -23,6 +25,7 @@
     self.gameOver = NO;
     
     self.isTouchEnabled = YES;
+    [[CCDirector sharedDirector].view setMultipleTouchEnabled:YES];
     self.isAccelerometerEnabled = YES;
     
     CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -31,6 +34,14 @@
     self.tower.anchorPoint = ccp(1, 0);
     self.tower.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:self.tower];
+    
+    self.leftTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_pink.png"];
+    self.leftTouchArea.position = ccp(self.leftTouchArea.contentSize.width/2, screenSize.height/2);
+    [self addChild:self.leftTouchArea];
+    
+    self.rightTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_blue.png"];
+    self.rightTouchArea.position = ccp(screenSize.width - self.rightTouchArea.contentSize.width/2, screenSize.height/2);
+    [self addChild:self.rightTouchArea];
     
     [self moveTowerWithAcceleration:nil];
 }
@@ -59,6 +70,57 @@
     }
 }
 
+- (CGRect)getRectOfSprite:(CCSprite *)sprite{
+    return CGRectMake(sprite.position.x - sprite.contentSize.width/2, sprite.position.y - sprite.contentSize.height/2, sprite.contentSize.width, sprite.contentSize.height);
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    for (UITouch *touch in [touches allObjects]) {
+        CGPoint cp = [self convertTouchToNodeSpace: touch];
+        if (CGRectContainsPoint([self getRectOfSprite:self.leftTouchArea], cp)) {
+            if (self.isOnLeftArea) if (!self.isOnLeftArea()) if (self.onSetLeftAreaState) self.onSetLeftAreaState(YES);
+        }
+        if (CGRectContainsPoint([self getRectOfSprite:self.rightTouchArea], cp)) {
+            if (self.isOnRightArea) if (!self.isOnRightArea()) if (self.onSetRightAreaState) self.onSetRightAreaState(YES);
+        }
+    }
+}
+
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    for (UITouch *touch in [touches allObjects]) {
+        CGPoint pp = [touch previousLocationInView:[CCDirector sharedDirector].view];
+        CGPoint cp = [self convertTouchToNodeSpace:touch];
+        
+        CGRect leftAreaRect = [self getRectOfSprite:self.leftTouchArea];
+        if (CGRectContainsPoint(leftAreaRect, pp) && !CGRectContainsPoint(leftAreaRect, cp)) {
+            if (self.isOnLeftArea) if (self.isOnLeftArea()) if (self.onSetLeftAreaState) self.onSetLeftAreaState(NO);
+        }
+        CGRect rightAreaRect = [self getRectOfSprite:self.rightTouchArea];
+        if (CGRectContainsPoint(rightAreaRect, pp) && !CGRectContainsPoint(rightAreaRect, cp)) {
+            if (self.isOnRightArea) if (self.isOnRightArea()) if (self.onSetRightAreaState) self.onSetRightAreaState(NO);
+        }
+        
+        if (CGRectContainsPoint(leftAreaRect, cp)) {
+            if (self.isOnLeftArea) if (!self.isOnLeftArea()) if (self.onSetLeftAreaState) self.onSetLeftAreaState(YES);
+        }
+        if (CGRectContainsPoint(rightAreaRect, cp)) {
+            if (self.isOnRightArea) if (!self.isOnRightArea()) if (self.onSetRightAreaState) self.onSetRightAreaState(YES);
+        }
+    }
+}
+
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    for (UITouch *touch in [touches allObjects]) {
+        CGPoint cp = [self convertTouchToNodeSpace: touch];
+        if (CGRectContainsPoint([self getRectOfSprite:self.leftTouchArea], cp)) {
+            if (self.isOnLeftArea) if (self.isOnLeftArea()) if (self.onSetLeftAreaState) self.onSetLeftAreaState(NO);
+        }
+        if (CGRectContainsPoint([self getRectOfSprite:self.rightTouchArea], cp)) {
+            if (self.isOnRightArea) if (self.isOnRightArea()) if (self.onSetRightAreaState) self.onSetRightAreaState(NO);
+        }
+    }
+}
+
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
     if (!gameOver) {
         [self moveTowerWithAcceleration:acceleration];
@@ -67,6 +129,8 @@
 
 - (void)dealloc{
     self.tower = nil;
+    self.leftTouchArea = nil;
+    self.rightTouchArea = nil;
     [super dealloc];
 }
 
