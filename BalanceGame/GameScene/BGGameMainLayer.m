@@ -13,12 +13,12 @@
 @property (assign) BOOL gameOver;
 @property (nonatomic, retain) BGGameTower *tower;
 @property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
-@property (nonatomic, retain) CCLabelTTF *touchWarning;
+@property (nonatomic, retain) CCLabelTTF *touchWarningLabel, *gameOverLabel;
 @end
 
 @implementation BGGameMainLayer
-@synthesize gameOver, tower, leftTouchArea, rightTouchArea, touchWarning;
-@synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState;
+@synthesize gameOver, tower, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
+@synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState;
 
 - (void)onEnter{
     [super onEnter];
@@ -32,7 +32,6 @@
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     self.tower = [BGGameTower spriteWithFile:@"tokyo_tower.png"];
-    self.tower.anchorPoint = ccp(1, 0);
     self.tower.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:self.tower];
     
@@ -48,42 +47,48 @@
 }
 
 - (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration{
-    float angle = 60 * pow(acceleration.y, 2) + 30 * pow(acceleration.z, 2);
-    
-    if (!gameOver) {
-        if (angle < 50) {
-            [self.tower shakeWithAngle:angle];
-        }else {
-            gameOver = YES;
-        }
-    }
-    if (gameOver) {
-        [self.tower fallWithAcceleration:acceleration];
-        
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
-        CCLabelTTF *l = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:72];
-        l.color = ccc3(255, 0, 0);
-        l.scale = 0.0;
-        l.position = ccp(screenSize.width/2, screenSize.height/2);
-        [self addChild:l];
-        
-        [l runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:0.8 scale:1.0] rate:10]];
+    GameState state;
+    if (self.onGetCurrentGameState) state = self.onGetCurrentGameState();
+
+    switch (state) {
+        case GameStatePlaing:
+            [self.tower shakeWithAngle:TOWER_ANGLE(acceleration)];
+            break;
+            
+        case GameStateOver:
+            [self.tower fallWithAcceleration:acceleration];
+            
+            CGSize screenSize = [CCDirector sharedDirector].winSize;
+            if (self.gameOverLabel == nil) {
+                self.gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:72];
+                self.gameOverLabel.color = ccc3(255, 0, 0);
+                self.gameOverLabel.scale = 0.0;
+                self.gameOverLabel.position = ccp(screenSize.width/2, screenSize.height/2);
+                [self addChild:self.gameOverLabel];
+                
+                [self.gameOverLabel runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:0.8 scale:1.0] rate:10]];
+            }
+            
+            break;
+            
+        default:
+            break;
     }
 }
 
 - (void)getTouchWarningState:(BOOL)show{
     if (show) {
-        if (self.touchWarning == nil) {
+        if (self.touchWarningLabel == nil) {
             CGSize screenSize = [CCDirector sharedDirector].winSize;
-            self.touchWarning = [CCLabelTTF labelWithString:@"Touch!" fontName:@"American Typewriter" fontSize:72];
-            self.touchWarning.color = ccc3(255, 0, 0);
-            self.touchWarning.position = ccp(screenSize.width/2, screenSize.height/2);
-            [self addChild:self.touchWarning];
+            self.touchWarningLabel = [CCLabelTTF labelWithString:@"Touch!" fontName:@"American Typewriter" fontSize:72];
+            self.touchWarningLabel.color = ccc3(255, 0, 0);
+            self.touchWarningLabel.position = ccp(screenSize.width/2, screenSize.height/2);
+            [self addChild:self.touchWarningLabel];
         }
     }else {
-        if (self.touchWarning) {
-            [self removeChild:self.touchWarning cleanup:YES];
-            self.touchWarning = nil;
+        if (self.touchWarningLabel) {
+            [self removeChild:self.touchWarningLabel cleanup:YES];
+            self.touchWarningLabel = nil;
         }
     }
 }
@@ -140,16 +145,15 @@
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
-    if (!gameOver) {
-        [self moveTowerWithAcceleration:acceleration];
-    }
+    if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
 }
 
 - (void)dealloc{
     self.tower = nil;
     self.leftTouchArea = nil;
     self.rightTouchArea = nil;
-    self.touchWarning = nil;
+    self.touchWarningLabel = nil;
+    self.gameOverLabel = nil;
     [super dealloc];
 }
 

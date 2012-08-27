@@ -29,6 +29,10 @@
         [mainLayer getTouchWarningState:flag];
     };
     
+    manager.onSendAcceleration = ^(UIAcceleration *acceleration){
+        [mainLayer moveTowerWithAcceleration:acceleration];
+    };
+    
     mainLayer.isOnLeftArea = ^(){
         return manager.onLeftTouchArea;
     };
@@ -45,6 +49,14 @@
     mainLayer.onSetRightAreaState = ^(BOOL flag){
         [manager setOnRightTouchArea:flag];
         return manager.onRightTouchArea;
+    };
+    
+    mainLayer.onSendAcceleration = ^(UIAcceleration *acceleration){
+        [manager getAcceleration:acceleration];
+    };
+    
+    mainLayer.onGetCurrentGameState = ^(){
+        return manager.currentGameState;
     };
     
     return scene;
