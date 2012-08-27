@@ -18,7 +18,7 @@
 
 @implementation BGGameMainLayer
 @synthesize gameOver, tower, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
-@synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState;
+@synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
 
 - (void)onEnter{
     [super onEnter];
@@ -60,13 +60,27 @@
             
             CGSize screenSize = [CCDirector sharedDirector].winSize;
             if (self.gameOverLabel == nil) {
+                ccTime actionTime = 0.8;
                 self.gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:72];
                 self.gameOverLabel.color = ccc3(255, 0, 0);
                 self.gameOverLabel.scale = 0.0;
                 self.gameOverLabel.position = ccp(screenSize.width/2, screenSize.height/2);
                 [self addChild:self.gameOverLabel];
                 
-                [self.gameOverLabel runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:0.8 scale:1.0] rate:10]];
+                [self.gameOverLabel runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:actionTime scale:1.0] rate:10]];
+                
+                double delayInSeconds = actionTime;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    CCMenuItemImage *restartButton = [CCMenuItemImage itemWithNormalImage:@"restart_button.png" selectedImage:@"restart_button_on.png" block:^(id sender){
+                        if (self.onPressedRestartButton) self.onPressedRestartButton();
+                    }];
+                    restartButton.position = ccp(screenSize.width/2, screenSize.height/4);
+                    
+                    CCMenu *menu = [CCMenu menuWithItems:restartButton, nil];
+                    menu.position = ccp(0, 0);
+                    [self addChild:menu];
+                });
             }
             
             break;

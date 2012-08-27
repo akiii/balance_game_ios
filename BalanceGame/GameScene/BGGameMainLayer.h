@@ -19,6 +19,7 @@
 @property (nonatomic, copy) BOOL (^onSetRightAreaState)(BOOL flag);
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
 @property (nonatomic, copy) GameState (^onGetCurrentGameState)();
+@property (nonatomic, copy) void (^onPressedRestartButton)();
 - (void)getTouchWarningState:(BOOL)show;
 - (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration;
 @end
