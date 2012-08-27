@@ -23,7 +23,7 @@
     [scene addChild:mainLayer];
     
     mainLayer.onPressedStartButton = ^(){
-        [[CCDirector sharedDirector] pushScene:[BGGameScene scene]];
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;
