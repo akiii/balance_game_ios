@@ -12,5 +12,5 @@
 @interface BGTopScene : CCScene {
     
 }
-
++ (BGTopScene *)scene;
 @end
