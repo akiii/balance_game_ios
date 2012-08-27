@@ -12,5 +12,7 @@
 @interface BGGameBalloon : CCSprite {
     
 }
-
++ (BGGameBalloon *)node;
+- (void)showWithWords:(NSArray *)wordLabels;
+- (void)notShow;
 @end
