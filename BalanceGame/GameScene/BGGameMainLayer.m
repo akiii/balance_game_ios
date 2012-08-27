@@ -13,10 +13,11 @@
 @property (assign) BOOL gameOver;
 @property (nonatomic, retain) BGGameTower *tower;
 @property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
+@property (nonatomic, retain) CCLabelTTF *touchWarning;
 @end
 
 @implementation BGGameMainLayer
-@synthesize gameOver, tower, leftTouchArea, rightTouchArea;
+@synthesize gameOver, tower, leftTouchArea, rightTouchArea, touchWarning;
 @synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState;
 
 - (void)onEnter{
@@ -67,6 +68,23 @@
         [self addChild:l];
         
         [l runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:0.8 scale:1.0] rate:10]];
+    }
+}
+
+- (void)getTouchWarningState:(BOOL)show{
+    if (show) {
+        if (self.touchWarning == nil) {
+            CGSize screenSize = [CCDirector sharedDirector].winSize;
+            self.touchWarning = [CCLabelTTF labelWithString:@"Touch!" fontName:@"American Typewriter" fontSize:72];
+            self.touchWarning.color = ccc3(255, 0, 0);
+            self.touchWarning.position = ccp(screenSize.width/2, screenSize.height/2);
+            [self addChild:self.touchWarning];
+        }
+    }else {
+        if (self.touchWarning) {
+            [self removeChild:self.touchWarning cleanup:YES];
+            self.touchWarning = nil;
+        }
     }
 }
 
@@ -131,6 +149,7 @@
     self.tower = nil;
     self.leftTouchArea = nil;
     self.rightTouchArea = nil;
+    self.touchWarning = nil;
     [super dealloc];
 }
 

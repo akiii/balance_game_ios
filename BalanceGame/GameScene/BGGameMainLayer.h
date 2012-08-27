@@ -16,4 +16,5 @@
 @property (nonatomic, copy) BOOL (^onSetLeftAreaState)(BOOL flag);
 @property (nonatomic, copy) BOOL (^isOnRightArea)();
 @property (nonatomic, copy) BOOL (^onSetRightAreaState)(BOOL flag);
+- (void)getTouchWarningState:(BOOL)show;
 @end
