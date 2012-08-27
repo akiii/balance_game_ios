@@ -37,6 +37,14 @@
             }
             break;
             
+        case GameStatePlaing:
+            if (!_onLeftTouchArea || !_onRightTouchArea) {
+                if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
+            }else {
+                if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
+            }
+            break;
+
         default:
             break;
     }
