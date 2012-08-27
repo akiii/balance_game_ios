@@ -9,6 +9,7 @@
 #import "BGTopScene.h"
 #import "BGTopBackgroundLayer.h"
 #import "BGTopMainLayer.h"
+#import "BGGameScene.h"
 
 @implementation BGTopScene
 
@@ -20,6 +21,10 @@
     
     BGTopMainLayer *mainLayer = [BGTopMainLayer node];
     [scene addChild:mainLayer];
+    
+    mainLayer.onPressedStartButton = ^(){
+        [[CCDirector sharedDirector] pushScene:[BGGameScene scene]];
+    };
     
     return scene;
 }
