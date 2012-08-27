@@ -8,9 +8,18 @@
 
 #import "BGGameMainLayer.h"
 #import "BGGameTower.h"
+#import "BGGameBalloon.h"
+
+enum _BGGameMainLayerZ{
+    BGGameMainLayerZTower       = 0,
+    BGGameMainLayerZTouchArea   = 1,
+    BGGameMainLayerZBalloon     = 2,
+    BGGameMainLayerZLabel       = 3
+} BGGameMainLayerZ;
 
 @interface BGGameMainLayer()
 @property (nonatomic, retain) BGGameTower *tower;
+@property (nonatomic, retain) BGGameBalloon *balloon;
 @property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
 @property (nonatomic, retain) CCLabelTTF *touchWarningLabel, *gameOverLabel;
 @end
@@ -30,15 +39,19 @@
     
     self.tower = [BGGameTower spriteWithFile:@"tokyo_tower.png"];
     self.tower.position = ccp(screenSize.width/2, screenSize.height/2);
-    [self addChild:self.tower];
+    [self addChild:self.tower z:BGGameMainLayerZTower];
+    
+    self.balloon = [BGGameBalloon node];
+    self.balloon.position = ccp(screenSize.width/2, screenSize.height/2);
+    [self addChild:self.balloon z:BGGameMainLayerZBalloon];
     
     self.leftTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_pink.png"];
     self.leftTouchArea.position = ccp(self.leftTouchArea.contentSize.width/2, screenSize.height/2);
-    [self addChild:self.leftTouchArea];
+    [self addChild:self.leftTouchArea z:BGGameMainLayerZTouchArea];
     
     self.rightTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_blue.png"];
     self.rightTouchArea.position = ccp(screenSize.width - self.rightTouchArea.contentSize.width/2, screenSize.height/2);
-    [self addChild:self.rightTouchArea];
+    [self addChild:self.rightTouchArea z:BGGameMainLayerZTouchArea];
     
     [self moveTowerWithAcceleration:nil];
 }
@@ -62,7 +75,7 @@
                 self.gameOverLabel.color = ccc3(255, 0, 0);
                 self.gameOverLabel.scale = 0.0;
                 self.gameOverLabel.position = ccp(screenSize.width/2, screenSize.height/2);
-                [self addChild:self.gameOverLabel];
+                [self addChild:self.gameOverLabel z:BGGameMainLayerZLabel];
                 
                 [self.gameOverLabel runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:actionTime scale:1.0] rate:10]];
                 
@@ -76,7 +89,7 @@
                     
                     CCMenu *menu = [CCMenu menuWithItems:restartButton, nil];
                     menu.position = ccp(0, 0);
-                    [self addChild:menu];
+                    [self addChild:menu z:BGGameMainLayerZLabel];
                 });
             }
             break;
@@ -93,7 +106,7 @@
             self.touchWarningLabel = [CCLabelTTF labelWithString:@"Touch!" fontName:@"American Typewriter" fontSize:72];
             self.touchWarningLabel.color = ccc3(255, 0, 0);
             self.touchWarningLabel.position = ccp(screenSize.width/2, screenSize.height/2);
-            [self addChild:self.touchWarningLabel];
+            [self addChild:self.touchWarningLabel z:BGGameMainLayerZLabel];
         }
     }else {
         if (self.touchWarningLabel) {
@@ -101,6 +114,14 @@
             self.touchWarningLabel = nil;
         }
     }
+}
+
+- (void)showBalloonWithWords:(NSArray *)words{
+    [self.balloon showWithWords:words];
+}
+
+- (void)notShowBalloon{
+    [self.balloon notShow];
 }
 
 - (CGRect)getRectOfSprite:(CCSprite *)sprite{
@@ -160,6 +181,7 @@
 
 - (void)dealloc{
     self.tower = nil;
+    self.balloon = nil;
     self.leftTouchArea = nil;
     self.rightTouchArea = nil;
     self.touchWarningLabel = nil;

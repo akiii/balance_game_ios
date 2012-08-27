@@ -21,5 +21,7 @@
 @property (nonatomic, copy) GameState (^onGetCurrentGameState)();
 @property (nonatomic, copy) void (^onPressedRestartButton)();
 - (void)getTouchWarningState:(BOOL)show;
+- (void)showBalloonWithWords:(NSArray *)words;
+- (void)notShowBalloon;
 - (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration;
 @end
