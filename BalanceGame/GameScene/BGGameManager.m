@@ -11,7 +11,7 @@
 
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, gameTime = _gameTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea;
-@synthesize onShowTouchWarning;
+@synthesize onShowTouchWarning, onSendAcceleration;
 
 - (id)init{
     if (self = [super init]) {
