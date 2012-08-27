@@ -33,6 +33,7 @@
                 if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
             }else {
                 if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
+                _currentGameState = GameStatePlaing;
             }
             break;
             
@@ -47,6 +48,20 @@
 
 - (void)setOnRightTouchArea:(BOOL)flag{
     _onRightTouchArea = flag;
+}
+
+- (void)getAcceleration:(UIAcceleration *)acceleration{
+    switch (_currentGameState) {
+        case GameStatePlaing:
+            if (TOWER_ANGLE(acceleration) > 50) {
+                _currentGameState = GameStateOver;
+            }
+            if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
