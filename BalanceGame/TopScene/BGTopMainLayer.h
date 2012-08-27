@@ -13,4 +13,5 @@
     
 }
 @property (nonatomic, retain) BGTopMainLayer *title;
+@property (nonatomic, copy) void (^onPressedStartButton)();
 @end

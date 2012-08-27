@@ -12,6 +12,7 @@
 
 @implementation BGTopMainLayer
 @synthesize title;
+@synthesize onPressedStartButton;
 
 - (void)onEnter{
     [super onEnter];  
@@ -26,6 +27,15 @@
       [CCMoveTo actionWithDuration:2 position:ccp(screenSize.width/2, screenSize.height - (screenSize.height/3))],
       [CCScaleTo actionWithDuration:0.75 scale:1.25],
       [CCScaleTo actionWithDuration:0.75 scale:1],nil]];
+    
+    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button_on.png" block:^(id sender){
+        if (self.onPressedStartButton) self.onPressedStartButton();
+    }];
+    startButton.position = ccp(screenSize.width/2, screenSize.height/3);
+    
+    CCMenu *menu = [CCMenu menuWithItems:startButton, nil];
+    menu.position = ccp(0, 0);
+    [self addChild:menu];
 }
 
 @end
