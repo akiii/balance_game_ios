@@ -22,6 +22,7 @@ typedef enum {
 @property (readonly) GameState currentGameState;
 @property (readonly) ccTime gameTime;
 @property (readonly) BOOL onLeftTouchArea, onRightTouchArea;
+@property (nonatomic, copy) void (^onShowTouchWarning)(BOOL flag);
 - (void)setOnLeftTouchArea:(BOOL)flag;
 - (void)setOnRightTouchArea:(BOOL)flag;
 @end

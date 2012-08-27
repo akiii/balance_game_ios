@@ -25,6 +25,10 @@
     BGGameMainLayer *mainLayer = [BGGameMainLayer node];
     [scene addChild:mainLayer];
     
+    manager.onShowTouchWarning = ^(BOOL flag){
+        [mainLayer getTouchWarningState:flag];
+    };
+    
     mainLayer.isOnLeftArea = ^(){
         return manager.onLeftTouchArea;
     };

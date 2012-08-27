@@ -11,6 +11,7 @@
 
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, gameTime = _gameTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea;
+@synthesize onShowTouchWarning;
 
 - (id)init{
     if (self = [super init]) {
@@ -25,6 +26,19 @@
 
 - (void)timer:(ccTime)dt{
     _gameTime += dt;
+    
+    switch (_currentGameState) {
+        case GameStateTouch:
+            if (!_onLeftTouchArea || !_onRightTouchArea) {
+                if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
+            }else {
+                if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
+            }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)setOnLeftTouchArea:(BOOL)flag{
