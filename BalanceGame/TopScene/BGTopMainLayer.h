@@ -12,5 +12,5 @@
 @interface BGTopMainLayer : CCLayer {
     
 }
-
+@property (nonatomic, retain) BGTopMainLayer *title;
 @end
