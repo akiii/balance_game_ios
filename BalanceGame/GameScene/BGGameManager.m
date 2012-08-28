@@ -80,6 +80,10 @@
     _isBalloonHidden = YES;
 }
 
+- (void)nextQuestion{
+    _currentGameState = GameStateQuestion;
+}
+
 - (void)setOnLeftTouchArea:(BOOL)flag{
     _onLeftTouchArea = flag;
 }
