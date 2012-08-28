@@ -78,7 +78,7 @@
 - (NSArray *)getQuestionWords{
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"questions" ofType:@"plist"]];
     int difficuly = 1;
-    int question = _currentQuestionCount % 3 + 1;
+    int question = (_currentQuestionCount - 1) % 3 + 1;
     NSMutableString *word = [NSMutableString stringWithString:[[[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]] objectForKey:@"Word"]];
     NSString *devideString = @",";
     for (int i = 0; (i + 1) * 15 + i < word.length; i++) {
