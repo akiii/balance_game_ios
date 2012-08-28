@@ -51,14 +51,6 @@
                 if (self.onShowBalloon) self.onShowBalloon(labels);
                 _isBalloonHidden = NO;
             }
-            
-            double delayInSeconds = 2.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                _currentGameState = GameStatePlaing;
-                if (self.onNotShowBalloon) self.onNotShowBalloon();
-                _isBalloonHidden = YES;
-            });
             break;
             
         case GameStatePlaing:
@@ -80,6 +72,12 @@
         default:
             break;
     }
+}
+
+- (void)pressedBalloonOkButton{
+    _currentGameState = GameStatePlaing;
+    if (self.onNotShowBalloon) self.onNotShowBalloon();
+    _isBalloonHidden = YES;
 }
 
 - (void)setOnLeftTouchArea:(BOOL)flag{

@@ -28,6 +28,7 @@ typedef enum {
 @property (nonatomic, copy) void (^onShowBalloon)(NSArray *words);
 @property (nonatomic, copy) void (^onNotShowBalloon)();
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
+- (void)pressedBalloonOkButton;
 - (void)setOnLeftTouchArea:(BOOL)flag;
 - (void)setOnRightTouchArea:(BOOL)flag;
 - (void)getAcceleration:(UIAcceleration *)acceleration;
