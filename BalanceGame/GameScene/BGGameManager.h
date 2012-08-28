@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define TOWER_ANGLE(acceleration) 60 * pow(acceleration.y, 2) + 30 * pow(acceleration.z, 2)
-
 typedef enum {
     GameStateTouch,
     GameStateQuestion,
@@ -25,6 +23,7 @@ typedef enum {
 @property (readonly) int currentQuestionCount;
 @property (readonly) ccTime gameTime, awayTouchTime;
 @property (readonly) BOOL onLeftTouchArea, onRightTouchArea, isBalloonHidden;
+@property (readonly) float towerAngle;
 @property (nonatomic, copy) void (^onShowTouchWarning)(BOOL flag);
 @property (nonatomic, copy) void (^onShowBalloon)(NSArray *words);
 @property (nonatomic, copy) void (^onNotShowBalloon)();
