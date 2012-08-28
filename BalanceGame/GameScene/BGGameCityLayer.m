@@ -16,7 +16,7 @@
     
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
-    CCSprite *s = [CCSprite spriteWithFile:@"city.png"];
+    CCSprite *s = [CCSprite spriteWithFile:@"city_morning.png"];
     s.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:s];
 }
