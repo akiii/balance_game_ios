@@ -26,5 +26,5 @@
 - (void)notShowNextButton;
 - (void)showBalloonWithWords:(NSArray *)words;
 - (void)notShowBalloon;
-- (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration;
+- (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration;
 @end

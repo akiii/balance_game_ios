@@ -68,16 +68,16 @@ enum _BGGameMainLayerZ{
     self.rightTouchArea.position = ccp(screenSize.width - self.rightTouchArea.contentSize.width/2, screenSize.height/2);
     [self addChild:self.rightTouchArea z:BGGameMainLayerZTouchArea];
     
-    [self moveTowerWithAcceleration:nil];
+    [self moveTowerWithAngle:0 acceleration:nil];
 }
 
-- (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration{
+- (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration{
     GameState state;
     if (self.onGetCurrentGameState) state = self.onGetCurrentGameState();
 
     switch (state) {
         case GameStatePlaing:
-            [self.tower shakeWithAngle:TOWER_ANGLE(acceleration)];
+            [self.tower shakeWithAngle:angle];
             break;
             
         case GameStateOver:
