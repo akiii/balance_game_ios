@@ -31,10 +31,13 @@
     
     manager.onShowBalloon = ^(NSArray *words){
         [mainLayer showBalloonWithWords:words];
+        [mainLayer notShowNextButton];
+
     };
     
     manager.onNotShowBalloon = ^(){
         [mainLayer notShowBalloon];
+        [mainLayer showNextButton];
     };
     
     manager.onSendAcceleration = ^(UIAcceleration *acceleration){
@@ -43,6 +46,10 @@
     
     mainLayer.onOkButtonPressed = ^(){
         [manager pressedBalloonOkButton];
+    };
+    
+    mainLayer.onNextButtonPressed = ^(){
+        [manager nextQuestion];
     };
     
     mainLayer.isOnLeftArea = ^(){
