@@ -62,7 +62,7 @@
                     _currentGameState = GameStateOver;
                 }
             }else {
-                _awayTouchTime = 3;
+                _awayTouchTime = 3.0;
                 if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
             }
             break;
@@ -97,6 +97,7 @@
 - (void)nextQuestion{
     _currentGameState = GameStateQuestion;
     _currentQuestionCount += 1;
+    _awayTouchTime = 3.0;
 }
 
 - (void)setOnLeftTouchArea:(BOOL)flag{
