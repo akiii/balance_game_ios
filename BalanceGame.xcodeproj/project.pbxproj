@@ -139,8 +139,6 @@
 		B810ACF815E6306600D374DD /* BGGameCityLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810ACF715E6306600D374DD /* BGGameCityLayer.m */; };
 		B810AD1A15E6379C00D374DD /* tokyo_tower-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */; };
 		B810AD1B15E6379C00D374DD /* tokyo_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1915E6379C00D374DD /* tokyo_tower.png */; };
-		B810AD1F15E6390700D374DD /* city-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1D15E6390700D374DD /* city-hd.png */; };
-		B810AD2015E6390700D374DD /* city.png in Resources */ = {isa = PBXBuildFile; fileRef = B810AD1E15E6390700D374DD /* city.png */; };
 		B810AD5815E71CC600D374DD /* BGTopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5715E71CC600D374DD /* BGTopScene.m */; };
 		B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */; };
 		B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */; };
@@ -166,6 +164,10 @@
 		B888809115EC6A350072D737 /* ok_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B888808F15EC6A350072D737 /* ok_button.png */; };
 		B888809215EC6A350072D737 /* ok_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B888809015EC6A350072D737 /* ok_button-hd.png */; };
 		B888809415EC845D0072D737 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B888809315EC845D0072D737 /* questions.plist */; };
+		B888809915ECDEB60072D737 /* city_night.png in Resources */ = {isa = PBXBuildFile; fileRef = B888809515ECDEAE0072D737 /* city_night.png */; };
+		B888809A15ECDEB60072D737 /* city_morning-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B888809615ECDEAE0072D737 /* city_morning-hd.png */; };
+		B888809B15ECDEB60072D737 /* city_night-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B888809715ECDEB00072D737 /* city_night-hd.png */; };
+		B888809C15ECDEB60072D737 /* city_morning.png in Resources */ = {isa = PBXBuildFile; fileRef = B888809815ECDEB20072D737 /* city_morning.png */; };
 		D03F056D15EAB01000D21595 /* title-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F056915EAB01000D21595 /* title-hd.png */; };
 		D03F056E15EAB01000D21595 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F056A15EAB01000D21595 /* title.png */; };
 		D03F056F15EAB01000D21595 /* topBG-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F056B15EAB01000D21595 /* topBG-hd.png */; };
@@ -445,8 +447,6 @@
 		B810ACF715E6306600D374DD /* BGGameCityLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameCityLayer.m; sourceTree = "<group>"; };
 		B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tokyo_tower-hd.png"; sourceTree = "<group>"; };
 		B810AD1915E6379C00D374DD /* tokyo_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tokyo_tower.png; sourceTree = "<group>"; };
-		B810AD1D15E6390700D374DD /* city-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city-hd.png"; sourceTree = "<group>"; };
-		B810AD1E15E6390700D374DD /* city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city.png; sourceTree = "<group>"; };
 		B810AD5615E71CC600D374DD /* BGTopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTopScene.h; sourceTree = "<group>"; };
 		B810AD5715E71CC600D374DD /* BGTopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopScene.m; sourceTree = "<group>"; };
 		B810AD5915E71CDE00D374DD /* BGTopBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTopBackgroundLayer.h; sourceTree = "<group>"; };
@@ -478,6 +478,10 @@
 		B888808F15EC6A350072D737 /* ok_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_button.png; sourceTree = "<group>"; };
 		B888809015EC6A350072D737 /* ok_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ok_button-hd.png"; sourceTree = "<group>"; };
 		B888809315EC845D0072D737 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
+		B888809515ECDEAE0072D737 /* city_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city_night.png; sourceTree = "<group>"; };
+		B888809615ECDEAE0072D737 /* city_morning-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city_morning-hd.png"; sourceTree = "<group>"; };
+		B888809715ECDEB00072D737 /* city_night-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city_night-hd.png"; sourceTree = "<group>"; };
+		B888809815ECDEB20072D737 /* city_morning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city_morning.png; sourceTree = "<group>"; };
 		D03F056915EAB01000D21595 /* title-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title-hd.png"; sourceTree = "<group>"; };
 		D03F056A15EAB01000D21595 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		D03F056B15EAB01000D21595 /* topBG-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topBG-hd.png"; sourceTree = "<group>"; };
@@ -564,8 +568,10 @@
 				D03F056C15EAB01000D21595 /* topBG.png */,
 				B810AD6215E75A2F00D374DD /* fire.pvr */,
 				B810AD6415E7612700D374DD /* fire.png */,
-				B810AD1D15E6390700D374DD /* city-hd.png */,
-				B810AD1E15E6390700D374DD /* city.png */,
+				B888809515ECDEAE0072D737 /* city_night.png */,
+				B888809615ECDEAE0072D737 /* city_morning-hd.png */,
+				B888809715ECDEB00072D737 /* city_night-hd.png */,
+				B888809815ECDEB20072D737 /* city_morning.png */,
 				B810AD1815E6379C00D374DD /* tokyo_tower-hd.png */,
 				B810AD1915E6379C00D374DD /* tokyo_tower.png */,
 				B85B304415EA227D00A71141 /* touch_normal_button_blue-hd.png */,
@@ -1044,8 +1050,6 @@
 				B810ACB215E607AB00D374DD /* ChangeLog in Resources */,
 				B810AD1A15E6379C00D374DD /* tokyo_tower-hd.png in Resources */,
 				B810AD1B15E6379C00D374DD /* tokyo_tower.png in Resources */,
-				B810AD1F15E6390700D374DD /* city-hd.png in Resources */,
-				B810AD2015E6390700D374DD /* city.png in Resources */,
 				B810AD6315E75A2F00D374DD /* fire.pvr in Resources */,
 				B810AD6515E7612700D374DD /* fire.png in Resources */,
 				B85B304815EA227D00A71141 /* touch_normal_button_blue-hd.png in Resources */,
@@ -1069,6 +1073,10 @@
 				B888809115EC6A350072D737 /* ok_button.png in Resources */,
 				B888809215EC6A350072D737 /* ok_button-hd.png in Resources */,
 				B888809415EC845D0072D737 /* questions.plist in Resources */,
+				B888809915ECDEB60072D737 /* city_night.png in Resources */,
+				B888809A15ECDEB60072D737 /* city_morning-hd.png in Resources */,
+				B888809B15ECDEB60072D737 /* city_night-hd.png in Resources */,
+				B888809C15ECDEB60072D737 /* city_morning.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
