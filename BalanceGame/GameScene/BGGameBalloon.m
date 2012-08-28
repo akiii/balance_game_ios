@@ -36,11 +36,11 @@
     return balloon;
 }
 
-- (void)showWithWords:(NSArray *)wordLabels{    
+- (void)showWithWords:(NSArray *)wordLabels{
     for (CCLabelTTF *l in self.labels) {
         [self removeChild:l cleanup:YES];
     }
-    self.labels = nil;
+    [self.labels removeAllObjects];
     
     CGPoint origin = CGPointMake(15, self.contentSize.height - 15);
     self.visible = YES;
