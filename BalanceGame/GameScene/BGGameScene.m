@@ -41,6 +41,10 @@
         [mainLayer moveTowerWithAcceleration:acceleration];
     };
     
+    mainLayer.onOkButtonPressed = ^(){
+        [manager pressedBalloonOkButton];
+    };
+    
     mainLayer.isOnLeftArea = ^(){
         return manager.onLeftTouchArea;
     };

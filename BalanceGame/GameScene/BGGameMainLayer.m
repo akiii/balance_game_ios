@@ -26,7 +26,7 @@ enum _BGGameMainLayerZ{
 
 @implementation BGGameMainLayer
 @synthesize tower, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
-@synthesize isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
+@synthesize onOkButtonPressed, isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
 
 - (void)onEnter{
     [super onEnter];
@@ -44,6 +44,10 @@ enum _BGGameMainLayerZ{
     self.balloon = [BGGameBalloon node];
     self.balloon.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:self.balloon z:BGGameMainLayerZBalloon];
+    
+    self.balloon.onOkButtonPressed = ^(){
+        if (self.onOkButtonPressed) self.onOkButtonPressed();
+    };
     
     self.leftTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_pink.png"];
     self.leftTouchArea.position = ccp(self.leftTouchArea.contentSize.width/2, screenSize.height/2);

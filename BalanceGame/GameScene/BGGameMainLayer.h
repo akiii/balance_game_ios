@@ -13,6 +13,7 @@
 @interface BGGameMainLayer : CCLayer {
     
 }
+@property (nonatomic, copy) void (^onOkButtonPressed)();
 @property (nonatomic, copy) BOOL (^isOnLeftArea)();
 @property (nonatomic, copy) BOOL (^onSetLeftAreaState)(BOOL flag);
 @property (nonatomic, copy) BOOL (^isOnRightArea)();
