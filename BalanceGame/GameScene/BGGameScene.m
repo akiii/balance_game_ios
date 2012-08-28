@@ -41,7 +41,7 @@
     };
     
     manager.onSendAcceleration = ^(UIAcceleration *acceleration){
-        [mainLayer moveTowerWithAcceleration:acceleration];
+        [mainLayer moveTowerWithAngle:manager.towerAngle acceleration:acceleration];
     };
     
     mainLayer.onOkButtonPressed = ^(){
