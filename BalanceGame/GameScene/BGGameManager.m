@@ -10,12 +10,13 @@
 
 
 @implementation BGGameManager
-@synthesize currentGameState = _currentGameState, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden;
+@synthesize currentGameState = _currentGameState, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden;
 @synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration;
 
 - (id)init{
     if (self = [super init]) {
         _currentGameState = GameStateTouch;
+        _currentQuestionCount = 1;
         _gameTime = 0;
         _awayTouchTime = 3.0;
         _onLeftTouchArea = _onRightTouchArea = NO;
@@ -41,7 +42,7 @@
             
         case GameStateQuestion:
             if (_isBalloonHidden) {
-                NSArray *words = [NSArray arrayWithObjects:@"あああああああああああああああ", @"いいいいいいいいいいいいいいい", nil];
+                NSArray *words = [self getQuestionWords];                
                 NSMutableArray *labels = [NSMutableArray array];
                 for (NSString *str in words) {
                     CCLabelTTF *l = [CCLabelTTF labelWithString:str fontName:@"American Typewriter" fontSize:26];
@@ -74,6 +75,19 @@
     }
 }
 
+- (NSArray *)getQuestionWords{
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"questions" ofType:@"plist"]];
+    int difficuly = 1;
+    int question = _currentQuestionCount % 3 + 1;
+    NSMutableString *word = [NSMutableString stringWithString:[[[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]] objectForKey:@"Word"]];
+    NSString *devideString = @",";
+    for (int i = 0; (i + 1) * 15 + i < word.length; i++) {
+        int ei = (i + 1) * 15 + i;
+            [word insertString:devideString atIndex:ei];
+    }
+    return [word componentsSeparatedByString:devideString];
+}
+
 - (void)pressedBalloonOkButton{
     _currentGameState = GameStatePlaing;
     if (self.onNotShowBalloon) self.onNotShowBalloon();
@@ -82,6 +96,7 @@
 
 - (void)nextQuestion{
     _currentGameState = GameStateQuestion;
+    _currentQuestionCount += 1;
 }
 
 - (void)setOnLeftTouchArea:(BOOL)flag{
