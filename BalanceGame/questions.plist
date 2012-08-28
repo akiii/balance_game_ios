@@ -25,7 +25,56 @@
 				<key>3</key>
 				<dict>
 					<key>Word</key>
-					<string>左の人は腕を伸ばしそこを１周するように動かしてください</string>
+					<string>ピンクの人は腕を伸ばし、その腕を１周するように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>Word</key>
+					<string>水色の人は腕を伸ばし、その腕を１周するように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>Word</key>
+					<string>ピンクの人のお腹の周りを１周するように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>Word</key>
+					<string>水色の人のお腹の周りを１周するように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>Word</key>
+					<string>余っている手で円をつくり、そこの中を通すように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>Word</key>
+					<string>手をつなぎ、その裏を通すように１周する</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>9</key>
+				<dict>
+					<key>Word</key>
+					<string>ピンクの人は腕を伸ばしそこを１周するように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>10</key>
+				<dict>
+					<key>Word</key>
+					<string>水色の人は腕を伸ばしそこを１周するように動かしてください</string>
 					<key>Images</key>
 					<array/>
 				</dict>
