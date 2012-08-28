@@ -111,14 +111,12 @@
 
 - (void)getAcceleration:(UIAcceleration *)acceleration{
     switch (_currentGameState) {
-        float angleBase = (2 * sqrt(pow(acceleration.y, 2)) + 1 * sqrt(pow(acceleration.z, 2)));
-            
         case GameStatePlaing:
-            if (angleBase * 30 > _towerAngle) {
-                _towerAngle += angleBase * 1;
+            if ((2 * sqrt(pow(acceleration.y, 2)) + 1 * sqrt(pow(acceleration.z, 2))) * 30 > _towerAngle) {
+                _towerAngle += (2 * sqrt(pow(acceleration.y, 2)) + 1 * sqrt(pow(acceleration.z, 2))) * 1;
             }else {
-                _towerAngle -= angleBase * 0.5;
-                _towerAngle = min(0, _towerAngle);
+                _towerAngle -= (2 * acceleration.x + 1 * sqrt(pow(acceleration.z, 2))) * 0.5;
+                _towerAngle = max(0, _towerAngle);
             }
             
             if (_towerAngle > 50) _currentGameState = GameStateOver;
