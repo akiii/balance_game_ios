@@ -13,7 +13,7 @@
 @interface BGGameMainLayer : CCLayer {
     
 }
-@property (nonatomic, copy) void (^onOkButtonPressed)();
+@property (nonatomic, copy) void (^onOkButtonPressed)(), (^onNextButtonPressed)();
 @property (nonatomic, copy) BOOL (^isOnLeftArea)();
 @property (nonatomic, copy) BOOL (^onSetLeftAreaState)(BOOL flag);
 @property (nonatomic, copy) BOOL (^isOnRightArea)();
@@ -22,6 +22,8 @@
 @property (nonatomic, copy) GameState (^onGetCurrentGameState)();
 @property (nonatomic, copy) void (^onPressedRestartButton)();
 - (void)getTouchWarningState:(BOOL)show;
+- (void)showNextButton;
+- (void)notShowNextButton;
 - (void)showBalloonWithWords:(NSArray *)words;
 - (void)notShowBalloon;
 - (void)moveTowerWithAcceleration:(UIAcceleration *)acceleration;

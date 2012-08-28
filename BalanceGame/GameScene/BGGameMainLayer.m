@@ -20,13 +20,14 @@ enum _BGGameMainLayerZ{
 @interface BGGameMainLayer()
 @property (nonatomic, retain) BGGameTower *tower;
 @property (nonatomic, retain) BGGameBalloon *balloon;
+@property (nonatomic, retain) CCMenuItemImage *nextButton;
 @property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
 @property (nonatomic, retain) CCLabelTTF *touchWarningLabel, *gameOverLabel;
 @end
 
 @implementation BGGameMainLayer
-@synthesize tower, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
-@synthesize onOkButtonPressed, isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
+@synthesize tower, balloon, nextButton, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
+@synthesize onOkButtonPressed, onNextButtonPressed, isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
 
 - (void)onEnter{
     [super onEnter];
@@ -49,6 +50,16 @@ enum _BGGameMainLayerZ{
         if (self.onOkButtonPressed) self.onOkButtonPressed();
     };
     
+    self.nextButton = [CCMenuItemImage itemWithNormalImage:@"ok_button.png" selectedImage:@"ok_button.png" block:^(id sender){
+        if (self.onNextButtonPressed) self.onNextButtonPressed();
+    }];
+    self.nextButton.position = ccp(screenSize.width/2, self.nextButton.contentSize.height/2);
+    [self notShowNextButton];
+    
+    CCMenu *menu = [CCMenu menuWithItems:nextButton, nil];
+    menu.position = ccp(0, 0);
+    [self addChild:menu z:BGGameMainLayerZTouchArea];
+    
     self.leftTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_pink.png"];
     self.leftTouchArea.position = ccp(self.leftTouchArea.contentSize.width/2, screenSize.height/2);
     [self addChild:self.leftTouchArea z:BGGameMainLayerZTouchArea];
@@ -69,7 +80,8 @@ enum _BGGameMainLayerZ{
             [self.tower shakeWithAngle:TOWER_ANGLE(acceleration)];
             break;
             
-        case GameStateOver:            
+        case GameStateOver:
+            [self notShowNextButton];
             if (self.gameOverLabel == nil) {
                 CGSize screenSize = [CCDirector sharedDirector].winSize;
                 [self.tower fallWithAcceleration:acceleration];
@@ -118,6 +130,14 @@ enum _BGGameMainLayerZ{
             self.touchWarningLabel = nil;
         }
     }
+}
+
+- (void)showNextButton{
+    self.nextButton.visible = YES;
+}
+
+- (void)notShowNextButton{
+    self.nextButton.visible = NO;
 }
 
 - (void)showBalloonWithWords:(NSArray *)words{
@@ -186,6 +206,7 @@ enum _BGGameMainLayerZ{
 - (void)dealloc{
     self.tower = nil;
     self.balloon = nil;
+    self.nextButton = nil;
     self.leftTouchArea = nil;
     self.rightTouchArea = nil;
     self.touchWarningLabel = nil;
