@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Difficulty</key>
+	<dict>
+		<key>1</key>
+		<dict>
+			<key>Tag</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>Word</key>
+					<string>円を描いてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>Word</key>
+					<string>星のかたちに動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>Word</key>
+					<string>左の人は腕を伸ばしそこを１周するように動かしてください</string>
+					<key>Images</key>
+					<array/>
+				</dict>
+			</dict>
+		</dict>
+		<key>2</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>
