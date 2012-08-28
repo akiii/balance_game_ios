@@ -12,6 +12,7 @@
 @interface BGGameBalloon : CCSprite {
     
 }
+@property (nonatomic, copy) void (^onOkButtonPressed)();
 + (BGGameBalloon *)node;
 - (void)showWithWords:(NSArray *)wordLabels;
 - (void)notShow;
