@@ -10,7 +10,7 @@
 
 
 @implementation BGGameManager
-@synthesize currentGameState = _currentGameState, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden;
+@synthesize currentGameState = _currentGameState, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle;
 @synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration;
 
 - (id)init{
@@ -21,6 +21,7 @@
         _awayTouchTime = 3.0;
         _onLeftTouchArea = _onRightTouchArea = NO;
         _isBalloonHidden = YES;
+        _towerAngle = 0;
         
         [self schedule:@selector(timer:)];
     }
@@ -110,10 +111,17 @@
 
 - (void)getAcceleration:(UIAcceleration *)acceleration{
     switch (_currentGameState) {
+        float angleBase = (2 * sqrt(pow(acceleration.y, 2)) + 1 * sqrt(pow(acceleration.z, 2)));
+            
         case GameStatePlaing:
-            if (TOWER_ANGLE(acceleration) > 50) {
-                _currentGameState = GameStateOver;
+            if (angleBase * 30 > _towerAngle) {
+                _towerAngle += angleBase * 1;
+            }else {
+                _towerAngle -= angleBase * 0.5;
+                _towerAngle = min(0, _towerAngle);
             }
+            
+            if (_towerAngle > 50) _currentGameState = GameStateOver;
             if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
             break;
             
