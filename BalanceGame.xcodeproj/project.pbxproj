@@ -183,6 +183,7 @@
 		D064C1A115EDB100003EEA28 /* stars2_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19C15EDB100003EEA28 /* stars2_mini.png */; };
 		D064C1A215EDB100003EEA28 /* stars2-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19D15EDB100003EEA28 /* stars2-grayscale.png */; };
 		D064C1A315EDB100003EEA28 /* stars2.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19E15EDB100003EEA28 /* stars2.png */; };
+		D064C1A715EDDC2D003EEA28 /* bigshot1.wav in Resources */ = {isa = PBXBuildFile; fileRef = D064C1A615EDDC2D003EEA28 /* bigshot1.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -511,6 +512,7 @@
 		D064C19D15EDB100003EEA28 /* stars2-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars2-grayscale.png"; sourceTree = "<group>"; };
 		D064C19E15EDB100003EEA28 /* stars2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars2.png; sourceTree = "<group>"; };
 		D064C1A515EDDA4C003EEA28 /* Fairwind_loop.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fairwind_loop.ogg; sourceTree = "<group>"; };
+		D064C1A615EDDC2D003EEA28 /* bigshot1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bigshot1.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -991,6 +993,7 @@
 		B88880A415EDA0C00072D737 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				D064C1A615EDDC2D003EEA28 /* bigshot1.wav */,
 				D064C1A515EDDA4C003EEA28 /* Fairwind_loop.ogg */,
 				B88880F015EDA8020072D737 /* bgm1.mp3 */,
 				B88880A515EDA0CC0072D737 /* click1.mp3 */,
@@ -1143,6 +1146,7 @@
 				D064C1A115EDB100003EEA28 /* stars2_mini.png in Resources */,
 				D064C1A215EDB100003EEA28 /* stars2-grayscale.png in Resources */,
 				D064C1A315EDB100003EEA28 /* stars2.png in Resources */,
+				D064C1A715EDDC2D003EEA28 /* bigshot1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
