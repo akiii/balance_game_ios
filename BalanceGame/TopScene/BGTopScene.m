@@ -12,6 +12,7 @@
 #import "BGGameScene.h"
 
 #import "BGBGMPlayer.h"
+#import "BGSEPlayer.h"
 
 @implementation BGTopScene
 
@@ -25,9 +26,10 @@
     [scene addChild:mainLayer];
     
     PLAY_BGM(@"bgm1.mp3");
-    
+        
     mainLayer.onPressedStartButton = ^(){
         STOP_BGM;
+        PLAY_SE(@"click1.mp3");
         [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
