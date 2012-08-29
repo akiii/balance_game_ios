@@ -145,7 +145,7 @@
 		B8887F4015EB6C9D0072D737 /* BGGameBalloon.m in Sources */ = {isa = PBXBuildFile; fileRef = B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */; };
 		B888809415EC845D0072D737 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B888809315EC845D0072D737 /* questions.plist */; };
 		B888809F15EDA08A0072D737 /* BGBGMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B888809E15EDA08A0072D737 /* BGBGMPlayer.m */; };
-		B88880A215EDA09A0072D737 /* BGSEPlayre.m in Sources */ = {isa = PBXBuildFile; fileRef = B88880A115EDA0990072D737 /* BGSEPlayre.m */; };
+		B88880A215EDA09A0072D737 /* BGSEPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B88880A115EDA0990072D737 /* BGSEPlayer.m */; };
 		B88880A815EDA0CC0072D737 /* click1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88880A515EDA0CC0072D737 /* click1.mp3 */; };
 		B88880A915EDA0CC0072D737 /* alert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88880A615EDA0CC0072D737 /* alert.mp3 */; };
 		B88880AA15EDA0CC0072D737 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88880A715EDA0CC0072D737 /* explosion.mp3 */; };
@@ -466,8 +466,8 @@
 		B888809315EC845D0072D737 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
 		B888809D15EDA0890072D737 /* BGBGMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGBGMPlayer.h; sourceTree = "<group>"; };
 		B888809E15EDA08A0072D737 /* BGBGMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGBGMPlayer.m; sourceTree = "<group>"; };
-		B88880A015EDA0990072D737 /* BGSEPlayre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSEPlayre.h; sourceTree = "<group>"; };
-		B88880A115EDA0990072D737 /* BGSEPlayre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSEPlayre.m; sourceTree = "<group>"; };
+		B88880A015EDA0990072D737 /* BGSEPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSEPlayer.h; sourceTree = "<group>"; };
+		B88880A115EDA0990072D737 /* BGSEPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSEPlayer.m; sourceTree = "<group>"; };
 		B88880A515EDA0CC0072D737 /* click1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click1.mp3; sourceTree = "<group>"; };
 		B88880A615EDA0CC0072D737 /* alert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert.mp3; sourceTree = "<group>"; };
 		B88880A715EDA0CC0072D737 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
@@ -566,8 +566,8 @@
 				B810ACD915E607AC00D374DD /* IntroLayer.m */,
 				B888809D15EDA0890072D737 /* BGBGMPlayer.h */,
 				B888809E15EDA08A0072D737 /* BGBGMPlayer.m */,
-				B88880A015EDA0990072D737 /* BGSEPlayre.h */,
-				B88880A115EDA0990072D737 /* BGSEPlayre.m */,
+				B88880A015EDA0990072D737 /* BGSEPlayer.h */,
+				B88880A115EDA0990072D737 /* BGSEPlayer.m */,
 				B810AD5515E71C9600D374DD /* TopScene */,
 				B810ACE415E60BA200D374DD /* GameScene */,
 				B810AB5B15E607AA00D374DD /* Resources */,
@@ -1246,7 +1246,7 @@
 				B85B303A15E9F56A00A71141 /* BGGameManager.m in Sources */,
 				B8887F4015EB6C9D0072D737 /* BGGameBalloon.m in Sources */,
 				B888809F15EDA08A0072D737 /* BGBGMPlayer.m in Sources */,
-				B88880A215EDA09A0072D737 /* BGSEPlayre.m in Sources */,
+				B88880A215EDA09A0072D737 /* BGSEPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

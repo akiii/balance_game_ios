@@ -6,8 +6,8 @@
 //
 //
 
-#import "BGSEPlayre.h"
+#import "BGSEPlayer.h"
 
-@implementation BGSEPlayre
+@implementation BGSEPlayer
 
 @end

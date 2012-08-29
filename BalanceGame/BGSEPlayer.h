@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BGSEPlayre : NSObject
+@interface BGSEPlayer : NSObject
 
 @end
