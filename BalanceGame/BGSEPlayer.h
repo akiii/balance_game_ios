@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface BGSEPlayer : NSObject
+#define PLAY_SE(filename) [[BGSEPlayer sharedObject] playWithFileName:filename]
 
+@interface BGSEPlayer : NSObject <AVAudioPlayerDelegate>
++ (BGSEPlayer *)sharedObject;
+- (void)playWithFileName:(NSString *)fileName;
+//- (void)playLoopSoundEffectWithFileName:(NSString *)fileName;
+//- (void)pauseLoopSoundEffectWithFileName:(NSString *)fileName;
+//- (void)stopLoopSoundEffectWithFileName:(NSString *)fileName;
 @end
