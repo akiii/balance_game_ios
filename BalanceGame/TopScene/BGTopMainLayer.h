@@ -10,8 +10,10 @@
 #import "cocos2d.h"
 
 @interface BGTopMainLayer : CCLayer {
-    
+
 }
 @property (nonatomic, retain) BGTopMainLayer *title;
 @property (nonatomic, copy) void (^onPressedStartButton)();
+@property (nonatomic, retain) CCParticleSystem *emitter;
+
 @end

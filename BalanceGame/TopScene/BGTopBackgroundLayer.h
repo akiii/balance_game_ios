@@ -13,4 +13,6 @@
     
 }
 
+@property (nonatomic, retain) BGTopBackgroundLayer *bgImg;
+
 @end
