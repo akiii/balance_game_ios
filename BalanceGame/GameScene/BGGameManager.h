@@ -25,7 +25,7 @@ typedef enum {
 @property (readonly) BOOL onLeftTouchArea, onRightTouchArea, isBalloonHidden;
 @property (readonly) float towerAngle;
 @property (nonatomic, copy) void (^onShowTouchWarning)(BOOL flag);
-@property (nonatomic, copy) void (^onShowBalloon)(NSArray *words);
+@property (nonatomic, copy) void (^onShowBalloon)(NSArray *words, NSArray *frame);
 @property (nonatomic, copy) void (^onNotShowBalloon)();
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
 - (void)pressedBalloonOkButton;
