@@ -35,7 +35,7 @@ static BGSEPlayer *shared = nil;
     AVAudioPlayer *player;
     if (![self.seDic objectForKey:fileName]) {
         NSString *fullPath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:fullPath] error:nil];
+        player = [[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:fullPath] error:nil] autorelease];
         player.delegate = self;
         [self.seDic setObject:player forKey:fileName];
     }else {
@@ -85,7 +85,6 @@ static BGSEPlayer *shared = nil;
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
     if (player.numberOfLoops == 0) {
         for (NSString *key in [self.seDic allKeysForObject:player]) {
-            [player release];
             [seDic removeObjectForKey:key];
         }
     }
