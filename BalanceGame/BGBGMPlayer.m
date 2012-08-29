@@ -30,6 +30,7 @@ static BGBGMPlayer *shared = nil;
     self.bgm = [[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:fullPath] error:nil] autorelease];
     self.bgm.currentTime = 0;
     self.bgm.numberOfLoops = -1;
+    [self.bgm prepareToPlay];
     [self.bgm play];
 }
 
