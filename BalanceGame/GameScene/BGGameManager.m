@@ -8,6 +8,8 @@
 
 #import "BGGameManager.h"
 
+#define kLabels                 @"labelss"
+#define kImageAnimationFrames   @"image_animation_frames"
 
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle;
@@ -43,14 +45,8 @@
             
         case GameStateQuestion:
             if (_isBalloonHidden) {
-                NSArray *words = [self getQuestionWords];                
-                NSMutableArray *labels = [NSMutableArray array];
-                for (NSString *str in words) {
-                    CCLabelTTF *l = [CCLabelTTF labelWithString:str fontName:@"American Typewriter" fontSize:26];
-                    l.color = ccc3(0, 0, 0);
-                    [labels addObject:l];
-                }
-                if (self.onShowBalloon) self.onShowBalloon(labels);
+                NSDictionary *questionDictionary = [self getQuestionDictionary];
+                if (self.onShowBalloon) self.onShowBalloon([questionDictionary objectForKey:kLabels], [questionDictionary objectForKey:kImageAnimationFrames]);
                 _isBalloonHidden = NO;
             }
             break;
@@ -76,17 +72,35 @@
     }
 }
 
-- (NSArray *)getQuestionWords{
+- (NSDictionary *)getQuestionDictionary{
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"questions" ofType:@"plist"]];
     int difficuly = 1;
     int question = (_currentQuestionCount - 1) % 3 + 1;
-    NSMutableString *word = [NSMutableString stringWithString:[[[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]] objectForKey:@"Word"]];
+    NSDictionary *questionDic = [[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
+    
+    NSMutableString *word = [NSMutableString stringWithString:[questionDic objectForKey:@"Word"]];
+    NSArray *imageStrings = [questionDic objectForKey:@"Images"];
+    
     NSString *devideString = @",";
     for (int i = 0; (i + 1) * 15 + i < word.length; i++) {
         int ei = (i + 1) * 15 + i;
-            [word insertString:devideString atIndex:ei];
+        [word insertString:devideString atIndex:ei];
     }
-    return [word componentsSeparatedByString:devideString];
+    
+    NSMutableArray *labels = [NSMutableArray array];
+    for (NSString *str in [word componentsSeparatedByString:devideString]) {
+        CCLabelTTF *l = [CCLabelTTF labelWithString:str fontName:@"American Typewriter" fontSize:26];
+        l.color = ccc3(0, 0, 0);
+        [labels addObject:l];
+    }
+    
+    NSMutableArray *imageAnimationFrames = [NSMutableArray array];
+    for (int i = 0; i < imageStrings.count; i++) {
+        CCSprite *sprite = [CCSprite spriteWithFile:[imageStrings objectAtIndex:i]];
+        [imageAnimationFrames addObject:[CCSpriteFrame frameWithTexture:sprite.texture rect:CGRectMake(0, 0, sprite.contentSize.width, sprite.contentSize.height)]];
+    }
+    
+    return [NSDictionary dictionaryWithObjectsAndKeys:labels, kLabels, imageAnimationFrames, kImageAnimationFrames, nil];
 }
 
 - (void)pressedBalloonOkButton{
