@@ -70,7 +70,7 @@ static BGSEPlayer *shared = nil;
 }
 
 - (void)resumeLoopSoundEffectWithFileName:(NSString *)fileName{
-
+    [[self soundWithFileName:fileName] play];
 }
 
 - (void)stopLoopSoundEffectWithFileName:(NSString *)fileName{
