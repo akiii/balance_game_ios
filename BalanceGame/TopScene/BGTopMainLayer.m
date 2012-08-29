@@ -7,12 +7,15 @@
 //
 
 #import "BGTopMainLayer.h"
+#import "BGSEPlayer.h"
 
 #define MOVE_TIME 0.22
+
 
 @implementation BGTopMainLayer
 @synthesize title;
 @synthesize onPressedStartButton;
+@synthesize emitter;
 
 - (void)onEnter{
     [super onEnter];  
@@ -26,6 +29,8 @@
     [self.title runAction:[CCSequence actions:
                            [CCSpawn actions:[CCMoveTo actionWithDuration:1.7 position:ccp(screenSize.width/2, screenSize.height - (screenSize.height/3))],
                             [CCScaleTo actionWithDuration:1.7 scale:1],nil],
+                           [CCCallBlock actionWithBlock:^(id sender){PLAY_SE(@"bigshot1.wav");}],
+                           [CCCallFunc actionWithTarget:self selector:@selector(titleEffect)],
                             [CCCallFunc actionWithTarget:self selector:@selector(shakeTitle)],nil]];
     
     CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button_on.png" block:^(id sender){
@@ -52,4 +57,16 @@
       ]];
 }
 
+- (void)titleEffect {
+
+    self.emitter = [CCParticleFlower node];
+    [self addChild:self.emitter];
+    self.emitter.autoRemoveOnFinish = YES; 
+    self.emitter.position = ccp(120, 220);
+    self.emitter.duration = 0.7;
+    [self.emitter runAction:[CCMoveTo actionWithDuration:0.7 position:ccp(360, 220)]];
+    
+    self.emitter.texture = [[CCTextureCache sharedTextureCache] addImage: @"stars-grayscale.png"];
+                                
+}
 @end
