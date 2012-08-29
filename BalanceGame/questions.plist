@@ -13,56 +13,88 @@
 					<key>Word</key>
 					<string>円を描いてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_1_1.png</string>
+						<string>picture_1_2.png</string>
+						<string>picture_1_3.png</string>
+					</array>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>Word</key>
 					<string>星のかたちに動かしてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_2_1.png</string>
+						<string>picture_2_2.png</string>
+						<string>picture_2_3.png</string>
+					</array>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>Word</key>
-					<string>ピンクの人は腕を伸ばし、その腕を１周するように動かしてください</string>
+					<string>ピンクの人は腕を伸ばしその腕を１周するように動かしてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_3_1.png</string>
+						<string>picture_3_2.png</string>
+						<string>picture_3_3.png</string>
+					</array>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>Word</key>
-					<string>水色の人は腕を伸ばし、その腕を１周するように動かしてください</string>
+					<string>水色の人は腕を伸ばしその腕を１周するように動かしてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_4_1.png</string>
+						<string>picture_4_2.png</string>
+						<string>picture_4_3.png</string>
+					</array>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>Word</key>
 					<string>ピンクの人のお腹の周りを１周するように動かしてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_5_1.png</string>
+						<string>picture_5_2.png</string>
+						<string>picture_5_3.png</string>
+					</array>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>Word</key>
 					<string>水色の人のお腹の周りを１周するように動かしてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_6_1.png</string>
+						<string>picture_6_2.png</string>
+						<string>picture_6_3.png</string>
+					</array>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>Word</key>
-					<string>余っている手で円をつくり、そこの中を通すように動かしてください</string>
+					<string>余っている手で円をつくりそこの中を通すように動かしてください</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_7_1.png</string>
+						<string>picture_7_2.png</string>
+						<string>picture_7_3.png</string>
+					</array>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>Word</key>
 					<string>手をつなぎ、その裏を通すように１周する</string>
 					<key>Images</key>
-					<array/>
+					<array>
+						<string>picture_8_1.png</string>
+						<string>picture_8_2.png</string>
+						<string>picture_8_3.png</string>
+					</array>
 				</dict>
 				<key>9</key>
 				<dict>
