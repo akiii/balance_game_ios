@@ -11,4 +11,17 @@
 
 @implementation BGTopBackgroundLayer
 
+@synthesize bgImg;
+
+-(void)onEnter {
+    [super onEnter];
+    
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    self.bgImg = [CCSprite spriteWithFile:@"title_bg.png"];
+    self.bgImg.position = ccp(screenSize.width/2, screenSize.height/2);
+    
+    [self addChild:self.bgImg];
+}
+
 @end
