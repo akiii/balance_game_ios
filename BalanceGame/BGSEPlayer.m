@@ -36,48 +36,56 @@ static BGSEPlayer *shared = nil;
     if (![self.seDic objectForKey:fileName]) {
         NSString *fullPath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:fullPath] error:nil];
+        player.delegate = self;
+        [self.seDic setObject:player forKey:fileName];
     }else {
         player = [self.seDic objectForKey:fileName];
     }
     return player;
 }
 
-- (void)playWithFileName:(NSString *)fileName{
+- (void)playWithFileName:(NSString *)fileName loop:(BOOL)loop{
     AVAudioPlayer *player = [self soundWithFileName:fileName];
-    if (![self.seDic objectForKey:fileName]) {
-        [self.seDic setObject:player forKey:fileName];
-        [player prepareToPlay];
+    if (loop) {
+        player.numberOfLoops = -1;
     }else {
+        player.numberOfLoops = 0;
         [player pause];
         player.currentTime = 0;
     }
-    [player play];    
+    [player prepareToPlay];
+    [player play];
 }
 
-/*
+- (void)playWithFileName:(NSString *)fileName{
+    [self playWithFileName:fileName loop:NO];
+}
+
 - (void)playLoopSoundEffectWithFileName:(NSString *)fileName{
-    AVAudioPlayer *player = [self soundWithFileName:fileName];
-    player.numberOfLoops = -1;
-    [player play];
+    [self playWithFileName:fileName loop:YES];
 }
 
 - (void)pauseLoopSoundEffectWithFileName:(NSString *)fileName{
     [[self soundWithFileName:fileName] pause];
 }
 
+- (void)resumeLoopSoundEffectWithFileName:(NSString *)fileName{
+
+}
+
 - (void)stopLoopSoundEffectWithFileName:(NSString *)fileName{
     AVAudioPlayer *player = [self soundWithFileName:fileName];
+    player.numberOfLoops = 0;
+    player.currentTime = player.duration;
     [player stop];
-    NSLog(@"stop");
-//    player.currentTime = player.duration;
 }
-*/
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    for (NSString *key in [self.seDic allKeysForObject:player]) {
-        NSLog(@"key : %@", key);
-        [player release];
-        [seDic removeObjectForKey:key];
+    if (player.numberOfLoops == 0) {
+        for (NSString *key in [self.seDic allKeysForObject:player]) {
+            [player release];
+            [seDic removeObjectForKey:key];
+        }
     }
 }
 
