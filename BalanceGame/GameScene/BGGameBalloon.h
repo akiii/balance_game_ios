@@ -14,6 +14,6 @@
 }
 @property (nonatomic, copy) void (^onOkButtonPressed)();
 + (BGGameBalloon *)node;
-- (void)showWithWords:(NSArray *)wordLabels;
+- (void)showWithWords:(NSArray *)wordLabels imagesAnimationFrame:(NSArray *)frame;
 - (void)notShow;
 @end
