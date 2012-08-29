@@ -510,6 +510,7 @@
 		D064C19C15EDB100003EEA28 /* stars2_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars2_mini.png; sourceTree = "<group>"; };
 		D064C19D15EDB100003EEA28 /* stars2-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars2-grayscale.png"; sourceTree = "<group>"; };
 		D064C19E15EDB100003EEA28 /* stars2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars2.png; sourceTree = "<group>"; };
+		D064C1A515EDDA4C003EEA28 /* Fairwind_loop.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fairwind_loop.ogg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -990,6 +991,7 @@
 		B88880A415EDA0C00072D737 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				D064C1A515EDDA4C003EEA28 /* Fairwind_loop.ogg */,
 				B88880F015EDA8020072D737 /* bgm1.mp3 */,
 				B88880A515EDA0CC0072D737 /* click1.mp3 */,
 				B88880A615EDA0CC0072D737 /* alert.mp3 */,
