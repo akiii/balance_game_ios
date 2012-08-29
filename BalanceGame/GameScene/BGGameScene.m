@@ -29,8 +29,8 @@
         [mainLayer getTouchWarningState:flag];
     };
     
-    manager.onShowBalloon = ^(NSArray *words){
-        [mainLayer showBalloonWithWords:words];
+    manager.onShowBalloon = ^(NSArray *words, NSArray *frame){
+        [mainLayer showBalloonWithWords:words imagesAnimationFrame:frame];
         [mainLayer notShowNextButton];
 
     };

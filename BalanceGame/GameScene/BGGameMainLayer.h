@@ -24,7 +24,7 @@
 - (void)getTouchWarningState:(BOOL)show;
 - (void)showNextButton;
 - (void)notShowNextButton;
-- (void)showBalloonWithWords:(NSArray *)words;
+- (void)showBalloonWithWords:(NSArray *)words imagesAnimationFrame:(NSArray *)frame;
 - (void)notShowBalloon;
 - (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration;
 @end

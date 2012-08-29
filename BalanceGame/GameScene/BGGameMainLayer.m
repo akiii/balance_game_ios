@@ -140,8 +140,8 @@ enum _BGGameMainLayerZ{
     self.nextButton.visible = NO;
 }
 
-- (void)showBalloonWithWords:(NSArray *)words{
-    [self.balloon showWithWords:words];
+- (void)showBalloonWithWords:(NSArray *)words imagesAnimationFrame:(NSArray *)frame{
+    [self.balloon showWithWords:words imagesAnimationFrame:frame];
 }
 
 - (void)notShowBalloon{
