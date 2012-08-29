@@ -175,6 +175,7 @@
 		B88880E115EDA12E0072D737 /* touch_normal_button_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B88880DB15EDA12E0072D737 /* touch_normal_button_blue.png */; };
 		B88880E215EDA12E0072D737 /* touch_normal_button_pink-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B88880DC15EDA12E0072D737 /* touch_normal_button_pink-hd.png */; };
 		B88880E315EDA12E0072D737 /* touch_normal_button_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = B88880DD15EDA12E0072D737 /* touch_normal_button_pink.png */; };
+		B88880F115EDA8020072D737 /* bgm1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88880F015EDA8020072D737 /* bgm1.mp3 */; };
 		D064C18A15EDA2B7003EEA28 /* title_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18815EDA2B7003EEA28 /* title_bg-hd.png */; };
 		D064C18B15EDA2B7003EEA28 /* title_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18915EDA2B7003EEA28 /* title_bg.png */; };
 /* End PBXBuildFile section */
@@ -496,6 +497,7 @@
 		B88880DB15EDA12E0072D737 /* touch_normal_button_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touch_normal_button_blue.png; sourceTree = "<group>"; };
 		B88880DC15EDA12E0072D737 /* touch_normal_button_pink-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch_normal_button_pink-hd.png"; sourceTree = "<group>"; };
 		B88880DD15EDA12E0072D737 /* touch_normal_button_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touch_normal_button_pink.png; sourceTree = "<group>"; };
+		B88880F015EDA8020072D737 /* bgm1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm1.mp3; sourceTree = "<group>"; };
 		D064C18815EDA2B7003EEA28 /* title_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_bg-hd.png"; sourceTree = "<group>"; };
 		D064C18915EDA2B7003EEA28 /* title_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -978,6 +980,7 @@
 		B88880A415EDA0C00072D737 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				B88880F015EDA8020072D737 /* bgm1.mp3 */,
 				B88880A515EDA0CC0072D737 /* click1.mp3 */,
 				B88880A615EDA0CC0072D737 /* alert.mp3 */,
 				B88880A715EDA0CC0072D737 /* explosion.mp3 */,
@@ -1117,6 +1120,7 @@
 				B88880E315EDA12E0072D737 /* touch_normal_button_pink.png in Resources */,
 				D064C18A15EDA2B7003EEA28 /* title_bg-hd.png in Resources */,
 				D064C18B15EDA2B7003EEA28 /* title_bg.png in Resources */,
+				B88880F115EDA8020072D737 /* bgm1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
