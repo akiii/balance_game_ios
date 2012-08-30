@@ -226,6 +226,24 @@
 		B88881A415EDF7470072D737 /* picture_8_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B888817415EDF7470072D737 /* picture_8_3.png */; };
 		B8A10FCA15EE2C8C005D1063 /* LavaFlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A10FC915EE2C8C005D1063 /* LavaFlow.plist */; };
 		B8DB17EF15EEF2030040BB67 /* Fairwind_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17EE15EEF2030040BB67 /* Fairwind_loop.mp3 */; };
+		B8DB17F315EF26CF0040BB67 /* BGSelectCourseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB17F215EF26CF0040BB67 /* BGSelectCourseScene.m */; };
+		B8DB17F615EF26E90040BB67 /* BGSelectCourseMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB17F515EF26E90040BB67 /* BGSelectCourseMainLayer.m */; };
+		B8DB17FD15EF3B200040BB67 /* italy_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17F715EF3B200040BB67 /* italy_button.png */; };
+		B8DB17FE15EF3B200040BB67 /* osaka_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17F815EF3B200040BB67 /* osaka_button.png */; };
+		B8DB17FF15EF3B200040BB67 /* tokyo_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17F915EF3B200040BB67 /* tokyo_button.png */; };
+		B8DB180015EF3B200040BB67 /* italy_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17FA15EF3B200040BB67 /* italy_button-hd.png */; };
+		B8DB180115EF3B200040BB67 /* osaka_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17FB15EF3B200040BB67 /* osaka_button-hd.png */; };
+		B8DB180215EF3B200040BB67 /* tokyo_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17FC15EF3B200040BB67 /* tokyo_button-hd.png */; };
+		B8DB180915EF3FF20040BB67 /* tutenkaku_tower_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180315EF3FF20040BB67 /* tutenkaku_tower_picture.png */; };
+		B8DB180A15EF3FF20040BB67 /* tokyo_tower_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180415EF3FF20040BB67 /* tokyo_tower_picture.png */; };
+		B8DB180B15EF3FF20040BB67 /* pisa_tower_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180515EF3FF20040BB67 /* pisa_tower_picture.png */; };
+		B8DB180C15EF3FF20040BB67 /* tutenkaku_tower_picture-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180615EF3FF20040BB67 /* tutenkaku_tower_picture-hd.png */; };
+		B8DB180D15EF3FF20040BB67 /* tokyo_tower_picture-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180715EF3FF20040BB67 /* tokyo_tower_picture-hd.png */; };
+		B8DB180E15EF3FF20040BB67 /* pisa_tower_picture-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180815EF3FF20040BB67 /* pisa_tower_picture-hd.png */; };
+		B8DB181315EF44120040BB67 /* tutenkaku_tower-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB180F15EF44110040BB67 /* tutenkaku_tower-hd.png */; };
+		B8DB181415EF44120040BB67 /* tutenkaku_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181015EF44110040BB67 /* tutenkaku_tower.png */; };
+		B8DB181515EF44120040BB67 /* pisa_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181115EF44110040BB67 /* pisa_tower.png */; };
+		B8DB181615EF44120040BB67 /* pisa_tower-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181215EF44110040BB67 /* pisa_tower-hd.png */; };
 		D064C18A15EDA2B7003EEA28 /* title_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18815EDA2B7003EEA28 /* title_bg-hd.png */; };
 		D064C18B15EDA2B7003EEA28 /* title_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18915EDA2B7003EEA28 /* title_bg.png */; };
 		D064C19F15EDB100003EEA28 /* stars-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19A15EDB100003EEA28 /* stars-grayscale.png */; };
@@ -604,6 +622,26 @@
 		B888817415EDF7470072D737 /* picture_8_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_8_3.png; sourceTree = "<group>"; };
 		B8A10FC915EE2C8C005D1063 /* LavaFlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LavaFlow.plist; sourceTree = "<group>"; };
 		B8DB17EE15EEF2030040BB67 /* Fairwind_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fairwind_loop.mp3; sourceTree = "<group>"; };
+		B8DB17F115EF26CF0040BB67 /* BGSelectCourseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectCourseScene.h; sourceTree = "<group>"; };
+		B8DB17F215EF26CF0040BB67 /* BGSelectCourseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectCourseScene.m; sourceTree = "<group>"; };
+		B8DB17F415EF26E90040BB67 /* BGSelectCourseMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectCourseMainLayer.h; sourceTree = "<group>"; };
+		B8DB17F515EF26E90040BB67 /* BGSelectCourseMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectCourseMainLayer.m; sourceTree = "<group>"; };
+		B8DB17F715EF3B200040BB67 /* italy_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = italy_button.png; sourceTree = "<group>"; };
+		B8DB17F815EF3B200040BB67 /* osaka_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = osaka_button.png; sourceTree = "<group>"; };
+		B8DB17F915EF3B200040BB67 /* tokyo_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tokyo_button.png; sourceTree = "<group>"; };
+		B8DB17FA15EF3B200040BB67 /* italy_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "italy_button-hd.png"; sourceTree = "<group>"; };
+		B8DB17FB15EF3B200040BB67 /* osaka_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osaka_button-hd.png"; sourceTree = "<group>"; };
+		B8DB17FC15EF3B200040BB67 /* tokyo_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tokyo_button-hd.png"; sourceTree = "<group>"; };
+		B8DB180315EF3FF20040BB67 /* tutenkaku_tower_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutenkaku_tower_picture.png; sourceTree = "<group>"; };
+		B8DB180415EF3FF20040BB67 /* tokyo_tower_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tokyo_tower_picture.png; sourceTree = "<group>"; };
+		B8DB180515EF3FF20040BB67 /* pisa_tower_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pisa_tower_picture.png; sourceTree = "<group>"; };
+		B8DB180615EF3FF20040BB67 /* tutenkaku_tower_picture-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutenkaku_tower_picture-hd.png"; sourceTree = "<group>"; };
+		B8DB180715EF3FF20040BB67 /* tokyo_tower_picture-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tokyo_tower_picture-hd.png"; sourceTree = "<group>"; };
+		B8DB180815EF3FF20040BB67 /* pisa_tower_picture-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisa_tower_picture-hd.png"; sourceTree = "<group>"; };
+		B8DB180F15EF44110040BB67 /* tutenkaku_tower-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutenkaku_tower-hd.png"; sourceTree = "<group>"; };
+		B8DB181015EF44110040BB67 /* tutenkaku_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutenkaku_tower.png; sourceTree = "<group>"; };
+		B8DB181115EF44110040BB67 /* pisa_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pisa_tower.png; sourceTree = "<group>"; };
+		B8DB181215EF44110040BB67 /* pisa_tower-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisa_tower-hd.png"; sourceTree = "<group>"; };
 		D064C18815EDA2B7003EEA28 /* title_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_bg-hd.png"; sourceTree = "<group>"; };
 		D064C18915EDA2B7003EEA28 /* title_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_bg.png; sourceTree = "<group>"; };
 		D064C19A15EDB100003EEA28 /* stars-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars-grayscale.png"; sourceTree = "<group>"; };
@@ -681,6 +719,7 @@
 				B88880A015EDA0990072D737 /* BGSEPlayer.h */,
 				B88880A115EDA0990072D737 /* BGSEPlayer.m */,
 				B810AD5515E71C9600D374DD /* TopScene */,
+				B8DB17F015EF26AB0040BB67 /* SelectCourseScene */,
 				B810ACE415E60BA200D374DD /* GameScene */,
 				B810AB5B15E607AA00D374DD /* Resources */,
 				B810AB7515E607AA00D374DD /* libs */,
@@ -1131,6 +1170,10 @@
 				B88880C915EDA1210072D737 /* title.png */,
 				B88880CA15EDA1210072D737 /* tokyo_tower-hd.png */,
 				B88880CB15EDA1210072D737 /* tokyo_tower.png */,
+				B8DB180F15EF44110040BB67 /* tutenkaku_tower-hd.png */,
+				B8DB181015EF44110040BB67 /* tutenkaku_tower.png */,
+				B8DB181115EF44110040BB67 /* pisa_tower.png */,
+				B8DB181215EF44110040BB67 /* pisa_tower-hd.png */,
 				B88880B815EDA1130072D737 /* fire.png */,
 				B88880B915EDA1130072D737 /* fire.pvr */,
 				B88880BA15EDA1130072D737 /* ok_button-hd.png */,
@@ -1141,6 +1184,18 @@
 				B88880AF15EDA0ED0072D737 /* city_morning.png */,
 				B88880B015EDA0ED0072D737 /* city_night-hd.png */,
 				B88880B115EDA0ED0072D737 /* city_night.png */,
+				B8DB17F715EF3B200040BB67 /* italy_button.png */,
+				B8DB17F815EF3B200040BB67 /* osaka_button.png */,
+				B8DB17F915EF3B200040BB67 /* tokyo_button.png */,
+				B8DB17FA15EF3B200040BB67 /* italy_button-hd.png */,
+				B8DB17FB15EF3B200040BB67 /* osaka_button-hd.png */,
+				B8DB17FC15EF3B200040BB67 /* tokyo_button-hd.png */,
+				B8DB180315EF3FF20040BB67 /* tutenkaku_tower_picture.png */,
+				B8DB180415EF3FF20040BB67 /* tokyo_tower_picture.png */,
+				B8DB180515EF3FF20040BB67 /* pisa_tower_picture.png */,
+				B8DB180615EF3FF20040BB67 /* tutenkaku_tower_picture-hd.png */,
+				B8DB180715EF3FF20040BB67 /* tokyo_tower_picture-hd.png */,
+				B8DB180815EF3FF20040BB67 /* pisa_tower_picture-hd.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -1199,6 +1254,18 @@
 				B888817415EDF7470072D737 /* picture_8_3.png */,
 			);
 			path = Pictures;
+			sourceTree = "<group>";
+		};
+		B8DB17F015EF26AB0040BB67 /* SelectCourseScene */ = {
+			isa = PBXGroup;
+			children = (
+				B8DB17F115EF26CF0040BB67 /* BGSelectCourseScene.h */,
+				B8DB17F215EF26CF0040BB67 /* BGSelectCourseScene.m */,
+				B8DB17F415EF26E90040BB67 /* BGSelectCourseMainLayer.h */,
+				B8DB17F515EF26E90040BB67 /* BGSelectCourseMainLayer.m */,
+			);
+			name = SelectCourseScene;
+			path = SelectCourse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1353,6 +1420,22 @@
 				B88881A415EDF7470072D737 /* picture_8_3.png in Resources */,
 				B8A10FCA15EE2C8C005D1063 /* LavaFlow.plist in Resources */,
 				B8DB17EF15EEF2030040BB67 /* Fairwind_loop.mp3 in Resources */,
+				B8DB17FD15EF3B200040BB67 /* italy_button.png in Resources */,
+				B8DB17FE15EF3B200040BB67 /* osaka_button.png in Resources */,
+				B8DB17FF15EF3B200040BB67 /* tokyo_button.png in Resources */,
+				B8DB180015EF3B200040BB67 /* italy_button-hd.png in Resources */,
+				B8DB180115EF3B200040BB67 /* osaka_button-hd.png in Resources */,
+				B8DB180215EF3B200040BB67 /* tokyo_button-hd.png in Resources */,
+				B8DB180915EF3FF20040BB67 /* tutenkaku_tower_picture.png in Resources */,
+				B8DB180A15EF3FF20040BB67 /* tokyo_tower_picture.png in Resources */,
+				B8DB180B15EF3FF20040BB67 /* pisa_tower_picture.png in Resources */,
+				B8DB180C15EF3FF20040BB67 /* tutenkaku_tower_picture-hd.png in Resources */,
+				B8DB180D15EF3FF20040BB67 /* tokyo_tower_picture-hd.png in Resources */,
+				B8DB180E15EF3FF20040BB67 /* pisa_tower_picture-hd.png in Resources */,
+				B8DB181315EF44120040BB67 /* tutenkaku_tower-hd.png in Resources */,
+				B8DB181415EF44120040BB67 /* tutenkaku_tower.png in Resources */,
+				B8DB181515EF44120040BB67 /* pisa_tower.png in Resources */,
+				B8DB181615EF44120040BB67 /* pisa_tower-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1479,6 +1562,8 @@
 				B8887F4015EB6C9D0072D737 /* BGGameBalloon.m in Sources */,
 				B888809F15EDA08A0072D737 /* BGBGMPlayer.m in Sources */,
 				B88880A215EDA09A0072D737 /* BGSEPlayer.m in Sources */,
+				B8DB17F315EF26CF0040BB67 /* BGSelectCourseScene.m in Sources */,
+				B8DB17F615EF26E90040BB67 /* BGSelectCourseMainLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
