@@ -11,6 +11,7 @@
 #import "BGGameCityLayer.h"
 #import "BGGameMainLayer.h"
 
+#import "BGSelectCourseScene.h"
 
 @implementation BGGameScene
 
@@ -78,8 +79,8 @@
         return manager.currentGameState;
     };
     
-    mainLayer.onPressedRestartButton = ^(){
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene sceneWithTower:tower] withColor:ccc3(0, 0, 0)]];
+    mainLayer.onPressedRestartButton = ^(){        
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;
