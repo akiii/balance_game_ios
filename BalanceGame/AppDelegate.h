@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FBiOSSDK/FacebookSDK.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "cocos2d.h"
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>

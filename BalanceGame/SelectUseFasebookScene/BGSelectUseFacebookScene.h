@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FBiOSSDK/FacebookSDK.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "cocos2d.h"
 #import "AppDelegate.h"
 
