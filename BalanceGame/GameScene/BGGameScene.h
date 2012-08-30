@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BGGameTower.h"
 
 @interface BGGameScene : CCScene {
     
 }
-+ (BGGameScene *)scene;
++ (BGGameScene *)sceneWithTower:(BGGameTower *)tower;
 @end

@@ -14,7 +14,7 @@
 
 @implementation BGGameScene
 
-+ (BGGameScene *)scene{
++ (BGGameScene *)sceneWithTower:(BGGameTower *)tower{
     BGGameScene *scene = [self node];
     
     BGGameManager *manager = [BGGameManager node];
@@ -22,7 +22,7 @@
     
     [scene addChild:[BGGameCityLayer node]];
     
-    BGGameMainLayer *mainLayer = [BGGameMainLayer node];
+    BGGameMainLayer *mainLayer = [BGGameMainLayer layerWithTower:tower];
     [scene addChild:mainLayer];
     
     manager.onShowTouchWarning = ^(BOOL flag){
@@ -79,7 +79,7 @@
     };
     
     mainLayer.onPressedRestartButton = ^(){
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene scene] withColor:ccc3(0, 0, 0)]];
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene sceneWithTower:tower] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;
