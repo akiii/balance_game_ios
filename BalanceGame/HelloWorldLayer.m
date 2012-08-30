@@ -99,7 +99,43 @@
 		
 		// Add the menu to the layer
 		[self addChild:menu];
-
+        
+        [self runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
+            CCParticleMeteor *meteor = [CCParticleMeteor node];
+            meteor.position = ccp(size.width/2, 0);
+            meteor.gravity = ccp(0, -size.height);
+            meteor.startSize = 1.0;
+            meteor.endSizeVar = -10.0;
+            meteor.emissionRate = 100.0;
+            meteor.radialAccel = -300.0;
+            meteor.life = 0.0001;
+            meteor.duration = 1.3;
+            meteor.startColor = ccc4f(255, 102, 51, 255);
+            [self addChild:meteor];
+            
+            [meteor runAction:[CCMoveBy actionWithDuration:1.5 position:ccp(0, 100)]];
+        }], [CCDelayTime actionWithDuration:1.5 + 0.8], [CCCallBlock actionWithBlock:^(){
+            CCParticleSystemQuad *fire = [CCParticleSystemQuad particleWithFile:@"LavaFlow.plist"];
+            fire.position = ccp(size.width/2, 120);
+            [self addChild:fire];
+            fire.gravity = ccp(0, 0);
+            fire.scale = 0.15;
+            fire.duration = 0.06;
+        }], [CCDelayTime actionWithDuration:0.2], [CCCallBlock actionWithBlock:^(){
+            CCParticleSystemQuad *fire = [CCParticleSystemQuad particleWithFile:@"LavaFlow.plist"];
+            fire.position = ccp(size.width/2, 120);
+            [self addChild:fire];
+            fire.gravity = ccp(0, 0);
+            fire.scale = 0.13;
+            fire.duration = 0.04;
+        }], [CCDelayTime actionWithDuration:0.2], [CCCallBlock actionWithBlock:^(){
+            CCParticleSystemQuad *fire = [CCParticleSystemQuad particleWithFile:@"LavaFlow.plist"];
+            fire.position = ccp(size.width/2, 120);
+            [self addChild:fire];
+            fire.gravity = ccp(0, 0);
+            fire.scale = 0.10;
+            fire.duration = 0.03;
+        }], [CCDelayTime actionWithDuration:0.2], nil]]];
 	}
 	return self;
 }
