@@ -9,7 +9,7 @@
 #import "BGTopScene.h"
 #import "BGTopBackgroundLayer.h"
 #import "BGTopMainLayer.h"
-#import "BGGameScene.h"
+#import "BGSelectCourseScene.h"
 
 #import "BGBGMPlayer.h"
 #import "BGSEPlayer.h"
@@ -30,7 +30,7 @@
     mainLayer.onPressedStartButton = ^(){
         STOP_BGM;
         PLAY_SE(@"click1.mp3");
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene scene] withColor:ccc3(0, 0, 0)]];
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;
