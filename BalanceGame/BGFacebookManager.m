@@ -13,7 +13,8 @@
 static BGFacebookManager *shared = nil;
 
 @implementation BGFacebookManager
-@synthesize currentUser, friends;
+@synthesize currentUser, friends, setUsers;
+@synthesize onGotUsersDictionary;
 
 + (BGFacebookManager *)sharedManager{
     if (!shared) {
@@ -32,38 +33,36 @@ static BGFacebookManager *shared = nil;
     FBRequest *reqMe = [[FBRequest alloc] initWithSession:session graphPath:@"me" parameters:params HTTPMethod:@"GET"];
     FBRequest *reqFriends = [[FBRequest alloc] initWithSession:session graphPath:@"me/friends" parameters:params HTTPMethod:@"GET"];
 
-    NSLog(@"start time : %@", [NSDate date]);
     [reqMe startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
-            [dic setObject:result forKey:@"me"];
-            dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            dispatch_async(q, ^(){
-                self.currentUser = [[BGFacebookUser alloc] init];
-                self.currentUser.userId = [result objectForKey:@"id"];
-                self.currentUser.name = [result objectForKey:@"name"];
-                self.currentUser.pictureUrl = [result objectForKey:@"picture"];
-            });
-            
+            [dic setObject:result forKey:@"me"];            
             [reqFriends startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSArray *fs = [result objectForKey:@"data"];
                     [dic setObject:fs forKey:@"friends"];
+                    
+                    if (self.onGotUsersDictionary) self.onGotUsersDictionary(dic);
+                    
                     dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                     dispatch_async(q, ^(){
-                        //                NSLog(@"result : %@", [result objectForKey:@"data"]);
-                        //                NSArray *array = [result objectForKey:@"data"];
-                        
-                        //                self.currentUser = [[BGFacebookUser alloc] init];
-                        //                self.currentUser.userId = [result objectForKey:@"id"];
-                        //                self.currentUser.name = [result objectForKey:@"name"];
-                        //                self.currentUser.pictureUrl = [result objectForKey:@"picture"];
+                        for (NSDictionary *d in fs) {
+                            BGFacebookUser *u = [[[BGFacebookUser alloc] init] autorelease];
+                            u.userId = [d objectForKey:@"id"];
+                            u.name = [d objectForKey:@"name"];
+                            u.pictureUrl = [d objectForKey:@"picture"];
+                        }
+                        self.setUsers = YES;
                     });
                 }
                 
-                NSLog(@"dic : %@", dic);
-                NSLog(@"start time : %@", [NSDate date]);
+                dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                dispatch_async(q, ^(){
+                    self.currentUser = [[[BGFacebookUser alloc] init] autorelease];
+                    self.currentUser.userId = [result objectForKey:@"id"];
+                    self.currentUser.name = [result objectForKey:@"name"];
+                    self.currentUser.pictureUrl = [result objectForKey:@"picture"];
+                });
             }];
-
         }
     }];
 }
