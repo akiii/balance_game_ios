@@ -9,5 +9,5 @@
 #import "BGFacebookUser.h"
 
 @implementation BGFacebookUser
-
+@synthesize userId, name, pictureUrl;
 @end
