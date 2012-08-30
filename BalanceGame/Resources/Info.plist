@@ -52,7 +52,7 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
-	<key>FasebookAppID</key>
+	<key>FacebookAppID</key>
 	<string>196702453785192</string>
 	<key>CFBundleURLTypes</key>
 	<array>
