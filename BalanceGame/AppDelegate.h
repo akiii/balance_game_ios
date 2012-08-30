@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBiOSSDK/FacebookSDK.h>
 #import "cocos2d.h"
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
@@ -18,6 +19,7 @@
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) FBSession *session;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 
