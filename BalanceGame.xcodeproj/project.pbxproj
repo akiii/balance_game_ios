@@ -247,6 +247,12 @@
 		B8DB181D15EF47C80040BB67 /* BGGameVibrator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */; };
 		B8DB182515EF5B120040BB67 /* FBiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DB182415EF5B120040BB67 /* FBiOSSDK.framework */; };
 		B8DB182715EF5B210040BB67 /* FBiOSSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8DB182615EF5B210040BB67 /* FBiOSSDKResources.bundle */; };
+		B8DB182F15EF5DF70040BB67 /* BGSelectUseFacebookScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB182E15EF5DF70040BB67 /* BGSelectUseFacebookScene.m */; };
+		B8DB183215EF5E240040BB67 /* BGSelectUseFacebookMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB183115EF5E240040BB67 /* BGSelectUseFacebookMainLayer.m */; };
+		B8DB183915EF62FB0040BB67 /* facebook_login_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB183715EF62FB0040BB67 /* facebook_login_button-hd.png */; };
+		B8DB183A15EF62FB0040BB67 /* facebook_login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB183815EF62FB0040BB67 /* facebook_login_button.png */; };
+		B8DB183D15EF6CC80040BB67 /* BGFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB183C15EF6CC70040BB67 /* BGFacebookUser.m */; };
+		B8DB184015EF6D270040BB67 /* BGFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB183F15EF6D260040BB67 /* BGFacebookManager.m */; };
 		D064C18A15EDA2B7003EEA28 /* title_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18815EDA2B7003EEA28 /* title_bg-hd.png */; };
 		D064C18B15EDA2B7003EEA28 /* title_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18915EDA2B7003EEA28 /* title_bg.png */; };
 		D064C19F15EDB100003EEA28 /* stars-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19A15EDB100003EEA28 /* stars-grayscale.png */; };
@@ -649,6 +655,16 @@
 		B8DB181C15EF47C80040BB67 /* BGGameVibrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameVibrator.h; sourceTree = "<group>"; };
 		B8DB182415EF5B120040BB67 /* FBiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBiOSSDK.framework; path = ../../Documents/FacebookSDK/FBiOSSDK.framework; sourceTree = "<group>"; };
 		B8DB182615EF5B210040BB67 /* FBiOSSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBiOSSDKResources.bundle; path = ../../Documents/FacebookSDK/FBiOSSDK.framework/Versions/A/Resources/FBiOSSDKResources.bundle; sourceTree = "<group>"; };
+		B8DB182D15EF5DF70040BB67 /* BGSelectUseFacebookScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectUseFacebookScene.h; sourceTree = "<group>"; };
+		B8DB182E15EF5DF70040BB67 /* BGSelectUseFacebookScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectUseFacebookScene.m; sourceTree = "<group>"; };
+		B8DB183015EF5E240040BB67 /* BGSelectUseFacebookMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectUseFacebookMainLayer.h; sourceTree = "<group>"; };
+		B8DB183115EF5E240040BB67 /* BGSelectUseFacebookMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectUseFacebookMainLayer.m; sourceTree = "<group>"; };
+		B8DB183715EF62FB0040BB67 /* facebook_login_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook_login_button-hd.png"; sourceTree = "<group>"; };
+		B8DB183815EF62FB0040BB67 /* facebook_login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login_button.png; sourceTree = "<group>"; };
+		B8DB183B15EF6CC60040BB67 /* BGFacebookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGFacebookUser.h; sourceTree = "<group>"; };
+		B8DB183C15EF6CC70040BB67 /* BGFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGFacebookUser.m; sourceTree = "<group>"; };
+		B8DB183E15EF6D260040BB67 /* BGFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGFacebookManager.h; sourceTree = "<group>"; };
+		B8DB183F15EF6D260040BB67 /* BGFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGFacebookManager.m; sourceTree = "<group>"; };
 		D064C18815EDA2B7003EEA28 /* title_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_bg-hd.png"; sourceTree = "<group>"; };
 		D064C18915EDA2B7003EEA28 /* title_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_bg.png; sourceTree = "<group>"; };
 		D064C19A15EDB100003EEA28 /* stars-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars-grayscale.png"; sourceTree = "<group>"; };
@@ -728,7 +744,12 @@
 				B888809E15EDA08A0072D737 /* BGBGMPlayer.m */,
 				B88880A015EDA0990072D737 /* BGSEPlayer.h */,
 				B88880A115EDA0990072D737 /* BGSEPlayer.m */,
+				B8DB183B15EF6CC60040BB67 /* BGFacebookUser.h */,
+				B8DB183C15EF6CC70040BB67 /* BGFacebookUser.m */,
+				B8DB183E15EF6D260040BB67 /* BGFacebookManager.h */,
+				B8DB183F15EF6D260040BB67 /* BGFacebookManager.m */,
 				B810AD5515E71C9600D374DD /* TopScene */,
+				B8DB182C15EF5DC30040BB67 /* SelectUseFasebookScene */,
 				B8DB17F015EF26AB0040BB67 /* SelectCourseScene */,
 				B810ACE415E60BA200D374DD /* GameScene */,
 				B810AB5B15E607AA00D374DD /* Resources */,
@@ -1208,6 +1229,8 @@
 				B8DB180615EF3FF20040BB67 /* tutenkaku_tower_picture-hd.png */,
 				B8DB180715EF3FF20040BB67 /* tokyo_tower_picture-hd.png */,
 				B8DB180815EF3FF20040BB67 /* pisa_tower_picture-hd.png */,
+				B8DB183715EF62FB0040BB67 /* facebook_login_button-hd.png */,
+				B8DB183815EF62FB0040BB67 /* facebook_login_button.png */,
 			);
 			name = Images;
 			path = Resources/Images;
@@ -1278,6 +1301,17 @@
 			);
 			name = SelectCourseScene;
 			path = SelectCourse;
+			sourceTree = "<group>";
+		};
+		B8DB182C15EF5DC30040BB67 /* SelectUseFasebookScene */ = {
+			isa = PBXGroup;
+			children = (
+				B8DB182D15EF5DF70040BB67 /* BGSelectUseFacebookScene.h */,
+				B8DB182E15EF5DF70040BB67 /* BGSelectUseFacebookScene.m */,
+				B8DB183015EF5E240040BB67 /* BGSelectUseFacebookMainLayer.h */,
+				B8DB183115EF5E240040BB67 /* BGSelectUseFacebookMainLayer.m */,
+			);
+			path = SelectUseFasebookScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1449,6 +1483,8 @@
 				B8DB181515EF44120040BB67 /* pisa_tower.png in Resources */,
 				B8DB181615EF44120040BB67 /* pisa_tower-hd.png in Resources */,
 				B8DB182715EF5B210040BB67 /* FBiOSSDKResources.bundle in Resources */,
+				B8DB183915EF62FB0040BB67 /* facebook_login_button-hd.png in Resources */,
+				B8DB183A15EF62FB0040BB67 /* facebook_login_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1578,6 +1614,10 @@
 				B8DB17F315EF26CF0040BB67 /* BGSelectCourseScene.m in Sources */,
 				B8DB17F615EF26E90040BB67 /* BGSelectCourseMainLayer.m in Sources */,
 				B8DB181D15EF47C80040BB67 /* BGGameVibrator.m in Sources */,
+				B8DB182F15EF5DF70040BB67 /* BGSelectUseFacebookScene.m in Sources */,
+				B8DB183215EF5E240040BB67 /* BGSelectUseFacebookMainLayer.m in Sources */,
+				B8DB183D15EF6CC80040BB67 /* BGFacebookUser.m in Sources */,
+				B8DB184015EF6D270040BB67 /* BGFacebookManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
