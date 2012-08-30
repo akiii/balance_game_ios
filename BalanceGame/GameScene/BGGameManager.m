@@ -136,6 +136,12 @@
                 _towerAngle = max(0, _towerAngle);
             }
             
+            if (_towerAngle > 20) {
+                PLAY_LOOP_SE(@"alert.mp3");
+            }else {
+                STOP_LOOP_SE(@"alert.mp3");
+            }
+            
             if (_towerAngle > 50) {
                 [self gameOver];
             }
@@ -153,6 +159,7 @@
 
 - (void)gameOver{
     _currentGameState = GameStateOver;
+    STOP_LOOP_SE(@"alert.mp3");
     PLAY_SE(@"explosion.mp3");
     [self runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
         [BGGameVibrator vibrate];
