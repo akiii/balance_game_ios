@@ -75,7 +75,7 @@
 - (NSDictionary *)getQuestionDictionary{
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"questions" ofType:@"plist"]];
     int difficuly = 1;
-    int question = (_currentQuestionCount - 1) % 3 + 1;
+    int question = (_currentQuestionCount - 1) % 8 + 1;
     NSDictionary *questionDic = [[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
     
     NSMutableString *word = [NSMutableString stringWithString:[questionDic objectForKey:@"Word"]];
