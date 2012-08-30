@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BGGameTower.h"
 #import "BGGameManager.h"
 
 @interface BGGameMainLayer : CCLayer {
@@ -21,6 +22,7 @@
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
 @property (nonatomic, copy) GameState (^onGetCurrentGameState)();
 @property (nonatomic, copy) void (^onPressedRestartButton)();
++ (BGGameMainLayer *)layerWithTower:(BGGameTower *)t;
 - (void)getTouchWarningState:(BOOL)show;
 - (void)showNextButton;
 - (void)notShowNextButton;

@@ -7,7 +7,6 @@
 //
 
 #import "BGGameMainLayer.h"
-#import "BGGameTower.h"
 #import "BGGameBalloon.h"
 
 enum _BGGameMainLayerZ{
@@ -29,6 +28,12 @@ enum _BGGameMainLayerZ{
 @synthesize tower, balloon, nextButton, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
 @synthesize onOkButtonPressed, onNextButtonPressed, isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
 
++ (BGGameMainLayer *)layerWithTower:(BGGameTower *)t{
+    BGGameMainLayer *layer = [self node];
+    layer.tower = t;
+    return layer;
+}
+
 - (void)onEnter{
     [super onEnter];
         
@@ -38,7 +43,6 @@ enum _BGGameMainLayerZ{
     
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
-    self.tower = [BGGameTower spriteWithFile:@"tokyo_tower.png"];
     self.tower.position = ccp(screenSize.width/2, screenSize.height/2);
     [self addChild:self.tower z:BGGameMainLayerZTower];
     
