@@ -245,6 +245,8 @@
 		B8DB181515EF44120040BB67 /* pisa_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181115EF44110040BB67 /* pisa_tower.png */; };
 		B8DB181615EF44120040BB67 /* pisa_tower-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181215EF44110040BB67 /* pisa_tower-hd.png */; };
 		B8DB181D15EF47C80040BB67 /* BGGameVibrator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */; };
+		B8DB182515EF5B120040BB67 /* FBiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DB182415EF5B120040BB67 /* FBiOSSDK.framework */; };
+		B8DB182715EF5B210040BB67 /* FBiOSSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8DB182615EF5B210040BB67 /* FBiOSSDKResources.bundle */; };
 		D064C18A15EDA2B7003EEA28 /* title_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18815EDA2B7003EEA28 /* title_bg-hd.png */; };
 		D064C18B15EDA2B7003EEA28 /* title_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18915EDA2B7003EEA28 /* title_bg.png */; };
 		D064C19F15EDB100003EEA28 /* stars-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19A15EDB100003EEA28 /* stars-grayscale.png */; };
@@ -645,6 +647,8 @@
 		B8DB181215EF44110040BB67 /* pisa_tower-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisa_tower-hd.png"; sourceTree = "<group>"; };
 		B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameVibrator.m; sourceTree = "<group>"; };
 		B8DB181C15EF47C80040BB67 /* BGGameVibrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameVibrator.h; sourceTree = "<group>"; };
+		B8DB182415EF5B120040BB67 /* FBiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBiOSSDK.framework; path = ../../Documents/FacebookSDK/FBiOSSDK.framework; sourceTree = "<group>"; };
+		B8DB182615EF5B210040BB67 /* FBiOSSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBiOSSDKResources.bundle; path = ../../Documents/FacebookSDK/FBiOSSDK.framework/Versions/A/Resources/FBiOSSDKResources.bundle; sourceTree = "<group>"; };
 		D064C18815EDA2B7003EEA28 /* title_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_bg-hd.png"; sourceTree = "<group>"; };
 		D064C18915EDA2B7003EEA28 /* title_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_bg.png; sourceTree = "<group>"; };
 		D064C19A15EDB100003EEA28 /* stars-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars-grayscale.png"; sourceTree = "<group>"; };
@@ -669,6 +673,7 @@
 				B810AB5515E607AA00D374DD /* Foundation.framework in Frameworks */,
 				B810AB5715E607AA00D374DD /* CoreGraphics.framework in Frameworks */,
 				B810AB5915E607AA00D374DD /* GameKit.framework in Frameworks */,
+				B8DB182515EF5B120040BB67 /* FBiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +700,8 @@
 		B810AB4715E607AA00D374DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8DB182615EF5B210040BB67 /* FBiOSSDKResources.bundle */,
+				B8DB182415EF5B120040BB67 /* FBiOSSDK.framework */,
 				B810AB4815E607AA00D374DD /* QuartzCore.framework */,
 				B810AB4A15E607AA00D374DD /* OpenGLES.framework */,
 				B810AB4C15E607AA00D374DD /* OpenAL.framework */,
@@ -1441,6 +1448,7 @@
 				B8DB181415EF44120040BB67 /* tutenkaku_tower.png in Resources */,
 				B8DB181515EF44120040BB67 /* pisa_tower.png in Resources */,
 				B8DB181615EF44120040BB67 /* pisa_tower-hd.png in Resources */,
+				B8DB182715EF5B210040BB67 /* FBiOSSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1592,6 +1600,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1611,6 +1620,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1621,6 +1631,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BalanceGame/Prefix.pch;
@@ -1628,6 +1643,7 @@
 				INFOPLIST_FILE = BalanceGame/Resources/Info.plist;
 				OTHER_LDFLAGS = (
 					"-lz",
+					"-lsqlite3.0",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1640,12 +1656,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BalanceGame/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"BalanceGame/libs/kazmath/include\"";
 				INFOPLIST_FILE = BalanceGame/Resources/Info.plist;
 				OTHER_LDFLAGS = (
 					"-lz",
+					"-lsqlite3.0",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
