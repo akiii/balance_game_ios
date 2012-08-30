@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BGFacebookUser.h"
 
 @interface BGFacebookManager : NSObject
-
++ (BGFacebookManager *)sharedManager;
+@property (nonatomic, retain) BGFacebookUser *currentUser;
+@property (nonatomic, retain) NSMutableArray *friends;
+- (void)requestUsers;
 @end
