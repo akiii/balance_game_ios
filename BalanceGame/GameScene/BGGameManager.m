@@ -7,8 +7,10 @@
 //
 
 #import "BGGameManager.h"
+#import "BGSEPlayer.h"
+#import "BGGameVibrator.h"
 
-#define kLabels                 @"labelss"
+#define kLabels                 @"labels"
 #define kImageAnimationFrames   @"image_animation_frames"
 
 @implementation BGGameManager
@@ -44,6 +46,7 @@
             break;
             
         case GameStateQuestion:
+            if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
             if (_isBalloonHidden) {
                 NSDictionary *questionDictionary = [self getQuestionDictionary];
                 if (self.onShowBalloon) self.onShowBalloon([questionDictionary objectForKey:kLabels], [questionDictionary objectForKey:kImageAnimationFrames]);
@@ -56,7 +59,7 @@
                 if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
                 _awayTouchTime -= dt;
                 if (_awayTouchTime < 0) {
-                    _currentGameState = GameStateOver;
+                    [self gameOver];
                 }
             }else {
                 _awayTouchTime = 3.0;
@@ -133,7 +136,9 @@
                 _towerAngle = max(0, _towerAngle);
             }
             
-            if (_towerAngle > 50) _currentGameState = GameStateOver;
+            if (_towerAngle > 50) {
+                [self gameOver];
+            }
             if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
             break;
             
@@ -144,6 +149,14 @@
         default:
             break;
     }
+}
+
+- (void)gameOver{
+    _currentGameState = GameStateOver;
+    PLAY_SE(@"explosion.mp3");
+    [self runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
+        [BGGameVibrator vibrate];
+    }], [CCDelayTime actionWithDuration:0.1], nil] times:100]];
 }
 
 @end
