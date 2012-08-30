@@ -10,7 +10,7 @@
 
 
 @implementation BGSelectUseFacebookMainLayer
-@synthesize onPressedFacebookLoginButton;
+@synthesize onPressedFacebookLoginButton, onPressedSkipButton;
 
 - (void)onEnter{
     [super onEnter];
