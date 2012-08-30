@@ -244,6 +244,7 @@
 		B8DB181415EF44120040BB67 /* tutenkaku_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181015EF44110040BB67 /* tutenkaku_tower.png */; };
 		B8DB181515EF44120040BB67 /* pisa_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181115EF44110040BB67 /* pisa_tower.png */; };
 		B8DB181615EF44120040BB67 /* pisa_tower-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B8DB181215EF44110040BB67 /* pisa_tower-hd.png */; };
+		B8DB181D15EF47C80040BB67 /* BGGameVibrator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */; };
 		D064C18A15EDA2B7003EEA28 /* title_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18815EDA2B7003EEA28 /* title_bg-hd.png */; };
 		D064C18B15EDA2B7003EEA28 /* title_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C18915EDA2B7003EEA28 /* title_bg.png */; };
 		D064C19F15EDB100003EEA28 /* stars-grayscale.png in Resources */ = {isa = PBXBuildFile; fileRef = D064C19A15EDB100003EEA28 /* stars-grayscale.png */; };
@@ -642,6 +643,8 @@
 		B8DB181015EF44110040BB67 /* tutenkaku_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutenkaku_tower.png; sourceTree = "<group>"; };
 		B8DB181115EF44110040BB67 /* pisa_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pisa_tower.png; sourceTree = "<group>"; };
 		B8DB181215EF44110040BB67 /* pisa_tower-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisa_tower-hd.png"; sourceTree = "<group>"; };
+		B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameVibrator.m; sourceTree = "<group>"; };
+		B8DB181C15EF47C80040BB67 /* BGGameVibrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameVibrator.h; sourceTree = "<group>"; };
 		D064C18815EDA2B7003EEA28 /* title_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_bg-hd.png"; sourceTree = "<group>"; };
 		D064C18915EDA2B7003EEA28 /* title_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_bg.png; sourceTree = "<group>"; };
 		D064C19A15EDB100003EEA28 /* stars-grayscale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars-grayscale.png"; sourceTree = "<group>"; };
@@ -1112,6 +1115,8 @@
 				B85B303915E9F56900A71141 /* BGGameManager.m */,
 				B8887F3E15EB6C9D0072D737 /* BGGameBalloon.h */,
 				B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */,
+				B8DB181C15EF47C80040BB67 /* BGGameVibrator.h */,
+				B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -1564,6 +1569,7 @@
 				B88880A215EDA09A0072D737 /* BGSEPlayer.m in Sources */,
 				B8DB17F315EF26CF0040BB67 /* BGSelectCourseScene.m in Sources */,
 				B8DB17F615EF26E90040BB67 /* BGSelectCourseMainLayer.m in Sources */,
+				B8DB181D15EF47C80040BB67 /* BGGameVibrator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
