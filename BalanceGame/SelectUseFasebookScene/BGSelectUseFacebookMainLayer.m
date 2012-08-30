@@ -22,7 +22,12 @@
     }];
     loginButton.position = ccp(screenSize.width/2, screenSize.height/2);
     
-    CCMenu *menu = [CCMenu menuWithItems:loginButton, nil];
+    CCMenuItemImage *skipButton = [CCMenuItemImage itemWithNormalImage:@"ok_button.png" selectedImage:@"ok_button.png" block:^(id sender){
+        if (self.onPressedSkipButton) self.onPressedSkipButton();
+    }];
+    skipButton.position = ccp(screenSize.width/2, screenSize.height/4);
+    
+    CCMenu *menu = [CCMenu menuWithItems:loginButton, skipButton, nil];
     menu.position = ccp(0, 0);
     [self addChild:menu];
 }

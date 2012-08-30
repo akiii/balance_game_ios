@@ -27,11 +27,13 @@
         [session openWithBehavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
             if (!error) {                
                 [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
-//                if (self.onSuccess) self.onSuccess();
             }else {
-//                if (self.onFailure) self.onFailure();
             }
         }];
+    };
+    
+    mainLayer.onPressedSkipButton = ^(){
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;
