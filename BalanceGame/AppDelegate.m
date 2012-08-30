@@ -13,7 +13,7 @@
 
 @implementation AppController
 
-@synthesize window=window_, navController=navController_, director=director_;
+@synthesize window=window_, navController=navController_, director=director_, session = _session;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -86,6 +86,15 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
+    
+    if (!_session.isOpen) {
+        _session = [[FBSession alloc] init];
+        if (_session.state == FBSessionStateCreatedTokenLoaded) {
+            [_session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                
+            }];
+        }
+    }
 	
 	return YES;
 }
