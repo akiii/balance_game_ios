@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BGGameTower.h"
 
 @interface BGSelectCourseMainLayer : CCLayer {
     
 }
-
+@property (nonatomic, copy) void (^onPressedButton)(BGGameTower *tower);
 @end

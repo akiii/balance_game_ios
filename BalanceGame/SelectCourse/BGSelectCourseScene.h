@@ -12,5 +12,5 @@
 @interface BGSelectCourseScene : CCScene {
     
 }
-
++ (BGSelectCourseScene *)scene;
 @end
