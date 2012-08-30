@@ -1,5 +1,5 @@
 //
-//  BGSelectUseFacebookScene.h
+//  BGSelectUseFacebookMainLayer.h
 //  BalanceGame
 //
 //  Created by Akifumi on 2012/08/30.
@@ -7,12 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FBiOSSDK/FacebookSDK.h>
 #import "cocos2d.h"
-#import "AppDelegate.h"
 
-@interface BGSelectUseFacebookScene : CCScene {
+@interface BGSelectUseFacebookMainLayer : CCLayer {
     
 }
-+ (BGSelectUseFacebookScene *)scene;
+@property (nonatomic, copy) void (^onPressedFacebookLoginButton)();
 @end
