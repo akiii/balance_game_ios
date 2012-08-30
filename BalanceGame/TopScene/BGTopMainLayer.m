@@ -36,7 +36,7 @@
     CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button_on.png" block:^(id sender){
         if (self.onPressedStartButton) self.onPressedStartButton();
     }];
-    startButton.position = ccp(screenSize.width/2, screenSize.height/3);
+    startButton.position = ccp(screenSize.width/2, 50);
     
     CCMenu *menu = [CCMenu menuWithItems:startButton, nil];
     menu.position = ccp(0, 0);
