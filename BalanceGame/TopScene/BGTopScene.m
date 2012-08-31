@@ -29,7 +29,7 @@
     BGTopMainLayer *mainLayer = [BGTopMainLayer node];
     [scene addChild:mainLayer];
     
-    PLAY_BGM(@"bgm1.mp3");
+    PLAY_BGM(@"bgm_top.mp3");
         
     mainLayer.onPressedStartButton = ^(){
         STOP_BGM;
