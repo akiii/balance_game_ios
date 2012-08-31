@@ -158,6 +158,8 @@ enum _BGGameMainLayerZ{
 
 - (void)clearWithShowTime:(ccTime)time{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    self.nextButton.visible = NO;
 
     CCSprite *circle = [CCSprite spriteWithFile:@"circle.png"];
     circle.position = ccp(screenSize.width/2, screenSize.height/2);
