@@ -13,10 +13,14 @@
 
 #import "BGSelectCourseScene.h"
 
+#import "BGBGMPlayer.h"
+
 @implementation BGGameScene
 
 + (BGGameScene *)sceneWithTower:(BGGameTower *)tower{
     BGGameScene *scene = [self node];
+    
+    PLAY_BGM(@"Fairwind_loop.mp3");
     
     BGGameManager *manager = [BGGameManager node];
     [scene addChild:manager];
@@ -103,7 +107,8 @@
         return manager.currentGameState;
     };
     
-    mainLayer.onPressedRestartButton = ^(){        
+    mainLayer.onPressedRestartButton = ^(){
+        STOP_BGM;
         [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
