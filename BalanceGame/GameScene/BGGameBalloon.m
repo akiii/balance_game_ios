@@ -36,6 +36,14 @@
     return balloon;
 }
 
+- (void)showSpriteLikePopup:(CCSprite *)sprite position:(CGPoint)position{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CGPoint center = ccp(screenSize.width/2, screenSize.height/2);
+    sprite.position = center;
+    sprite.scale = 0;
+    [sprite runAction:[CCSequence actions:[CCSpawn actions:[CCScaleTo actionWithDuration:0.1 scale:1.1], [CCMoveTo actionWithDuration:0.3 position:position], nil], [CCScaleTo actionWithDuration:0.01 scale:1.0], nil]];
+}
+
 - (void)showWithWords:(NSArray *)wordLabels imagesAnimationFrame:(NSArray *)frame{
     for (CCLabelTTF *l in self.labels) {
         [self removeChild:l cleanup:YES];
@@ -56,6 +64,8 @@
     [self addChild:image];
     
     [image runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCAnimate actionWithAnimation:[CCAnimation animationWithSpriteFrames:frame delay:0.8]], nil]]];
+    
+    [self showSpriteLikePopup:self position:self.position];
 }
 
 - (void)notShow{
