@@ -14,6 +14,7 @@
 
 #import "BGSelectUseFacebookScene.h"
 #import "BGSelectFacebookFriendScene.h"
+#import "BGSelectCourseScene.h"
 
 #import "BGBGMPlayer.h"
 #import "BGSEPlayer.h"
@@ -34,6 +35,18 @@
     mainLayer.onPressedStartButton = ^(){
         STOP_BGM;
         PLAY_SE(@"click1.mp3");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"facebookで友達ですか？" delegate:scene cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+        [alert show];
+        [alert release];        
+    };
+    
+    return scene;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+    }else if (buttonIndex == 1) {
         if (((AppController *)[UIApplication sharedApplication].delegate).session.state == FBSessionStateCreated) {
             [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectUseFacebookScene scene] withColor:ccc3(0, 0, 0)]];
         }else {
@@ -42,9 +55,7 @@
                 [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
             };
         }
-    };
-    
-    return scene;
+    }
 }
 
 @end

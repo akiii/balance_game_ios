@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BGTopScene : CCScene {
+@interface BGTopScene : CCScene <UIAlertViewDelegate> {
     
 }
 + (BGTopScene *)scene;
