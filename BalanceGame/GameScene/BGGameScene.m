@@ -54,7 +54,7 @@
         ccTime time = 3.0;
         [mainLayer clearWithShowTime:time];
         [scene runAction:[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallBlock actionWithBlock:^(){
-            if (manager.currentQuestionCount == 3) {
+            if (manager.currentQuestionCount == 2) {
                 [backgroundLayer night];
             }
             [manager nextQuestion];
