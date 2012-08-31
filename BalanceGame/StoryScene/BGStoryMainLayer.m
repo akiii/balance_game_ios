@@ -68,7 +68,7 @@ int labelPositionY;
     
     //----スキップボタン----
     
-    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"skip_button.png" selectedImage:@"start_button.png" block:^(id sender){
+    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"skip_button.png" selectedImage:@"skip_button.png" block:^(id sender){
         if (self.onPressedSkipButton) {
             self.onPressedSkipButton();
             //                [self removeChild:myMask cleanup:YES];
