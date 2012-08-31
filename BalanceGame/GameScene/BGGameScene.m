@@ -65,11 +65,15 @@
             if (manager.currentQuestionCount == 2) {
                 [backgroundLayer night];
             }
-            [manager nextQuestion];
+            if (manager.currentGameState != GameStateOver) {
+                [manager nextQuestion];
+            }
         }], nil]];
         
-        if (manager.currentQuestionCount > 2) {
-            [mainLayer showFireworks];
+        if (manager.currentQuestionCount == 5) {
+            [mainLayer showFireworksForever:YES];
+        }else if (manager.currentQuestionCount > 2) {
+            [mainLayer showFireworksForever:NO];
         }
     };
     
