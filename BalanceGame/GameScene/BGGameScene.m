@@ -21,7 +21,8 @@
     BGGameManager *manager = [BGGameManager node];
     [scene addChild:manager];
     
-    [scene addChild:[BGGameCityLayer node]];
+    BGGameCityLayer *backgroundLayer = [BGGameCityLayer node];
+    [scene addChild:backgroundLayer];
     
     BGGameMainLayer *mainLayer = [BGGameMainLayer layerWithTower:tower];
     [scene addChild:mainLayer];
@@ -50,7 +51,14 @@
     };
     
     mainLayer.onNextButtonPressed = ^(){
-        [manager nextQuestion];
+        ccTime time = 3.0;
+        [mainLayer clearWithShowTime:time];
+        [scene runAction:[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallBlock actionWithBlock:^(){
+            if (manager.currentQuestionCount == 3) {
+                [backgroundLayer night];
+            }
+            [manager nextQuestion];
+        }], nil]];
     };
     
     mainLayer.isOnLeftArea = ^(){
