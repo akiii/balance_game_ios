@@ -20,6 +20,7 @@ typedef enum {
     
 }
 @property (readonly) GameState currentGameState;
+@property (readonly) NSMutableArray *questionsOrder;
 @property (readonly) int currentQuestionCount;
 @property (readonly) ccTime gameTime, awayTouchTime;
 @property (readonly) BOOL onLeftTouchArea, onRightTouchArea, isBalloonHidden;

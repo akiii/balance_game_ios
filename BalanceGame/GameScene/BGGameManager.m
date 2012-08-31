@@ -14,12 +14,27 @@
 #define kImageAnimationFrames   @"image_animation_frames"
 
 @implementation BGGameManager
-@synthesize currentGameState = _currentGameState, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle;
+@synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle;
 @synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration;
 
 - (id)init{
     if (self = [super init]) {
+        srand(time(NULL));
+        
         _currentGameState = GameStateTouch;
+        _questionsOrder = [[NSMutableArray array] retain];
+
+        NSMutableArray *firstHalf = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], nil];
+        NSMutableArray *secondHalf = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:3], [NSNumber numberWithInt:4], [NSNumber numberWithInt:5], nil];
+        [self swap:firstHalf times:10];
+        [self swap:secondHalf times:10];
+        
+        [_questionsOrder addObjectsFromArray:firstHalf];
+        [_questionsOrder addObjectsFromArray:secondHalf];
+        
+        for (int i = 0; i < 5; i++) {
+            [_questionsOrder addObject:[NSNumber numberWithInt:i+1]];
+        }
         _currentQuestionCount = 1;
         _gameTime = 0;
         _awayTouchTime = 3.0;
@@ -75,12 +90,19 @@
     }
 }
 
+- (void)swap:(NSMutableArray *)array times:(int)times{
+    for (int i = 0; i < times; i++) {
+        [array exchangeObjectAtIndex:rand()%array.count withObjectAtIndex:rand()%array.count];
+    }
+}
+
 - (NSDictionary *)getQuestionDictionary{
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"questions" ofType:@"plist"]];
 //    int difficuly = 1;
 //    int question = (_currentQuestionCount - 1) % 8 + 1;
 //    NSDictionary *questionDic = [[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
-    int question = (_currentQuestionCount - 1) % 5 + 1;
+//    int question = (_currentQuestionCount - 1) % 5 + 1;
+    int question = [[_questionsOrder objectAtIndex:_currentQuestionCount - 1] intValue];
     NSDictionary *questionDic = [[[[dic objectForKey:@"TowerNumber"] objectForKey:[NSString stringWithFormat:@"%d", 1]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
     
     NSMutableString *word = [NSMutableString stringWithString:[questionDic objectForKey:@"Word"]];
@@ -166,6 +188,11 @@
     [self runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
         [BGGameVibrator vibrate];
     }], [CCDelayTime actionWithDuration:0.1], nil] times:100]];
+}
+
+- (void)dealloc{
+    [_questionsOrder release];
+    [super dealloc];
 }
 
 @end
