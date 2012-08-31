@@ -26,13 +26,21 @@
 }
 
 - (void)night{
-    [self removeChild:self.background cleanup:YES];
-    
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
-    self.background = [CCSprite spriteWithFile:@"city_night.png"];
-    self.background.position = ccp(screenSize.width/2, screenSize.height/2);
-    [self addChild:self.background];
+    CCSprite *night = [CCSprite spriteWithFile:@"city_night.png"];
+    night.position = ccp(screenSize.width/2, screenSize.height/2);
+    [self addChild:night];
+    night.opacity = 0;
+
+    ccTime actionTime = 2.0;
+    [self runAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
+        [self.background runAction:[CCFadeOut actionWithDuration:actionTime]];
+        [night runAction:[CCFadeIn actionWithDuration:actionTime]];
+    }], [CCDelayTime actionWithDuration:actionTime], [CCCallBlock actionWithBlock:^(){
+        [self removeChild:self.background cleanup:YES];
+        self.background = night;
+    }], nil]];
 }
 
 @end
