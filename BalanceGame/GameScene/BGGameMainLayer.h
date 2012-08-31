@@ -30,4 +30,5 @@
 - (void)notShowBalloon;
 - (void)clearWithShowTime:(ccTime)time;
 - (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration;
+- (void)allClear;
 @end

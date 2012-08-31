@@ -14,6 +14,7 @@ typedef enum {
     GameStateQuestion,
     GameStatePlaing,
     GameStateOver,
+    GameStateAllClear
 } GameState;
 
 @interface BGGameManager : CCNode {
@@ -29,6 +30,7 @@ typedef enum {
 @property (nonatomic, copy) void (^onShowBalloon)(NSArray *words, NSArray *frame);
 @property (nonatomic, copy) void (^onNotShowBalloon)();
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
+@property (nonatomic, copy) void (^onNoticeAllClear)();
 - (void)pressedBalloonOkButton;
 - (void)nextQuestion;
 - (void)setOnLeftTouchArea:(BOOL)flag;

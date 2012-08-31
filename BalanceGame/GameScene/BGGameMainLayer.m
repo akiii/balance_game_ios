@@ -170,6 +170,32 @@ enum _BGGameMainLayerZ{
     }], nil]];
 }
 
+- (void)allClear{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    ccTime actionTime = 0.8;
+    CCLabelTTF *clear = [CCLabelTTF labelWithString:@"All Clear" fontName:@"American Typewriter" fontSize:72];
+    clear.color = ccc3(255, 0, 0);
+    clear.scale = 0.0;
+    clear.position = ccp(screenSize.width/2, screenSize.height/2);
+    [self addChild:clear z:BGGameMainLayerZLabel];
+    
+    [clear runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:actionTime scale:1.0] rate:10]];
+    
+    double delayInSeconds = actionTime;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        CCMenuItemImage *restartButton = [CCMenuItemImage itemWithNormalImage:@"restart_button.png" selectedImage:@"restart_button_on.png" block:^(id sender){
+            if (self.onPressedRestartButton) self.onPressedRestartButton();
+        }];
+        restartButton.position = ccp(screenSize.width/2, screenSize.height/4);
+        
+        CCMenu *menu = [CCMenu menuWithItems:restartButton, nil];
+        menu.position = ccp(0, 0);
+        [self addChild:menu z:BGGameMainLayerZLabel];
+    });
+}
+
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in [touches allObjects]) {
         CGPoint cp = [self convertTouchToNodeSpace: touch];

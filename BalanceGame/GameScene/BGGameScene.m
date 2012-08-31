@@ -46,6 +46,10 @@
         [mainLayer moveTowerWithAngle:manager.towerAngle acceleration:acceleration];
     };
     
+    manager.onNoticeAllClear = ^(){
+        [mainLayer allClear];
+    };
+    
     mainLayer.onOkButtonPressed = ^(){
         [manager pressedBalloonOkButton];
     };

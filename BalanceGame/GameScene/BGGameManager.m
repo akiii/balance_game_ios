@@ -15,7 +15,7 @@
 
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle;
-@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration;
+@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear;
 
 - (id)init{
     if (self = [super init]) {
@@ -137,9 +137,14 @@
 }
 
 - (void)nextQuestion{
-    _currentGameState = GameStateQuestion;
-    _currentQuestionCount += 1;
-    _awayTouchTime = 3.0;
+    if (_currentQuestionCount == 5) {
+        _currentGameState = GameStateAllClear;
+        if (self.onNoticeAllClear) self.onNoticeAllClear();
+    }else if (_currentQuestionCount < 5) {
+        _currentGameState = GameStateQuestion;
+        _currentQuestionCount += 1;
+        _awayTouchTime = 3.0;
+    }
 }
 
 - (void)setOnLeftTouchArea:(BOOL)flag{
