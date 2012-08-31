@@ -260,6 +260,7 @@
 		B8DB184415EF7A150040BB67 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8DB184315EF7A150040BB67 /* FacebookSDKResources.bundle */; };
 		B8DB184915EF85920040BB67 /* BGSelectFacebookFriendScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB184815EF85920040BB67 /* BGSelectFacebookFriendScene.m */; };
 		B8DB184C15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB184B15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m */; };
+		D01FC42E15F0734700591E4D /* CCMask.m in Sources */ = {isa = PBXBuildFile; fileRef = D01FC42D15F0734700591E4D /* CCMask.m */; };
 		D038ED6E15F04B8E008F1173 /* bgm_top.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D038ED6D15F04B8E008F1173 /* bgm_top.mp3 */; };
 		D038ED7115F055E2008F1173 /* BGStoryMask-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D038ED6F15F055E2008F1173 /* BGStoryMask-hd.png */; };
 		D038ED7215F055E2008F1173 /* BGStoryMask.png in Resources */ = {isa = PBXBuildFile; fileRef = D038ED7015F055E2008F1173 /* BGStoryMask.png */; };
@@ -687,6 +688,8 @@
 		B8DB184815EF85920040BB67 /* BGSelectFacebookFriendScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectFacebookFriendScene.m; sourceTree = "<group>"; };
 		B8DB184A15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectFacebookFriendTableLayer.h; sourceTree = "<group>"; };
 		B8DB184B15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectFacebookFriendTableLayer.m; sourceTree = "<group>"; };
+		D01FC42C15F0734700591E4D /* CCMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMask.h; sourceTree = "<group>"; };
+		D01FC42D15F0734700591E4D /* CCMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMask.m; sourceTree = "<group>"; };
 		D038ED6D15F04B8E008F1173 /* bgm_top.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_top.mp3; sourceTree = "<group>"; };
 		D038ED6F15F055E2008F1173 /* BGStoryMask-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BGStoryMask-hd.png"; sourceTree = "<group>"; };
 		D038ED7015F055E2008F1173 /* BGStoryMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGStoryMask.png; sourceTree = "<group>"; };
@@ -1198,6 +1201,8 @@
 				B881545015F05906005CDC6F /* BGStoryMainLayer.m */,
 				B881545115F05906005CDC6F /* BGStoryScene.h */,
 				B881545215F05906005CDC6F /* BGStoryScene.m */,
+				D01FC42C15F0734700591E4D /* CCMask.h */,
+				D01FC42D15F0734700591E4D /* CCMask.m */,
 			);
 			path = StoryScene;
 			sourceTree = "<group>";
@@ -1684,6 +1689,7 @@
 				B881545315F05906005CDC6F /* BGStoryBackgroundLayer.m in Sources */,
 				B881545415F05906005CDC6F /* BGStoryMainLayer.m in Sources */,
 				B881545515F05906005CDC6F /* BGStoryScene.m in Sources */,
+				D01FC42E15F0734700591E4D /* CCMask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
