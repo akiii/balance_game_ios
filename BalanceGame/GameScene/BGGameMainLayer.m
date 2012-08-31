@@ -156,6 +156,18 @@ enum _BGGameMainLayerZ{
     return CGRectMake(sprite.position.x - sprite.contentSize.width/2, sprite.position.y - sprite.contentSize.height/2, sprite.contentSize.width, sprite.contentSize.height);
 }
 
+- (void)clearWithShowTime:(ccTime)time{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+
+    CCSprite *circle = [CCSprite spriteWithFile:@"circle.png"];
+    circle.position = ccp(screenSize.width/2, screenSize.height/2);
+    [self addChild:circle];
+    
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallBlock actionWithBlock:^(){
+        [self removeChild:circle cleanup:YES];
+    }], nil]];
+}
+
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in [touches allObjects]) {
         CGPoint cp = [self convertTouchToNodeSpace: touch];

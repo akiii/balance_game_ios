@@ -28,5 +28,6 @@
 - (void)notShowNextButton;
 - (void)showBalloonWithWords:(NSArray *)words imagesAnimationFrame:(NSArray *)frame;
 - (void)notShowBalloon;
+- (void)clearWithShowTime:(ccTime)time;
 - (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration;
 @end
