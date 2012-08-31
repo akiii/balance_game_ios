@@ -52,6 +52,7 @@ static BGFacebookManager *shared = nil;
                             u.pictureUrl = [d objectForKey:@"picture"];
                         }
                         self.setUsers = YES;
+                        if (self.onSetUsers) self.onSetUsers();
                     });
                 }
                 

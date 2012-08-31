@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSMutableArray *friends;
 @property (assign) BOOL setUsers;
 @property (nonatomic, copy) void (^onGotUsersDictionary)(NSDictionary *dic);
+@property (nonatomic, copy) void (^onSetUsers)();
 - (void)requestUsers;
 @end
