@@ -32,7 +32,7 @@ int labelPositionY;
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     // 文字を表示する
-    titleName = @"むかしむかしあるところにそれはそれは\r\nファンキーなおじいさんとおばあさんが\n住んでおりました。ある日おじいさんは\nザギンでシースーに、おばあさんは\n渋谷のクラブで一晩中踊りに行きました。\nいつもは何人ものキャッチに声を\nかけられるおばあさん\nですが、今日はちょっと様子が違います。";
+    titleName = @"むかしむかしあるところにそれはそれは\r\nファンキーなおじいさんとおばあさんが\n住んでおりました。ある日おじいさんは\nザギンでシースーに、おばあさんは渋谷の\nディスコで一晩中踊りに行きました。\nいつもは何人ものキャッチに声を\nかけられるおばあさんですが、\n今日はちょっと様子が違います。";
     
     // 文字数が多い場合 lineBreakMode で調整 (テクスチャサイズが大きくなる為)
     /*
@@ -68,7 +68,7 @@ int labelPositionY;
     
     //----スキップボタン----
     
-    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button_on.png" block:^(id sender){
+    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"skip_button.png" selectedImage:@"start_button.png" block:^(id sender){
         if (self.onPressedSkipButton) {
             self.onPressedSkipButton();
             //                [self removeChild:myMask cleanup:YES];
@@ -92,8 +92,11 @@ int labelPositionY;
     // 文字の位置を移動する
     labelPositionY = labelPositionY + 1.5;
     
-    if(labelPositionY > 340 + 340){
-        labelPositionY = 10;
+    if(labelPositionY > 340 + 100){
+//        labelPositionY = 10;
+        
+        //タイトル画面へ遷移
+        //self.onPressedSkipButton();
     }
     
     self.scrollLabel.position = ccp(screenSize.width/2, labelPositionY);
