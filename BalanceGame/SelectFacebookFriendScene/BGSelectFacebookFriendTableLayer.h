@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BGSelectFacebookFriendTableLayer : CCLayer <UITableViewDelegate> {
+@interface BGSelectFacebookFriendTableLayer : CCLayer <UITableViewDelegate, UITableViewDataSource> {
     
 }
-
+@property (nonatomic, retain) void (^onPressedFacebookFriend)();
 @end
