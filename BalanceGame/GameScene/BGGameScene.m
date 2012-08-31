@@ -65,7 +65,9 @@
             if (manager.currentQuestionCount == 2) {
                 [backgroundLayer night];
             }
-            [manager nextQuestion];
+            if (manager.currentGameState != GameStateOver) {
+                [manager nextQuestion];
+            }
         }], nil]];
         
         if (manager.currentQuestionCount == 5) {
