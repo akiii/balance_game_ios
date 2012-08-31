@@ -13,7 +13,7 @@
 #import "BGFacebookManager.h"
 
 #import "BGSelectUseFacebookScene.h"
-#import "BGSelectCourseScene.h"
+#import "BGSelectFacebookFriendScene.h"
 
 #import "BGBGMPlayer.h"
 #import "BGSEPlayer.h"
@@ -38,7 +38,9 @@
             [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectUseFacebookScene scene] withColor:ccc3(0, 0, 0)]];
         }else {
             [[BGFacebookManager sharedManager] requestUsers];
-            [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+            [BGFacebookManager sharedManager].onSetUsers = ^(){
+                [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
+            };
         }
     };
     

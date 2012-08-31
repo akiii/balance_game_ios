@@ -8,6 +8,7 @@
 
 #import "BGSelectUseFacebookScene.h"
 #import "BGSelectUseFacebookMainLayer.h"
+#import "BGFacebookManager.h"
 
 #import "BGSelectCourseScene.h"
 
@@ -25,8 +26,11 @@
             session = [[FBSession alloc] init];
         }
         [session openWithBehavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-            if (!error) {                
-                [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+            if (!error) {
+                [[BGFacebookManager sharedManager] requestUsers];
+                [BGFacebookManager sharedManager].onSetUsers = ^(){
+                    [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+                };
             }else {
             }
         }];
