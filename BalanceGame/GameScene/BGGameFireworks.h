@@ -12,5 +12,6 @@
 @interface BGGameFireworks : CCNode {
     
 }
-+ (CCNode *)shotWithColor;
+@property (nonatomic, copy) void (^onFinished)();
+- (void)shotWithColor:(ccColor4F)color;
 @end
