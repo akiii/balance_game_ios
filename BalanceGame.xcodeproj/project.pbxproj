@@ -145,6 +145,8 @@
 		B881545315F05906005CDC6F /* BGStoryBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B881544E15F05906005CDC6F /* BGStoryBackgroundLayer.m */; };
 		B881545415F05906005CDC6F /* BGStoryMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B881545015F05906005CDC6F /* BGStoryMainLayer.m */; };
 		B881545515F05906005CDC6F /* BGStoryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B881545215F05906005CDC6F /* BGStoryScene.m */; };
+		B881545815F05A4A005CDC6F /* circle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B881545615F05A4A005CDC6F /* circle-hd.png */; };
+		B881545915F05A4A005CDC6F /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = B881545715F05A4A005CDC6F /* circle.png */; };
 		B8887F4015EB6C9D0072D737 /* BGGameBalloon.m in Sources */ = {isa = PBXBuildFile; fileRef = B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */; };
 		B888809415EC845D0072D737 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B888809315EC845D0072D737 /* questions.plist */; };
 		B888809F15EDA08A0072D737 /* BGBGMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B888809E15EDA08A0072D737 /* BGBGMPlayer.m */; };
@@ -558,6 +560,8 @@
 		B881545015F05906005CDC6F /* BGStoryMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGStoryMainLayer.m; sourceTree = "<group>"; };
 		B881545115F05906005CDC6F /* BGStoryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGStoryScene.h; sourceTree = "<group>"; };
 		B881545215F05906005CDC6F /* BGStoryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGStoryScene.m; sourceTree = "<group>"; };
+		B881545615F05A4A005CDC6F /* circle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-hd.png"; sourceTree = "<group>"; };
+		B881545715F05A4A005CDC6F /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		B8887F3E15EB6C9D0072D737 /* BGGameBalloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameBalloon.h; sourceTree = "<group>"; };
 		B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameBalloon.m; sourceTree = "<group>"; };
 		B888809315EC845D0072D737 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
@@ -1218,6 +1222,8 @@
 			children = (
 				D038ED6F15F055E2008F1173 /* BGStoryMask-hd.png */,
 				D038ED7015F055E2008F1173 /* BGStoryMask.png */,
+				B881545615F05A4A005CDC6F /* circle-hd.png */,
+				B881545715F05A4A005CDC6F /* circle.png */,
 				B888814315EDF73E0072D737 /* Pictures */,
 				D064C19A15EDB100003EEA28 /* stars-grayscale.png */,
 				D064C19B15EDB100003EEA28 /* stars.png */,
@@ -1538,6 +1544,8 @@
 				D038ED6E15F04B8E008F1173 /* bgm_top.mp3 in Resources */,
 				D038ED7115F055E2008F1173 /* BGStoryMask-hd.png in Resources */,
 				D038ED7215F055E2008F1173 /* BGStoryMask.png in Resources */,
+				B881545815F05A4A005CDC6F /* circle-hd.png in Resources */,
+				B881545915F05A4A005CDC6F /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
