@@ -8,6 +8,7 @@
 
 #import "BGGameMainLayer.h"
 #import "BGGameBalloon.h"
+#import "BGGameFireworks.h"
 
 enum _BGGameMainLayerZ{
     BGGameMainLayerZTower       = 0,
@@ -168,6 +169,30 @@ enum _BGGameMainLayerZ{
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallBlock actionWithBlock:^(){
         [self removeChild:circle cleanup:YES];
     }], nil]];
+}
+
+- (void)showFireworks{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    NSMutableArray *blocks = [NSMutableArray array];
+    for (int i = 0; i < 30; i++) {
+        [blocks addObjectsFromArray:[NSArray arrayWithObjects:[CCCallBlock actionWithBlock:^(){
+            BGGameFireworks *firewords = [BGGameFireworks node];
+            float x = rand()%(int)screenSize.width;
+            float y = rand()%100 + 100;
+            firewords.position = ccp(x, y);
+            float r = rand()%10 / 10.0;
+            float g = rand()%10 / 10.0;
+            float b = rand()%10 / 10.0;
+            [firewords shotWithColor:ccc4f(r, g, b, 1)];
+            [self addChild:firewords];
+            firewords.onFinished = ^(){
+                [self removeChild:firewords cleanup:YES];
+            };
+        }], [CCDelayTime actionWithDuration:0.1], nil]];
+    }
+    
+    [self runAction:[CCSequence actionWithArray:blocks]];
 }
 
 - (void)allClear{
