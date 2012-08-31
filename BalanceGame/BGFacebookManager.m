@@ -14,7 +14,7 @@ static BGFacebookManager *shared = nil;
 
 @implementation BGFacebookManager
 @synthesize currentUser, friends, usersDictionary, setUsers;
-@synthesize onGotUsersDictionary;
+@synthesize onGotUsersDictionary, onSetUsers;
 
 + (BGFacebookManager *)sharedManager{
     if (!shared) {
