@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface BGStoryScene : CCScene {
-    
+
 }
 
 + (BGStoryScene *)scene;

@@ -11,6 +11,8 @@
 #import "BGStoryMainLayer.h"
 #import "BGStoryBackgroundLayer.h"
 
+#import "CCMask.h"
+
 #import "BGTopScene.h"
 
 #import "BGBGMPlayer.h"
