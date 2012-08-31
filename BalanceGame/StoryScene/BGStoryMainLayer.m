@@ -32,7 +32,7 @@ int labelPositionY;
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     // 文字を表示する
-    titleName = @"むかしむかしあるところにそれはそれは\r\nファンキーなおじいさんとおばあさんが\n住んでおりました。おじいさんはザギンで\nシースーに、おばあさんは\n渋谷のクラブで踊りに行きました。\n";
+    titleName = @"むかしむかしあるところにそれはそれは\r\nファンキーなおじいさんとおばあさんが\n住んでおりました。ある日おじいさんは\nザギンでシースーに、おばあさんは\n渋谷のクラブで一晩中踊りに行きました。\nいつもは何人ものキャッチに声を\nかけられるおばあさん\nですが、今日はちょっと様子が違います。";
     
     // 文字数が多い場合 lineBreakMode で調整 (テクスチャサイズが大きくなる為)
     /*
@@ -92,7 +92,7 @@ int labelPositionY;
     // 文字の位置を移動する
     labelPositionY = labelPositionY + 1.5;
     
-    if(labelPositionY > 330){
+    if(labelPositionY > 340 + 340){
         labelPositionY = 10;
     }
     
