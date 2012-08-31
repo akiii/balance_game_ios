@@ -38,7 +38,7 @@
             [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectUseFacebookScene scene] withColor:ccc3(0, 0, 0)]];
         }else {
             [[BGFacebookManager sharedManager] requestUsers];
-            [BGFacebookManager sharedManager].onSetUsers = ^(){
+            [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){
                 [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
             };
         }

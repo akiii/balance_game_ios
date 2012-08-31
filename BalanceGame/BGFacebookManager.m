@@ -13,7 +13,7 @@
 static BGFacebookManager *shared = nil;
 
 @implementation BGFacebookManager
-@synthesize currentUser, friends, setUsers;
+@synthesize currentUser, friends, usersDictionary, setUsers;
 @synthesize onGotUsersDictionary;
 
 + (BGFacebookManager *)sharedManager{
@@ -28,20 +28,22 @@ static BGFacebookManager *shared = nil;
 
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"name, picture", @"fields", nil];
     
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    self.usersDictionary = [NSMutableDictionary dictionary];
 
     FBRequest *reqMe = [[FBRequest alloc] initWithSession:session graphPath:@"me" parameters:params HTTPMethod:@"GET"];
     FBRequest *reqFriends = [[FBRequest alloc] initWithSession:session graphPath:@"me/friends" parameters:params HTTPMethod:@"GET"];
 
     [reqMe startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
-            [dic setObject:result forKey:@"me"];            
+            [self.usersDictionary setObject:result forKey:kMe];
             [reqFriends startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSArray *fs = [result objectForKey:@"data"];
-                    [dic setObject:fs forKey:@"friends"];
+                    [self.usersDictionary setObject:fs forKey:kFriends];
                     
-                    if (self.onGotUsersDictionary) self.onGotUsersDictionary(dic);
+                    if (self.onGotUsersDictionary) self.onGotUsersDictionary();
+                    
+                    self.friends = [NSMutableArray array];
                     
                     dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                     dispatch_async(q, ^(){
@@ -50,6 +52,7 @@ static BGFacebookManager *shared = nil;
                             u.userId = [d objectForKey:@"id"];
                             u.name = [d objectForKey:@"name"];
                             u.pictureUrl = [d objectForKey:@"picture"];
+                            [self.friends addObject:u];
                         }
                         self.setUsers = YES;
                         if (self.onSetUsers) self.onSetUsers();

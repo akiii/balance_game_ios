@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "BGFacebookUser.h"
 
+#define kMe         @"me"
+#define kFriends    @"friends"
+
 @interface BGFacebookManager : NSObject
 + (BGFacebookManager *)sharedManager;
 @property (nonatomic, retain) BGFacebookUser *currentUser;
 @property (nonatomic, retain) NSMutableArray *friends;
+@property (nonatomic, retain) NSMutableDictionary *usersDictionary;
 @property (assign) BOOL setUsers;
-@property (nonatomic, copy) void (^onGotUsersDictionary)(NSDictionary *dic);
+@property (nonatomic, copy) void (^onGotUsersDictionary)();
 @property (nonatomic, copy) void (^onSetUsers)();
 - (void)requestUsers;
 @end
