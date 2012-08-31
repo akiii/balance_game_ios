@@ -13,5 +13,5 @@
 @interface BGGameCityLayer : BGGameBackgroundLayer {
     
 }
-
+- (void)night;
 @end
