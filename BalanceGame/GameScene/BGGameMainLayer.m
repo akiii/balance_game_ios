@@ -171,7 +171,7 @@ enum _BGGameMainLayerZ{
     }], nil]];
 }
 
-- (void)showFireworks{
+- (void)showFireworksForever:(BOOL)forever{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     NSMutableArray *blocks = [NSMutableArray array];
@@ -179,7 +179,7 @@ enum _BGGameMainLayerZ{
         [blocks addObjectsFromArray:[NSArray arrayWithObjects:[CCCallBlock actionWithBlock:^(){
             BGGameFireworks *firewords = [BGGameFireworks node];
             float x = rand()%(int)screenSize.width;
-            float y = rand()%100 + 100;
+            float y = rand()%100 + 50;
             firewords.position = ccp(x, y);
             float r = rand()%10 / 10.0;
             float g = rand()%10 / 10.0;
@@ -192,28 +192,26 @@ enum _BGGameMainLayerZ{
         }], [CCDelayTime actionWithDuration:0.1], nil]];
     }
     
-    [self runAction:[CCSequence actionWithArray:blocks]];
+    if (forever) {
+        [self runAction:[CCRepeatForever actionWithAction:[CCSequence actionWithArray:blocks]]];
+    }else {
+        [self runAction:[CCSequence actionWithArray:blocks]];
+    }
 }
 
 - (void)allClear{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
+    self.leftTouchArea.visible = self.rightTouchArea.visible = NO;
+    
     ccTime actionTime = 0.8;
-    CCLabelTTF *clear = [CCLabelTTF labelWithString:@"All Clear" fontName:@"American Typewriter" fontSize:72];
-    clear.color = ccc3(255, 0, 0);
-    clear.scale = 0.0;
-    clear.position = ccp(screenSize.width/2, screenSize.height/2);
-    [self addChild:clear z:BGGameMainLayerZLabel];
-    
-    [clear runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:actionTime scale:1.0] rate:10]];
-    
     double delayInSeconds = actionTime;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         CCMenuItemImage *restartButton = [CCMenuItemImage itemWithNormalImage:@"restart_button.png" selectedImage:@"restart_button_on.png" block:^(id sender){
             if (self.onPressedRestartButton) self.onPressedRestartButton();
         }];
-        restartButton.position = ccp(screenSize.width/2, screenSize.height/4);
+        restartButton.position = ccp(screenSize.width/2, screenSize.height/5);
         
         CCMenu *menu = [CCMenu menuWithItems:restartButton, nil];
         menu.position = ccp(0, 0);

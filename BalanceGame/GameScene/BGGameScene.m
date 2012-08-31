@@ -68,8 +68,10 @@
             [manager nextQuestion];
         }], nil]];
         
-        if (manager.currentQuestionCount > 2) {
-            [mainLayer showFireworks];
+        if (manager.currentQuestionCount == 5) {
+            [mainLayer showFireworksForever:YES];
+        }else if (manager.currentQuestionCount > 2) {
+            [mainLayer showFireworksForever:NO];
         }
     };
     
