@@ -13,4 +13,6 @@
     
 }
 
+@property (nonatomic, retain) BGStoryBackgroundLayer *storyBGImage;
+
 @end
