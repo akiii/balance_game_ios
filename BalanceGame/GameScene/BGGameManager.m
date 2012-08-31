@@ -77,9 +77,11 @@
 
 - (NSDictionary *)getQuestionDictionary{
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"questions" ofType:@"plist"]];
-    int difficuly = 1;
-    int question = (_currentQuestionCount - 1) % 8 + 1;
-    NSDictionary *questionDic = [[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
+//    int difficuly = 1;
+//    int question = (_currentQuestionCount - 1) % 8 + 1;
+//    NSDictionary *questionDic = [[[[dic objectForKey:@"Difficulty"] objectForKey:[NSString stringWithFormat:@"%d", difficuly]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
+    int question = (_currentQuestionCount - 1) % 5 + 1;
+    NSDictionary *questionDic = [[[[dic objectForKey:@"TowerNumber"] objectForKey:[NSString stringWithFormat:@"%d", 1]] objectForKey:@"Tag"] objectForKey:[NSString stringWithFormat:@"%d", question]];
     
     NSMutableString *word = [NSMutableString stringWithString:[questionDic objectForKey:@"Word"]];
     NSArray *imageStrings = [questionDic objectForKey:@"Images"];
