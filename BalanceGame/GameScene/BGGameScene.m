@@ -34,7 +34,6 @@
     manager.onShowBalloon = ^(NSArray *words, NSArray *frame){
         [mainLayer showBalloonWithWords:words imagesAnimationFrame:frame];
         [mainLayer notShowNextButton];
-
     };
     
     manager.onNotShowBalloon = ^(){
@@ -55,7 +54,12 @@
     };
     
     mainLayer.onNextButtonPressed = ^(){
-        ccTime time = 3.0;
+        ccTime time;
+        if (manager.currentQuestionCount < 3) {
+            time = 3.0;
+        }else {
+            time = 5.0;
+        }
         [mainLayer clearWithShowTime:time];
         [scene runAction:[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallBlock actionWithBlock:^(){
             if (manager.currentQuestionCount == 2) {
@@ -63,6 +67,10 @@
             }
             [manager nextQuestion];
         }], nil]];
+        
+        if (manager.currentQuestionCount > 2) {
+            [mainLayer showFireworks];
+        }
     };
     
     mainLayer.isOnLeftArea = ^(){
