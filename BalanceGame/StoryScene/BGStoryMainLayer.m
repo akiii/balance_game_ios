@@ -26,6 +26,7 @@
 @end
 
 @implementation BGStoryMainLayer
+@synthesize onPressedSkipButton;
 
 + (id) createMaskForObject: (CCSprite *) object withMask: (CCSprite *) mask {
 	return [[[self alloc] initWithObject: object mask: mask] autorelease];
@@ -159,6 +160,21 @@
 
 - (void) dealloc {
     [super dealloc];
+}
+
+//スキップボタン
+- (void) onEnter {
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    [super onEnter];
+    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button_on.png" block:^(id sender){
+            if (self.onPressedSkipButton) self.onPressedSkipButton();
+        }];
+    startButton.position = ccp(screenSize.width/2, 50);
+
+    CCMenu *menu = [CCMenu menuWithItems:startButton, nil];
+    menu.position = ccp(0, 0);
+    [self addChild:menu];
+    
 }
 
 @end

@@ -12,6 +12,7 @@
 @interface BGStoryScene : CCScene {
     
 }
+
 + (BGStoryScene *)scene;
 
 @end

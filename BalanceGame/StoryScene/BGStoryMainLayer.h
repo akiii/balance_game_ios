@@ -36,4 +36,6 @@
 // Return the masked object as a sprite
 - (CCSprite *) getMaskedSprite;
 
+@property (nonatomic, copy) void (^onPressedSkipButton)();
+
 @end

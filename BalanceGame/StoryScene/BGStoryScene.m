@@ -9,10 +9,15 @@
 #import "BGStoryScene.h"
 #import "BGStoryBackgroundLayer.h"
 #import "BGStoryMainLayer.h"
-#import "BGBGMPlayer.h"
 #import "BGStoryBackgroundLayer.h"
 
+#import "BGTopScene.h"
+
+#import "BGBGMPlayer.h"
+#import "BGSEPlayer.h"
+
 @implementation BGStoryScene
+
 
 + (BGStoryScene *)scene{
     
@@ -24,6 +29,14 @@
     [scene addChild:mainLayer];
     
     PLAY_BGM(@"bgm1.mp3");
+    
+    mainLayer.onPressedSkipButton = ^(){
+        
+        STOP_BGM;
+        PLAY_SE(@"click1.mp3");
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGTopScene scene] withColor:ccc3(0, 0, 0)]];
+    };
+    
     
     return scene;
 }
