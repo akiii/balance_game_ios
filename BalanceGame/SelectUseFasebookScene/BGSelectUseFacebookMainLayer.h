@@ -14,4 +14,5 @@
 }
 @property (nonatomic, copy) void (^onPressedFacebookLoginButton)();
 @property (nonatomic, copy) void (^onPressedSkipButton)();
+- (void)notActivateButtons;
 @end

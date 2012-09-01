@@ -8,9 +8,13 @@
 
 #import "BGSelectUseFacebookMainLayer.h"
 
+@interface BGSelectUseFacebookMainLayer()
+@property (nonatomic, retain) CCMenu *buttons;
+@end
 
 @implementation BGSelectUseFacebookMainLayer
 @synthesize onPressedFacebookLoginButton, onPressedSkipButton;
+@synthesize buttons;
 
 - (void)onEnter{
     [super onEnter];
@@ -27,9 +31,15 @@
     }];
     skipButton.position = ccp(screenSize.width/2, screenSize.height/4);
     
-    CCMenu *menu = [CCMenu menuWithItems:loginButton, skipButton, nil];
-    menu.position = ccp(0, 0);
-    [self addChild:menu];
+    self.buttons = [CCMenu menuWithItems:loginButton, skipButton, nil];
+    self.buttons.position = ccp(0, 0);
+    [self addChild:self.buttons];
+}
+
+- (void)notActivateButtons{
+    for (CCMenuItemImage *b in buttons.children) {
+        [b setIsEnabled:NO];
+    }
 }
 
 @end
