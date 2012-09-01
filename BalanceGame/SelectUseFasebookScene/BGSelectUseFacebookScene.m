@@ -11,6 +11,7 @@
 #import "BGFacebookManager.h"
 
 #import "BGSelectCourseScene.h"
+#import "BGSelectFacebookFriendScene.h"
 
 @implementation BGSelectUseFacebookScene
 
@@ -22,16 +23,18 @@
     
     mainLayer.onPressedFacebookLoginButton = ^(){
         FBSession *session = ((AppController *)[UIApplication sharedApplication].delegate).session;
-        if (!session || session.state != FBSessionStateCreated) {
-            session = [[FBSession alloc] init];
-        }
+//        if (!session || session.state != FBSessionStateCreated) {
+//            session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"publish_actions", @"photo_upload", @"user_photos", @"read_stream", nil]];
+//            session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"read_stream", nil]];
+//        }
         [session openWithBehavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
             if (!error) {
+                ((AppController *)[UIApplication sharedApplication].delegate).session = session;
+                [mainLayer notActivateButtons];
                 [[BGFacebookManager sharedManager] requestUsers];
-                [BGFacebookManager sharedManager].onSetUsers = ^(){
-                    [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+                [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){
+                    [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
                 };
-            }else {
             }
         }];
     };
