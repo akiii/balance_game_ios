@@ -195,7 +195,7 @@ enum _BGGameMainLayerZ{
     double delayInSeconds = actionTime;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        CCMenuItemImage *restartButton = [CCMenuItemImage itemWithNormalImage:@"restart_button.png" selectedImage:@"restart_button_on.png" block:^(id sender){
+        CCMenuItemImage *restartButton = [CCMenuItemImage itemWithNormalImage:@"restart_button.png" selectedImage:@"restart_button.png" block:^(id sender){
             if (self.onPressedRestartButton) self.onPressedRestartButton();
         }];
         restartButton.position = ccp(screenSize.width/2, screenSize.height/5);
