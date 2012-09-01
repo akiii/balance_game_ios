@@ -8,7 +8,6 @@
 
 #import "BGFacebookManager.h"
 #import "AppDelegate.h"
-#import <FacebookSDK/FacebookSDK.h>
 
 static BGFacebookManager *shared = nil;
 
@@ -36,6 +35,15 @@ static BGFacebookManager *shared = nil;
     [reqMe startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
             [self.usersDictionary setObject:result forKey:kMe];
+            
+            dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_async(q, ^(){
+                self.currentUser = [[[BGFacebookUser alloc] init] autorelease];
+                self.currentUser.userId = [result objectForKey:@"id"];
+                self.currentUser.name = [result objectForKey:@"name"];
+                self.currentUser.pictureUrl = [result objectForKey:@"picture"];                
+            });
+            
             [reqFriends startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSArray *fs = [result objectForKey:@"data"];
@@ -58,16 +66,39 @@ static BGFacebookManager *shared = nil;
                         if (self.onSetUsers) self.onSetUsers();
                     });
                 }
-                
-                dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-                dispatch_async(q, ^(){
-                    self.currentUser = [[[BGFacebookUser alloc] init] autorelease];
-                    self.currentUser.userId = [result objectForKey:@"id"];
-                    self.currentUser.name = [result objectForKey:@"name"];
-                    self.currentUser.pictureUrl = [result objectForKey:@"picture"];
-                });
             }];
         }
+    }];
+}
+
+- (void)postWall{
+    NSLog(@"post wall method");
+
+//    FBSession *session = ((AppController *)[UIApplication sharedApplication].delegate).session;
+    
+//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"name, picture", @"fields", nil];
+
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"test post to wall", @"message", nil];
+//    NSLog(@"activate session : %@", [FBSession activeSession]);
+//    
+//    FBRequest *req = [FBRequest requestWithGraphPath:@"me/feed" parameters:params HTTPMethod:@"POST"];
+//    [req startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//        if (!error) {
+//            NSLog(@"success");
+//        }
+//    }];
+    
+//    UIImage *img = [UIImage imageNamed:@"Default.png"];
+//    [FBRequestConnection startForUploadPhoto:img completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//        if (!error) {
+//            NSLog(@"success");
+//        }else {
+//            NSLog(@"error : %@", error);
+//        }
+//    }];
+    FBRequest *req = [FBRequest requestWithGraphPath:@"feed" parameters:params HTTPMethod:@"POST"];
+    [req startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        NSLog(@"res : %@", result);
     }];
 }
 

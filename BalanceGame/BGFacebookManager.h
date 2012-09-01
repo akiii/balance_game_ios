@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "BGFacebookUser.h"
 
 #define kMe         @"me"
@@ -21,4 +22,5 @@
 @property (nonatomic, copy) void (^onGotUsersDictionary)();
 @property (nonatomic, copy) void (^onSetUsers)();
 - (void)requestUsers;
+- (void)postWall;
 @end
