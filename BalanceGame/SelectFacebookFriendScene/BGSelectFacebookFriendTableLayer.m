@@ -83,7 +83,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView removeFromSuperview];
-    if (self.onPressedFacebookFriend) self.onPressedFacebookFriend();
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if (self.onPressedFacebookFriend) self.onPressedFacebookFriend();
+    });
 }
 
 - (void)dealloc{
