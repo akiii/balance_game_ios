@@ -33,6 +33,7 @@
     PLAY_BGM(@"bgm_top.mp3");
         
     mainLayer.onPressedStartButton = ^(){
+        [mainLayer notActivateButtons];
         STOP_BGM;
         PLAY_SE(@"click1.mp3");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"facebookで友達ですか？" delegate:scene cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];

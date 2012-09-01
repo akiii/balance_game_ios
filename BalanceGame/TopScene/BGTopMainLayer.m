@@ -11,11 +11,15 @@
 
 #define MOVE_TIME 0.22
 
+@interface BGTopMainLayer()
+@property (nonatomic, retain) CCMenu *buttons;
+@end
 
 @implementation BGTopMainLayer
 @synthesize title;
 @synthesize onPressedStartButton;
 @synthesize emitter;
+@synthesize buttons;
 
 - (void)onEnter{
     [super onEnter];  
@@ -38,9 +42,9 @@
     }];
     startButton.position = ccp(screenSize.width/2, 50);
     
-    CCMenu *menu = [CCMenu menuWithItems:startButton, nil];
-    menu.position = ccp(0, 0);
-    [self addChild:menu];
+    self.buttons = [CCMenu menuWithItems:startButton, nil];
+    self.buttons.position = ccp(0, 0);
+    [self addChild:self.buttons];
 }
 
 - (void)shakeTitle {
@@ -69,4 +73,10 @@
     self.emitter.texture = [[CCTextureCache sharedTextureCache] addImage: @"stars-grayscale.png"];
                                 
 }
+- (void)notActivateButtons{
+    for (CCMenuItemImage *b in self.buttons.children) {
+        [b setIsEnabled:NO];
+    }
+}
+
 @end
