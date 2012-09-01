@@ -37,7 +37,7 @@
                            [CCCallFunc actionWithTarget:self selector:@selector(titleEffect)],
                             [CCCallFunc actionWithTarget:self selector:@selector(shakeTitle)],nil]];
     
-    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button_on.png" block:^(id sender){
+    CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"start_button.png" selectedImage:@"start_button.png" block:^(id sender){
         if (self.onPressedStartButton) self.onPressedStartButton();
     }];
     startButton.position = ccp(screenSize.width/2, 50);
