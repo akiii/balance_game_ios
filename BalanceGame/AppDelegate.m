@@ -88,14 +88,14 @@
 	[window_ makeKeyAndVisible];
     
     if (!_session.isOpen) {
-        _session = [[FBSession alloc] init];
+        _session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"publish_stream", nil]];
         if (_session.state == FBSessionStateCreatedTokenLoaded) {
             [_session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                
+                _session = session;
             }];
         }
     }
-	
+    
 	return YES;
 }
 
