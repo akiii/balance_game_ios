@@ -14,7 +14,7 @@
 #define kImageAnimationFrames   @"image_animation_frames"
 
 @implementation BGGameManager
-@synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle;
+@synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle, remainGameTime = _remainGameTime, comatibilityParcent = _comatibilityParcent, totalTowerAngles = _totalTowerAngles, totalPlayGameTime = _totalPlayGameTime, totalGameFrameCount = _totalGameFrameCount;
 @synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear;
 
 - (id)init{
@@ -38,9 +38,14 @@
         _currentQuestionCount = 1;
         _gameTime = 0;
         _awayTouchTime = 3.0;
+        _remainGameTime = 30.0;
         _onLeftTouchArea = _onRightTouchArea = NO;
         _isBalloonHidden = YES;
         _towerAngle = 0;
+        _comatibilityParcent = 50.0;
+        _totalTowerAngles = 0.0;
+        _totalPlayGameTime = 0.0;
+        _totalGameFrameCount = 0;
         
         [self schedule:@selector(timer:)];
     }
@@ -70,6 +75,9 @@
             break;
             
         case GameStatePlaing:
+            _totalPlayGameTime += dt;
+            _totalGameFrameCount++;
+            _totalTowerAngles += _towerAngle;
             if (!_onLeftTouchArea || !_onRightTouchArea) {
                 if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
                 _awayTouchTime -= dt;
@@ -79,6 +87,11 @@
             }else {
                 _awayTouchTime = 3.0;
                 if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
+            }
+            if (_remainGameTime > 0) {
+                _remainGameTime -= dt;
+            }else {
+                [self gameOver];
             }
             break;
             
@@ -138,12 +151,14 @@
 
 - (void)nextQuestion{
     if (_currentQuestionCount == 5) {
+        _comatibilityParcent = ((int)((150 - _totalPlayGameTime) * _totalTowerAngles / _totalGameFrameCount) % 50) + 10 * _currentQuestionCount;
         _currentGameState = GameStateAllClear;
         if (self.onNoticeAllClear) self.onNoticeAllClear();
     }else if (_currentQuestionCount < 5) {
         _currentGameState = GameStateQuestion;
         _currentQuestionCount += 1;
         _awayTouchTime = 3.0;
+        _remainGameTime = 30.0;
     }
 }
 
@@ -181,12 +196,18 @@
             if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
             break;
             
+        case GameStateAllClear:
+            
+//            NSLog(@"total : %f", _totalTowerAngles / _totalGameFrameCount);
+            break;
+            
         default:
             break;
     }
 }
 
 - (void)gameOver{
+    _comatibilityParcent = ((int)((150 - _totalPlayGameTime) * _totalTowerAngles / _totalGameFrameCount) % 50) + 10 * _currentQuestionCount;
     _currentGameState = GameStateOver;
     STOP_LOOP_SE(@"alert.mp3");
     PLAY_SE(@"explosion.mp3");

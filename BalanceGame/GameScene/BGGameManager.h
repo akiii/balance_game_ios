@@ -26,6 +26,11 @@ typedef enum {
 @property (readonly) ccTime gameTime, awayTouchTime;
 @property (readonly) BOOL onLeftTouchArea, onRightTouchArea, isBalloonHidden;
 @property (readonly) float towerAngle;
+@property (readonly) float remainGameTime;
+@property (readonly) float comatibilityParcent;
+@property (readonly) float totalTowerAngles;
+@property (readonly) float totalPlayGameTime;
+@property (readonly) int totalGameFrameCount;
 @property (nonatomic, copy) void (^onShowTouchWarning)(BOOL flag);
 @property (nonatomic, copy) void (^onShowBalloon)(NSArray *words, NSArray *frame);
 @property (nonatomic, copy) void (^onNotShowBalloon)();
