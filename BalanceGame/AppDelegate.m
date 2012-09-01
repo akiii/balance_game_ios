@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "BGStoryScene.h"
 
+#import "NSRails.h"
+
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_, session = _session;
@@ -95,6 +97,8 @@
             }];
         }
     }
+    
+    [[NSRConfig defaultConfig] setAppURL:@"http://akiiisuke.com:3010"];
     
 	return YES;
 }

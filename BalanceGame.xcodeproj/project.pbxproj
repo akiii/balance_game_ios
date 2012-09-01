@@ -148,6 +148,14 @@
 		B881545815F05A4A005CDC6F /* circle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B881545615F05A4A005CDC6F /* circle-hd.png */; };
 		B881545915F05A4A005CDC6F /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = B881545715F05A4A005CDC6F /* circle.png */; };
 		B881546015F094F1005CDC6F /* BGGameFireworks.m in Sources */ = {isa = PBXBuildFile; fileRef = B881545F15F094F1005CDC6F /* BGGameFireworks.m */; };
+		B881555615F26A95005CDC6F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881555515F26A95005CDC6F /* CoreData.framework */; };
+		B881558615F27CEA005CDC6F /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B881557815F27CEA005CDC6F /* NSData+Base64.m */; };
+		B881558715F27CEA005CDC6F /* NSMutableArray+NSRails.m in Sources */ = {isa = PBXBuildFile; fileRef = B881557A15F27CEA005CDC6F /* NSMutableArray+NSRails.m */; };
+		B881558815F27CEA005CDC6F /* NSString+Inflection.m in Sources */ = {isa = PBXBuildFile; fileRef = B881557C15F27CEA005CDC6F /* NSString+Inflection.m */; };
+		B881558915F27CEA005CDC6F /* NSRConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B881557F15F27CEA005CDC6F /* NSRConfig.m */; };
+		B881558A15F27CEA005CDC6F /* NSRRemoteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B881558115F27CEA005CDC6F /* NSRRemoteManagedObject.m */; };
+		B881558B15F27CEA005CDC6F /* NSRRemoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B881558315F27CEA005CDC6F /* NSRRemoteObject.m */; };
+		B881558C15F27CEA005CDC6F /* NSRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B881558515F27CEA005CDC6F /* NSRRequest.m */; };
 		B8887F4015EB6C9D0072D737 /* BGGameBalloon.m in Sources */ = {isa = PBXBuildFile; fileRef = B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */; };
 		B888809415EC845D0072D737 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B888809315EC845D0072D737 /* questions.plist */; };
 		B888809F15EDA08A0072D737 /* BGBGMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B888809E15EDA08A0072D737 /* BGBGMPlayer.m */; };
@@ -574,6 +582,22 @@
 		B881545715F05A4A005CDC6F /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		B881545E15F094F1005CDC6F /* BGGameFireworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameFireworks.h; sourceTree = "<group>"; };
 		B881545F15F094F1005CDC6F /* BGGameFireworks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameFireworks.m; sourceTree = "<group>"; };
+		B881555515F26A95005CDC6F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B881557715F27CEA005CDC6F /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		B881557815F27CEA005CDC6F /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		B881557915F27CEA005CDC6F /* NSMutableArray+NSRails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NSRails.h"; sourceTree = "<group>"; };
+		B881557A15F27CEA005CDC6F /* NSMutableArray+NSRails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NSRails.m"; sourceTree = "<group>"; };
+		B881557B15F27CEA005CDC6F /* NSString+Inflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Inflection.h"; sourceTree = "<group>"; };
+		B881557C15F27CEA005CDC6F /* NSString+Inflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Inflection.m"; sourceTree = "<group>"; };
+		B881557D15F27CEA005CDC6F /* NSRails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSRails.h; sourceTree = "<group>"; };
+		B881557E15F27CEA005CDC6F /* NSRConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSRConfig.h; sourceTree = "<group>"; };
+		B881557F15F27CEA005CDC6F /* NSRConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRConfig.m; sourceTree = "<group>"; };
+		B881558015F27CEA005CDC6F /* NSRRemoteManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSRRemoteManagedObject.h; sourceTree = "<group>"; };
+		B881558115F27CEA005CDC6F /* NSRRemoteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRRemoteManagedObject.m; sourceTree = "<group>"; };
+		B881558215F27CEA005CDC6F /* NSRRemoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSRRemoteObject.h; sourceTree = "<group>"; };
+		B881558315F27CEA005CDC6F /* NSRRemoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRRemoteObject.m; sourceTree = "<group>"; };
+		B881558415F27CEA005CDC6F /* NSRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSRRequest.h; sourceTree = "<group>"; };
+		B881558515F27CEA005CDC6F /* NSRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRRequest.m; sourceTree = "<group>"; };
 		B8887F3E15EB6C9D0072D737 /* BGGameBalloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameBalloon.h; sourceTree = "<group>"; };
 		B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameBalloon.m; sourceTree = "<group>"; };
 		B888809315EC845D0072D737 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
@@ -727,6 +751,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B881555615F26A95005CDC6F /* CoreData.framework in Frameworks */,
 				B810AB4915E607AA00D374DD /* QuartzCore.framework in Frameworks */,
 				B810AB4B15E607AA00D374DD /* OpenGLES.framework in Frameworks */,
 				B810AB4D15E607AA00D374DD /* OpenAL.framework in Frameworks */,
@@ -763,6 +788,8 @@
 		B810AB4715E607AA00D374DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B881555515F26A95005CDC6F /* CoreData.framework */,
+				B881557515F27CEA005CDC6F /* NSRails */,
 				B8DB184315EF7A150040BB67 /* FacebookSDKResources.bundle */,
 				B8DB184115EF7A060040BB67 /* FacebookSDK.framework */,
 				B810AB4815E607AA00D374DD /* QuartzCore.framework */,
@@ -795,6 +822,7 @@
 				B8DB183C15EF6CC70040BB67 /* BGFacebookUser.m */,
 				B8DB183E15EF6D260040BB67 /* BGFacebookManager.h */,
 				B8DB183F15EF6D260040BB67 /* BGFacebookManager.m */,
+				B881555715F27C5D005CDC6F /* Server */,
 				B810AD5515E71C9600D374DD /* TopScene */,
 				B881544C15F05906005CDC6F /* StoryScene */,
 				B8DB182C15EF5DC30040BB67 /* SelectUseFasebookScene */,
@@ -1226,6 +1254,43 @@
 				D01FC42D15F0734700591E4D /* CCMask.m */,
 			);
 			path = StoryScene;
+			sourceTree = "<group>";
+		};
+		B881555715F27C5D005CDC6F /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		B881557515F27CEA005CDC6F /* NSRails */ = {
+			isa = PBXGroup;
+			children = (
+				B881557615F27CEA005CDC6F /* Categories */,
+				B881557D15F27CEA005CDC6F /* NSRails.h */,
+				B881557E15F27CEA005CDC6F /* NSRConfig.h */,
+				B881557F15F27CEA005CDC6F /* NSRConfig.m */,
+				B881558015F27CEA005CDC6F /* NSRRemoteManagedObject.h */,
+				B881558115F27CEA005CDC6F /* NSRRemoteManagedObject.m */,
+				B881558215F27CEA005CDC6F /* NSRRemoteObject.h */,
+				B881558315F27CEA005CDC6F /* NSRRemoteObject.m */,
+				B881558415F27CEA005CDC6F /* NSRRequest.h */,
+				B881558515F27CEA005CDC6F /* NSRRequest.m */,
+			);
+			path = NSRails;
+			sourceTree = "<group>";
+		};
+		B881557615F27CEA005CDC6F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B881557715F27CEA005CDC6F /* NSData+Base64.h */,
+				B881557815F27CEA005CDC6F /* NSData+Base64.m */,
+				B881557915F27CEA005CDC6F /* NSMutableArray+NSRails.h */,
+				B881557A15F27CEA005CDC6F /* NSMutableArray+NSRails.m */,
+				B881557B15F27CEA005CDC6F /* NSString+Inflection.h */,
+				B881557C15F27CEA005CDC6F /* NSString+Inflection.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		B88880A415EDA0C00072D737 /* Music */ = {
@@ -1728,6 +1793,13 @@
 				B881545515F05906005CDC6F /* BGStoryScene.m in Sources */,
 				D01FC42E15F0734700591E4D /* CCMask.m in Sources */,
 				B881546015F094F1005CDC6F /* BGGameFireworks.m in Sources */,
+				B881558615F27CEA005CDC6F /* NSData+Base64.m in Sources */,
+				B881558715F27CEA005CDC6F /* NSMutableArray+NSRails.m in Sources */,
+				B881558815F27CEA005CDC6F /* NSString+Inflection.m in Sources */,
+				B881558915F27CEA005CDC6F /* NSRConfig.m in Sources */,
+				B881558A15F27CEA005CDC6F /* NSRRemoteManagedObject.m in Sources */,
+				B881558B15F27CEA005CDC6F /* NSRRemoteObject.m in Sources */,
+				B881558C15F27CEA005CDC6F /* NSRRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
