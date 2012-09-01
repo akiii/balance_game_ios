@@ -96,7 +96,7 @@ int labelPositionY;
 //        labelPositionY = 10;
         
         //タイトル画面へ遷移
-        //self.onPressedSkipButton();
+        [CCCallBlock actionWithBlock:^(id sender){onPressedSkipButton;}];
     }
     
     self.scrollLabel.position = ccp(screenSize.width/2, labelPositionY);

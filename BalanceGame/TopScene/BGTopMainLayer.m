@@ -25,7 +25,7 @@
     [super onEnter];  
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
-    self.title = [CCSprite spriteWithFile:@"title.png"];
+    self.title = [CCSprite spriteWithFile:@"title_logo.png"];
     self.title.anchorPoint = ccp(0.5, 0.5);
     self.title.position = ccp(-100, 500);
     self.title.scale = 4;
