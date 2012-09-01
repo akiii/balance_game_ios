@@ -73,10 +73,10 @@ enum _BGGameMainLayerZ{
     self.rightTouchArea.position = ccp(screenSize.width - self.rightTouchArea.contentSize.width/2, screenSize.height/2);
     [self addChild:self.rightTouchArea z:BGGameMainLayerZTouchArea];
     
-    [self moveTowerWithAngle:0 acceleration:nil];
+    [self moveTowerWithAngle:0 acceleration:nil parcent:0];
 }
 
-- (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration{
+- (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration parcent:(int)parcent{
     GameState state;
     if (self.onGetCurrentGameState) state = self.onGetCurrentGameState();
 
@@ -100,7 +100,7 @@ enum _BGGameMainLayerZ{
                 
                 [self.gameOverLabel runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:actionTime scale:1.0] rate:10]];
                 
-                [self setResult];
+                [self setResultWithParcent:parcent];
             }
             break;
             
@@ -188,7 +188,7 @@ enum _BGGameMainLayerZ{
     }
 }
 
-- (void)setResult{
+- (void)setResultWithParcent:(int)parcent{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
 
     ccTime actionTime = 0.8;
@@ -203,12 +203,20 @@ enum _BGGameMainLayerZ{
         CCMenu *menu = [CCMenu menuWithItems:restartButton, nil];
         menu.position = ccp(0, 0);
         [self addChild:menu z:BGGameMainLayerZLabel];
+        
+        CCLabelTTF *parcentLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", parcent] fontName:@"American Typewriter" fontSize:60];
+        parcentLabel.position = ccp(screenSize.width/2, screenSize.height/2);
+        parcentLabel.color = ccc3(50, 50, 200);
+        [self addChild:parcentLabel];
+        
+        NSLog(@"comingggg");
+        NSLog(@"%d", parcent);
     });
 }
 
-- (void)allClear{    
+- (void)allClear:(int)parcent{
     self.leftTouchArea.visible = self.rightTouchArea.visible = NO;
-    [self setResult];
+    [self setResultWithParcent:parcent];
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

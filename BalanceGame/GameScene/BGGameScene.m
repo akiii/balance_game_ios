@@ -46,11 +46,11 @@
     };
     
     manager.onSendAcceleration = ^(UIAcceleration *acceleration){
-        [mainLayer moveTowerWithAngle:manager.towerAngle acceleration:acceleration];
+        [mainLayer moveTowerWithAngle:manager.towerAngle acceleration:acceleration parcent:manager.comatibilityParcent];
     };
     
     manager.onNoticeAllClear = ^(){
-        [mainLayer allClear];
+        [mainLayer allClear:manager.comatibilityParcent];
     };
     
     mainLayer.onOkButtonPressed = ^(){

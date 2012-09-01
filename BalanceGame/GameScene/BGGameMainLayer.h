@@ -30,6 +30,6 @@
 - (void)notShowBalloon;
 - (void)clearWithShowTime:(ccTime)time;
 - (void)showFireworksForever:(BOOL)forever;
-- (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration;
-- (void)allClear;
+- (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration parcent:(int)parcent;
+- (void)allClear:(int)parcent;
 @end
