@@ -46,7 +46,7 @@
         
         //背景ここまで
         
-        CCLabelTTF *title = [CCLabelTTF labelWithString:@"ばしょをせんたくしてね" fontName:@"American Typewriter" fontSize:22];
+        CCLabelTTF *title = [CCLabelTTF labelWithString:@"ロケーションをせんたくしてね" fontName:@"American Typewriter" fontSize:22];
         title.position = ccp(screenSize.width/2, screenSize.height - SPACE - title.contentSize.height/2);
         [self addChild:title];
         

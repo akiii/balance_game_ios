@@ -60,7 +60,7 @@
             
         case 3:
             tower = [BGGameTower spriteWithFile:@"pisa_tower.png"];
-            labelString = @"ピシャの斜塔";
+            labelString = @"ピサの斜塔";
             break;
             
         default:
@@ -77,8 +77,8 @@
         labelString = [NSString stringWithFormat:@"%@%@", labelString, @"を崩壊させました."];
         comment = [CCSprite spriteWithFile:@"gameover.png"];
     }
-    CCLabelTTF *label = [CCLabelTTF labelWithString:labelString fontName:@"American Typewriter" fontSize:28];
-    label.position = ccp(215, 220);
+    CCLabelTTF *label = [CCLabelTTF labelWithString:labelString fontName:@"American Typewriter" fontSize:20];
+    label.position = ccp(215, 225);
     [self addChild:label];
     
     comment.position = ccp(screenSize.width/2, 270);
@@ -89,7 +89,7 @@
     __block UIImageView *imageView;
     __block UIImageView *friendImageView;
     if ([BGFacebookManager sharedManager].currentUser != nil) {
-        CCLabelTTF *myName = [CCLabelTTF labelWithString:[BGFacebookManager sharedManager].currentUser.name fontName:@"American Typewriter" fontSize:20];
+        CCLabelTTF *myName = [CCLabelTTF labelWithString:[BGFacebookManager sharedManager].currentUser.name fontName:@"American Typewriter" fontSize:18];
         myName.position = ccp(51 + myName.contentSize.width/2, 95);
         [self addChild:myName];
                 
@@ -97,7 +97,7 @@
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[BGFacebookManager sharedManager].currentUser.picture_url]]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 imageView = [[[UIImageView alloc] initWithImage:image] autorelease];
-                imageView.frame = CGRectMake(51, 123, 82, 82);
+                imageView.frame = CGRectMake(54, 126, 76, 76);
                 [[CCDirector sharedDirector].view addSubview:imageView];
                 imageView.alpha = 0;
                 [self fadeInImage:imageView time:actionTime];
@@ -105,7 +105,7 @@
         });
 
         if (self.selectedUser != nil) {
-            CCLabelTTF *friendName = [CCLabelTTF labelWithString:selectedUser.name fontName:@"American Typewriter" fontSize:20];
+            CCLabelTTF *friendName = [CCLabelTTF labelWithString:selectedUser.name fontName:@"American Typewriter" fontSize:18];
             friendName.position = ccp(222 + friendName.contentSize.width/2, 95);
             [self addChild:friendName];
             
@@ -113,7 +113,7 @@
                 UIImage *friendImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:selectedUser.picture_url]]];
                 dispatch_async(dispatch_get_main_queue(), ^{                    
                     friendImageView = [[[UIImageView alloc] initWithImage:friendImage] autorelease];
-                    friendImageView.frame = CGRectMake(222, 123, 82, 82);
+                    friendImageView.frame = CGRectMake(225, 126, 76, 76);
                     [[CCDirector sharedDirector].view addSubview:friendImageView];
                     friendImageView.alpha = 0;
                     [self fadeInImage:friendImageView time:actionTime];
@@ -130,12 +130,12 @@
     }else {
         heart = [CCSprite spriteWithFile:@"heart100.png"];
     }
-    heart.position = ccp(175, 165);
+    heart.position = ccp(175, 155);
     [self addChild:heart];
     
-    CCLabelTTF *parcent = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", self.score] fontName:@"American Typewriter" fontSize:28];
+    CCLabelTTF *parcent = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", self.score] fontName:@"American Typewriter" fontSize:24];
     parcent.color = ccc3(0, 0, 0);
-    parcent.position = ccp(175, 115);
+    parcent.position = ccp(175, 112);
     [self addChild:parcent];
     
     CCMenuItemImage *retryButton = [CCMenuItemImage itemWithNormalImage:@"totop_button.png" selectedImage:@"totop_button.png" block:^(id sender) {
