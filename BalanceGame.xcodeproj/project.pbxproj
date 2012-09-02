@@ -263,9 +263,20 @@
 		B8DB184415EF7A150040BB67 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8DB184315EF7A150040BB67 /* FacebookSDKResources.bundle */; };
 		B8DB184915EF85920040BB67 /* BGSelectFacebookFriendScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB184815EF85920040BB67 /* BGSelectFacebookFriendScene.m */; };
 		B8DB184C15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB184B15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m */; };
+		B8DD158915F336CC007CEBA4 /* AFJsonReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD156F15F336CC007CEBA4 /* AFJsonReader.m */; };
+		B8DD158A15F336CC007CEBA4 /* NSObject+BGJson.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157115F336CC007CEBA4 /* NSObject+BGJson.m */; };
+		B8DD158B15F336CC007CEBA4 /* BGJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157415F336CC007CEBA4 /* BGJsonParser.m */; };
+		B8DD158C15F336CC007CEBA4 /* BGJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157615F336CC007CEBA4 /* BGJsonStreamParser.m */; };
+		B8DD158D15F336CC007CEBA4 /* BGJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157815F336CC007CEBA4 /* BGJsonStreamParserAccumulator.m */; };
+		B8DD158E15F336CC007CEBA4 /* BGJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157A15F336CC007CEBA4 /* BGJsonStreamParserAdapter.m */; };
+		B8DD158F15F336CC007CEBA4 /* BGJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157C15F336CC007CEBA4 /* BGJsonStreamParserState.m */; };
+		B8DD159015F336CC007CEBA4 /* BGJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD157E15F336CC007CEBA4 /* BGJsonStreamWriter.m */; };
+		B8DD159115F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158015F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.m */; };
+		B8DD159215F336CC007CEBA4 /* BGJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158215F336CC007CEBA4 /* BGJsonStreamWriterState.m */; };
+		B8DD159315F336CC007CEBA4 /* BGJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158415F336CC007CEBA4 /* BGJsonTokeniser.m */; };
+		B8DD159415F336CC007CEBA4 /* BGJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158615F336CC007CEBA4 /* BGJsonUTF8Stream.m */; };
+		B8DD159515F336CC007CEBA4 /* BGJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158815F336CC007CEBA4 /* BGJsonWriter.m */; };
 		D01FC42E15F0734700591E4D /* CCMask.m in Sources */ = {isa = PBXBuildFile; fileRef = D01FC42D15F0734700591E4D /* CCMask.m */; };
-		D01FC43A15F0A29F00591E4D /* StoryBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FC43815F0A29F00591E4D /* StoryBackground-hd.png */; };
-		D01FC43B15F0A29F00591E4D /* StoryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FC43915F0A29F00591E4D /* StoryBackground.png */; };
 		D01FC43F15F0B8ED00591E4D /* skip_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FC43D15F0B8EB00591E4D /* skip_button-hd.png */; };
 		D01FC44015F0B8ED00591E4D /* skip_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FC43E15F0B8EB00591E4D /* skip_button.png */; };
 		D02D11A315F20D1F00CB9DB7 /* start_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D02D11A115F20D1F00CB9DB7 /* start_button-hd.png */; };
@@ -725,10 +736,35 @@
 		B8DB184815EF85920040BB67 /* BGSelectFacebookFriendScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectFacebookFriendScene.m; sourceTree = "<group>"; };
 		B8DB184A15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectFacebookFriendTableLayer.h; sourceTree = "<group>"; };
 		B8DB184B15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSelectFacebookFriendTableLayer.m; sourceTree = "<group>"; };
+		B8DD156E15F336CC007CEBA4 /* AFJsonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJsonReader.h; sourceTree = "<group>"; };
+		B8DD156F15F336CC007CEBA4 /* AFJsonReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJsonReader.m; sourceTree = "<group>"; };
+		B8DD157015F336CC007CEBA4 /* NSObject+BGJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BGJson.h"; sourceTree = "<group>"; };
+		B8DD157115F336CC007CEBA4 /* NSObject+BGJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BGJson.m"; sourceTree = "<group>"; };
+		B8DD157215F336CC007CEBA4 /* BGJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJson.h; sourceTree = "<group>"; };
+		B8DD157315F336CC007CEBA4 /* BGJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonParser.h; sourceTree = "<group>"; };
+		B8DD157415F336CC007CEBA4 /* BGJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonParser.m; sourceTree = "<group>"; };
+		B8DD157515F336CC007CEBA4 /* BGJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamParser.h; sourceTree = "<group>"; };
+		B8DD157615F336CC007CEBA4 /* BGJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamParser.m; sourceTree = "<group>"; };
+		B8DD157715F336CC007CEBA4 /* BGJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		B8DD157815F336CC007CEBA4 /* BGJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		B8DD157915F336CC007CEBA4 /* BGJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		B8DD157A15F336CC007CEBA4 /* BGJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		B8DD157B15F336CC007CEBA4 /* BGJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamParserState.h; sourceTree = "<group>"; };
+		B8DD157C15F336CC007CEBA4 /* BGJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamParserState.m; sourceTree = "<group>"; };
+		B8DD157D15F336CC007CEBA4 /* BGJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamWriter.h; sourceTree = "<group>"; };
+		B8DD157E15F336CC007CEBA4 /* BGJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamWriter.m; sourceTree = "<group>"; };
+		B8DD157F15F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		B8DD158015F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		B8DD158115F336CC007CEBA4 /* BGJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonStreamWriterState.h; sourceTree = "<group>"; };
+		B8DD158215F336CC007CEBA4 /* BGJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonStreamWriterState.m; sourceTree = "<group>"; };
+		B8DD158315F336CC007CEBA4 /* BGJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonTokeniser.h; sourceTree = "<group>"; };
+		B8DD158415F336CC007CEBA4 /* BGJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonTokeniser.m; sourceTree = "<group>"; };
+		B8DD158515F336CC007CEBA4 /* BGJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonUTF8Stream.h; sourceTree = "<group>"; };
+		B8DD158615F336CC007CEBA4 /* BGJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonUTF8Stream.m; sourceTree = "<group>"; };
+		B8DD158715F336CC007CEBA4 /* BGJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonWriter.h; sourceTree = "<group>"; };
+		B8DD158815F336CC007CEBA4 /* BGJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonWriter.m; sourceTree = "<group>"; };
 		D01FC42C15F0734700591E4D /* CCMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMask.h; sourceTree = "<group>"; };
 		D01FC42D15F0734700591E4D /* CCMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMask.m; sourceTree = "<group>"; };
-		D01FC43815F0A29F00591E4D /* StoryBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StoryBackground-hd.png"; sourceTree = "<group>"; };
-		D01FC43915F0A29F00591E4D /* StoryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoryBackground.png; sourceTree = "<group>"; };
 		D01FC43D15F0B8EB00591E4D /* skip_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skip_button-hd.png"; sourceTree = "<group>"; };
 		D01FC43E15F0B8EB00591E4D /* skip_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip_button.png; sourceTree = "<group>"; };
 		D02D11A115F20D1F00CB9DB7 /* start_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start_button-hd.png"; sourceTree = "<group>"; };
@@ -822,6 +858,7 @@
 		B810AB5A15E607AA00D374DD /* BalanceGame */ = {
 			isa = PBXGroup;
 			children = (
+				B8DD156D15F336CC007CEBA4 /* Json */,
 				B810ACD215E607AC00D374DD /* AppDelegate.h */,
 				B810ACD315E607AC00D374DD /* AppDelegate.m */,
 				B810ACD515E607AC00D374DD /* HelloWorldLayer.h */,
@@ -1403,8 +1440,6 @@
 		B888814315EDF73E0072D737 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				D01FC43815F0A29F00591E4D /* StoryBackground-hd.png */,
-				D01FC43915F0A29F00591E4D /* StoryBackground.png */,
 				B888814515EDF7470072D737 /* picture_1_1-hd.png */,
 				B888814615EDF7470072D737 /* picture_1_1.png */,
 				B888814715EDF7470072D737 /* picture_1_2-hd.png */,
@@ -1489,6 +1524,40 @@
 				B8DB184B15F03F300040BB67 /* BGSelectFacebookFriendTableLayer.m */,
 			);
 			path = SelectFacebookFriendScene;
+			sourceTree = "<group>";
+		};
+		B8DD156D15F336CC007CEBA4 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				B8DD156E15F336CC007CEBA4 /* AFJsonReader.h */,
+				B8DD156F15F336CC007CEBA4 /* AFJsonReader.m */,
+				B8DD157015F336CC007CEBA4 /* NSObject+BGJson.h */,
+				B8DD157115F336CC007CEBA4 /* NSObject+BGJson.m */,
+				B8DD157215F336CC007CEBA4 /* BGJson.h */,
+				B8DD157315F336CC007CEBA4 /* BGJsonParser.h */,
+				B8DD157415F336CC007CEBA4 /* BGJsonParser.m */,
+				B8DD157515F336CC007CEBA4 /* BGJsonStreamParser.h */,
+				B8DD157615F336CC007CEBA4 /* BGJsonStreamParser.m */,
+				B8DD157715F336CC007CEBA4 /* BGJsonStreamParserAccumulator.h */,
+				B8DD157815F336CC007CEBA4 /* BGJsonStreamParserAccumulator.m */,
+				B8DD157915F336CC007CEBA4 /* BGJsonStreamParserAdapter.h */,
+				B8DD157A15F336CC007CEBA4 /* BGJsonStreamParserAdapter.m */,
+				B8DD157B15F336CC007CEBA4 /* BGJsonStreamParserState.h */,
+				B8DD157C15F336CC007CEBA4 /* BGJsonStreamParserState.m */,
+				B8DD157D15F336CC007CEBA4 /* BGJsonStreamWriter.h */,
+				B8DD157E15F336CC007CEBA4 /* BGJsonStreamWriter.m */,
+				B8DD157F15F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.h */,
+				B8DD158015F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.m */,
+				B8DD158115F336CC007CEBA4 /* BGJsonStreamWriterState.h */,
+				B8DD158215F336CC007CEBA4 /* BGJsonStreamWriterState.m */,
+				B8DD158315F336CC007CEBA4 /* BGJsonTokeniser.h */,
+				B8DD158415F336CC007CEBA4 /* BGJsonTokeniser.m */,
+				B8DD158515F336CC007CEBA4 /* BGJsonUTF8Stream.h */,
+				B8DD158615F336CC007CEBA4 /* BGJsonUTF8Stream.m */,
+				B8DD158715F336CC007CEBA4 /* BGJsonWriter.h */,
+				B8DD158815F336CC007CEBA4 /* BGJsonWriter.m */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1659,8 +1728,6 @@
 				D038ED7215F055E2008F1173 /* BGStoryMask.png in Resources */,
 				B881545815F05A4A005CDC6F /* circle-hd.png in Resources */,
 				B881545915F05A4A005CDC6F /* circle.png in Resources */,
-				D01FC43A15F0A29F00591E4D /* StoryBackground-hd.png in Resources */,
-				D01FC43B15F0A29F00591E4D /* StoryBackground.png in Resources */,
 				D01FC43F15F0B8ED00591E4D /* skip_button-hd.png in Resources */,
 				D01FC44015F0B8ED00591E4D /* skip_button.png in Resources */,
 				D0ECDB1F15F1C58100BF9F88 /* title_logo-hd.png in Resources */,
@@ -1828,6 +1895,19 @@
 				B881558C15F27CEA005CDC6F /* NSRRequest.m in Sources */,
 				B881559315F27EC5005CDC6F /* BGRFacebookUser.m in Sources */,
 				B881559615F2F6EF005CDC6F /* BGRScore.m in Sources */,
+				B8DD158915F336CC007CEBA4 /* AFJsonReader.m in Sources */,
+				B8DD158A15F336CC007CEBA4 /* NSObject+BGJson.m in Sources */,
+				B8DD158B15F336CC007CEBA4 /* BGJsonParser.m in Sources */,
+				B8DD158C15F336CC007CEBA4 /* BGJsonStreamParser.m in Sources */,
+				B8DD158D15F336CC007CEBA4 /* BGJsonStreamParserAccumulator.m in Sources */,
+				B8DD158E15F336CC007CEBA4 /* BGJsonStreamParserAdapter.m in Sources */,
+				B8DD158F15F336CC007CEBA4 /* BGJsonStreamParserState.m in Sources */,
+				B8DD159015F336CC007CEBA4 /* BGJsonStreamWriter.m in Sources */,
+				B8DD159115F336CC007CEBA4 /* BGJsonStreamWriterAccumulator.m in Sources */,
+				B8DD159215F336CC007CEBA4 /* BGJsonStreamWriterState.m in Sources */,
+				B8DD159315F336CC007CEBA4 /* BGJsonTokeniser.m in Sources */,
+				B8DD159415F336CC007CEBA4 /* BGJsonUTF8Stream.m in Sources */,
+				B8DD159515F336CC007CEBA4 /* BGJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
