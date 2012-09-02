@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BGGameTower.h"
+#import "BGRFacebookUser.h"
+#import "BGFacebookManager.h"
 
 @interface BGGameScene : CCScene {
     
 }
-+ (BGGameScene *)sceneWithTower:(BGGameTower *)tower;
++ (BGGameScene *)sceneWithTower:(BGGameTower *)tower selectedUser:(BGRFacebookUser *)selectedUser;
 @end

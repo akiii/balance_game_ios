@@ -9,6 +9,7 @@
 #import "BGSelectCourseScene.h"
 #import "BGSelectCourseMainLayer.h"
 #import "BGGameTower.h"
+#import "BGFacebookManager.h"
 
 #import "BGGameScene.h"
 
@@ -21,7 +22,7 @@
     [scene addChild:mainLayer];
     
     mainLayer.onPressedButton = ^(BGGameTower *tower){
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene sceneWithTower:tower] withColor:ccc3(0, 0, 0)]];
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGGameScene sceneWithTower:tower selectedUser:selectedUser] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;
