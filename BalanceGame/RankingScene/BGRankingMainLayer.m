@@ -17,14 +17,18 @@
 @end
 
 @implementation BGRankingMainLayer
-@synthesize bar, tableView, scores;
+@synthesize bar, tableView, scores, onPressedFacebookUser;
 
-- (id)init{
++ (BGRankingMainLayer *)layerWithFacebookId:(NSString *)facebookId{
+    return [[[self alloc] initWithFacebookId:facebookId] autorelease];
+}
+
+- (id)initWithFacebookId:(NSString *)facebookId{
     if (self = [super init]) {
-        NSString *urlString = [NSString stringWithFormat:@"%@/%@", @"http://akiiisuke.com:3010/scores/ranking", [BGFacebookManager sharedManager].currentUser.uid];
+        NSString *urlString = [NSString stringWithFormat:@"%@/%@", @"http://akiiisuke.com:3010/scores/ranking", facebookId];
         [AFJsonReader requestWithUrl:urlString block:^(NSDictionary *jsonDic){
             NSLog(@"json dic : %@", jsonDic);
-            scores = [jsonDic objectForKey:@"rankings"];
+            self.scores = [jsonDic objectForKey:@"rankings"];            
         }];
     }
     return self;
@@ -114,7 +118,12 @@
 //    double delayInSeconds = 0.5;
 //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
 //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        if (self.onPressedFacebookFriend) self.onPressedFacebookFriend([[BGFacebookManager sharedManager].friends objectAtIndex:indexPath.row]);
+    NSLog(@"index path : %d", indexPath.row);
+    BGRFacebookUser *u = [self.scores objectAtIndex:indexPath.row];
+
+    if (self.onPressedFacebookUser) self.onPressedFacebookUser([[self.scores objectAtIndex:indexPath.row] objectForKey:@"uid"]);
+//    BGRFacebookUser *u = [[BGFacebookManager sharedManager].friends objectAtIndex:indexPath.row];
+//    NSLog(@"facebooooooook : %@, %@", u.uid, u.name);
 //    });
 }
 

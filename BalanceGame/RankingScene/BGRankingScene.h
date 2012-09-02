@@ -12,5 +12,5 @@
 @interface BGRankingScene : CCScene {
     
 }
-+ (BGRankingScene *)scene;
++ (BGRankingScene *)sceneWithFacebookId:(NSString *)facebookId;
 @end
