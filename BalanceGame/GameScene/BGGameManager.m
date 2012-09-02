@@ -13,6 +13,8 @@
 #define kLabels                 @"labels"
 #define kImageAnimationFrames   @"image_animation_frames"
 
+#define base_post_url           @"http://akiiisuke.com:3010/scores/post_score"
+
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle, remainGameTime = _remainGameTime, comatibilityParcent = _comatibilityParcent, totalTowerAngles = _totalTowerAngles, totalPlayGameTime = _totalPlayGameTime, totalGameFrameCount = _totalGameFrameCount;
 @synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear, onNoticeGameOver;
@@ -220,10 +222,7 @@
 - (void)postScoreWithSelectedUser:(BGRFacebookUser *)selectedUser{
     if (selectedUser != nil) {
         BGRFacebookUser *me = [BGFacebookManager sharedManager].currentUser;
-        NSString *urlStr = @"http://akiiisuke.com:3010/scores/post_score/";
-        urlStr = [urlStr stringByAppendingPathComponent:me.uid];
-        urlStr = [urlStr stringByAppendingPathComponent:selectedUser.uid];
-        urlStr = [urlStr stringByAppendingPathComponent:[NSString stringWithFormat:@"%d", (int)_comatibilityParcent]];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/%@/%@/%@", base_post_url, me.uid, selectedUser.uid, [NSString stringWithFormat:@"%d", (int)_comatibilityParcent]];
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
         [NSURLConnection connectionWithRequest:req delegate:self];
     }
