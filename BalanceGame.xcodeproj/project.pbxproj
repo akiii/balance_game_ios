@@ -276,6 +276,7 @@
 		B8DD159315F336CC007CEBA4 /* BGJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158415F336CC007CEBA4 /* BGJsonTokeniser.m */; };
 		B8DD159415F336CC007CEBA4 /* BGJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158615F336CC007CEBA4 /* BGJsonUTF8Stream.m */; };
 		B8DD159515F336CC007CEBA4 /* BGJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD158815F336CC007CEBA4 /* BGJsonWriter.m */; };
+		B8DD15A215F380E5007CEBA4 /* BGGameResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DD15A115F380E5007CEBA4 /* BGGameResultLayer.m */; };
 		D01FC42E15F0734700591E4D /* CCMask.m in Sources */ = {isa = PBXBuildFile; fileRef = D01FC42D15F0734700591E4D /* CCMask.m */; };
 		D01FC43F15F0B8ED00591E4D /* skip_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FC43D15F0B8EB00591E4D /* skip_button-hd.png */; };
 		D01FC44015F0B8ED00591E4D /* skip_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FC43E15F0B8EB00591E4D /* skip_button.png */; };
@@ -763,6 +764,8 @@
 		B8DD158615F336CC007CEBA4 /* BGJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonUTF8Stream.m; sourceTree = "<group>"; };
 		B8DD158715F336CC007CEBA4 /* BGJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGJsonWriter.h; sourceTree = "<group>"; };
 		B8DD158815F336CC007CEBA4 /* BGJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGJsonWriter.m; sourceTree = "<group>"; };
+		B8DD15A015F380E4007CEBA4 /* BGGameResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameResultLayer.h; sourceTree = "<group>"; };
+		B8DD15A115F380E5007CEBA4 /* BGGameResultLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameResultLayer.m; sourceTree = "<group>"; };
 		D01FC42C15F0734700591E4D /* CCMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMask.h; sourceTree = "<group>"; };
 		D01FC42D15F0734700591E4D /* CCMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMask.m; sourceTree = "<group>"; };
 		D01FC43D15F0B8EB00591E4D /* skip_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skip_button-hd.png"; sourceTree = "<group>"; };
@@ -1275,6 +1278,8 @@
 				B8DB181B15EF47C70040BB67 /* BGGameVibrator.m */,
 				B881545E15F094F1005CDC6F /* BGGameFireworks.h */,
 				B881545F15F094F1005CDC6F /* BGGameFireworks.m */,
+				B8DD15A015F380E4007CEBA4 /* BGGameResultLayer.h */,
+				B8DD15A115F380E5007CEBA4 /* BGGameResultLayer.m */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -1908,6 +1913,7 @@
 				B8DD159315F336CC007CEBA4 /* BGJsonTokeniser.m in Sources */,
 				B8DD159415F336CC007CEBA4 /* BGJsonUTF8Stream.m in Sources */,
 				B8DD159515F336CC007CEBA4 /* BGJsonWriter.m in Sources */,
+				B8DD15A215F380E5007CEBA4 /* BGGameResultLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
