@@ -56,16 +56,17 @@
     
     NSString *imageUrl;
     if ([BGFacebookManager sharedManager].setUsers) {
-        BGFacebookUser *friend = [[BGFacebookManager sharedManager].friends objectAtIndex:indexPath.row];
+        BGRFacebookUser *friend = [[BGFacebookManager sharedManager].friends objectAtIndex:indexPath.row];
         cell.textLabel.text = friend.name;
-        imageUrl = friend.pictureUrl;
+        imageUrl = friend.picture_url;
     }else {
         NSDictionary *friendDic = [((NSArray *)[[BGFacebookManager sharedManager].usersDictionary objectForKey:kFriends]) objectAtIndex:indexPath.row];
         cell.textLabel.text = [friendDic objectForKey:@"name"];
         imageUrl = [friendDic objectForKey:@"picture"];
     }
     
-    dispatch_queue_t q_global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_queue_t q_global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t q_global = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_queue_t q_main = dispatch_get_main_queue();
     
     cell.imageView.image = nil;
@@ -86,8 +87,8 @@
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        if (self.onPressedFacebookFriend) self.onPressedFacebookFriend();
-    });
+        if (self.onPressedFacebookFriend) self.onPressedFacebookFriend([[BGFacebookManager sharedManager].friends objectAtIndex:indexPath.row]);
+    });    
 }
 
 - (void)dealloc{
