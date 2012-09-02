@@ -15,7 +15,7 @@
 
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle, remainGameTime = _remainGameTime, comatibilityParcent = _comatibilityParcent, totalTowerAngles = _totalTowerAngles, totalPlayGameTime = _totalPlayGameTime, totalGameFrameCount = _totalGameFrameCount;
-@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear;
+@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear, onNoticeGameOver;
 
 - (id)init{
     if (self = [super init]) {
@@ -209,11 +209,24 @@
 - (void)gameOver{
     _comatibilityParcent = ((int)((150 - _totalPlayGameTime) * _totalTowerAngles / _totalGameFrameCount) % 50) + 10 * _currentQuestionCount;
     _currentGameState = GameStateOver;
+    if (self.onNoticeGameOver) self.onNoticeGameOver();
     STOP_LOOP_SE(@"alert.mp3");
     PLAY_SE(@"explosion.mp3");
     [self runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
         [BGGameVibrator vibrate];
     }], [CCDelayTime actionWithDuration:0.1], nil] times:100]];
+}
+
+- (void)postScoreWithSelectedUser:(BGRFacebookUser *)selectedUser{
+    if (selectedUser != nil) {
+        BGRFacebookUser *me = [BGFacebookManager sharedManager].currentUser;
+        NSString *urlStr = @"http://akiiisuke.com:3011/scores/post_score/";
+        urlStr = [urlStr stringByAppendingPathComponent:me.uid];
+        urlStr = [urlStr stringByAppendingPathComponent:selectedUser.uid];
+        urlStr = [urlStr stringByAppendingPathComponent:[NSString stringWithFormat:@"%d", (int)_comatibilityParcent]];
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+        [NSURLConnection connectionWithRequest:req delegate:self];
+    }
 }
 
 - (void)dealloc{
