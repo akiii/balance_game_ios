@@ -11,19 +11,38 @@
 #define SPACE 30
 
 @implementation BGSelectCourseMainLayer
+@synthesize courseBGImage;
 @synthesize onPressedButton;
-@synthesize courseBG;
+
+
+/*
+- (void)onEnter{
+    [super onEnter];
+    
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    //背景ここから
+    
+    self.courseBG = [CCSprite spriteWithFile:@"course_bg.png"];
+    self.courseBG.position = ccp(screenSize.width/2, screenSize.height/2);
+    
+    [self addChild:self.courseBG];
+    
+    //背景ここまで
+}
+*/
 
 - (id)init{
     if (self = [super init]) {
+        
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         
         //背景ここから
         
-        self.courseBG = [CCSprite spriteWithFile:@"course_bg.png"];
-        self.courseBG.position = ccp(screenSize.width/2, screenSize.height/2);
+        courseBGImage = [CCSprite spriteWithFile:@"course_bg.png"];
+        self.courseBGImage.position = ccp(screenSize.width/2, screenSize.height/2);
         
-        [self addChild:self.courseBG];
+        [self addChild:self.courseBGImage];
         
         //背景ここまで
         
