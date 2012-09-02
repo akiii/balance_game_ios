@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BGRFacebookUser.h"
+#import "BGFacebookManager.h"
 
 typedef enum {
     GameStateTouch,
@@ -35,10 +37,11 @@ typedef enum {
 @property (nonatomic, copy) void (^onShowBalloon)(NSArray *words, NSArray *frame);
 @property (nonatomic, copy) void (^onNotShowBalloon)();
 @property (nonatomic, copy) void (^onSendAcceleration)(UIAcceleration *acceleration);
-@property (nonatomic, copy) void (^onNoticeAllClear)();
+@property (nonatomic, copy) void (^onNoticeAllClear)(), (^onNoticeGameOver)();
 - (void)pressedBalloonOkButton;
 - (void)nextQuestion;
 - (void)setOnLeftTouchArea:(BOOL)flag;
 - (void)setOnRightTouchArea:(BOOL)flag;
 - (void)getAcceleration:(UIAcceleration *)acceleration;
+- (void)postScoreWithSelectedUser:(BGRFacebookUser *)selectedUser;
 @end
