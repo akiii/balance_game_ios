@@ -12,5 +12,5 @@
 @interface BGRankingScene : CCScene {
     
 }
-
++ (BGRankingScene *)scene;
 @end

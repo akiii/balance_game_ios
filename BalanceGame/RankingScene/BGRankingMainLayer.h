@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BGRFacebookUser.h"
 
-@interface BGRankingMainLayer : CCLayer {
+@interface BGRankingMainLayer : CCLayer <UITableViewDelegate, UITableViewDataSource> {
     
 }
-
+//@property (nonatomic, retain) void (^onPressedFacebookFriend)(BGRFacebookUser *selectUser);
 @end

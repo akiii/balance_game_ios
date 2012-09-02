@@ -7,8 +7,17 @@
 //
 
 #import "BGRankingScene.h"
-
+#import "BGRankingMainLayer.h"
 
 @implementation BGRankingScene
+
++ (BGRankingScene *)scene{
+    BGRankingScene *scene = [self node];
+    
+    BGRankingMainLayer *mainLayer = [BGRankingMainLayer node];
+    [scene addChild:mainLayer];
+    
+    return scene;
+}
 
 @end
