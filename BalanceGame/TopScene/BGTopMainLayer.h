@@ -13,7 +13,7 @@
 
 }
 @property (nonatomic, retain) BGTopMainLayer *title;
-@property (nonatomic, copy) void (^onPressedStartButton)();
+@property (nonatomic, copy) void (^onPressedStartButton)(), (^onPressedRankingButton)();
 @property (nonatomic, retain) CCParticleSystem *emitter;
 - (void)notActivateButtons;
 @end
