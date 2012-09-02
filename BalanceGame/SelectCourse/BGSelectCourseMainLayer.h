@@ -13,6 +13,7 @@
 @interface BGSelectCourseMainLayer : CCLayer {
     
 }
+@property (nonatomic, retain) BGSelectCourseMainLayer *courseBGImage;
 @property (nonatomic, copy) void (^onPressedButton)(BGGameTower *tower);
-@property (nonatomic, retain) BGSelectCourseMainLayer *courseBG;
+
 @end
