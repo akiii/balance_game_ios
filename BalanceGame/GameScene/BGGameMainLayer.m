@@ -55,7 +55,7 @@ enum _BGGameMainLayerZ{
         if (self.onOkButtonPressed) self.onOkButtonPressed();
     };
     
-    self.nextButton = [CCMenuItemImage itemWithNormalImage:@"ok_button.png" selectedImage:@"ok_button.png" block:^(id sender){
+    self.nextButton = [CCMenuItemImage itemWithNormalImage:@"finished_button.png" selectedImage:@"finished_button.png" block:^(id sender){
         if (self.onNextButtonPressed) self.onNextButtonPressed();
     }];
     self.nextButton.position = ccp(screenSize.width/2, self.nextButton.contentSize.height/2);
@@ -88,19 +88,7 @@ enum _BGGameMainLayerZ{
         case GameStateOver:
             [self notShowNextButton];
             if (self.gameOverLabel == nil) {
-                CGSize screenSize = [CCDirector sharedDirector].winSize;
-                [self.tower fallWithAcceleration:acceleration];
-
-                ccTime actionTime = 0.8;
-                self.gameOverLabel = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:72];
-                self.gameOverLabel.color = ccc3(255, 0, 0);
-                self.gameOverLabel.scale = 0.0;
-                self.gameOverLabel.position = ccp(screenSize.width/2, screenSize.height/2);
-                [self addChild:self.gameOverLabel z:BGGameMainLayerZLabel];
-                
-                [self.gameOverLabel runAction:[CCEaseIn actionWithAction:[CCScaleTo actionWithDuration:actionTime scale:1.0] rate:10]];
-                
-                [self setResultWithParcent:parcent];
+                [self.tower fallWithAcceleration:acceleration];                
             }
             break;
             
@@ -164,7 +152,7 @@ enum _BGGameMainLayerZ{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     NSMutableArray *blocks = [NSMutableArray array];
-    for (int i = 0; i < 30; i++) {
+    for (int i = 0; i < 20; i++) {
         [blocks addObjectsFromArray:[NSArray arrayWithObjects:[CCCallBlock actionWithBlock:^(){
             BGGameFireworks *firewords = [BGGameFireworks node];
             float x = rand()%(int)screenSize.width;
@@ -208,15 +196,15 @@ enum _BGGameMainLayerZ{
         parcentLabel.position = ccp(screenSize.width/2, screenSize.height/2);
         parcentLabel.color = ccc3(50, 50, 200);
         [self addChild:parcentLabel];
-        
-        NSLog(@"comingggg");
-        NSLog(@"%d", parcent);
     });
 }
 
 - (void)allClear:(int)parcent{
     self.leftTouchArea.visible = self.rightTouchArea.visible = NO;
-    [self setResultWithParcent:parcent];
+}
+
+- (void)gameOver{
+    self.leftTouchArea.visible = self.rightTouchArea.visible = NO;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
