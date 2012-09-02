@@ -8,6 +8,7 @@
 
 #import "BGTopMainLayer.h"
 #import "BGSEPlayer.h"
+#import "AppDelegate.h"
 
 #define MOVE_TIME 0.22
 
@@ -50,11 +51,17 @@
     self.buttons = [CCMenu menuWithItems:startButton, rankingButton, nil];
     self.buttons.position = ccp(0, 0);
     [self addChild:self.buttons];
+    
+    for (CCMenuItemImage *b in self.buttons.children) {
+        [b setIsEnabled:YES];
+    }
+    
+    if (((AppController *)[UIApplication sharedApplication].delegate).session.state == FBSessionStateCreated) {
+        rankingButton.visible = NO;
+    }
 }
 
 - (void)shakeTitle {
-//    [CCSpawn actions:[self.title.anchorPoint = ccp(0.2, 0.5)],
-//     [CCPlace actionWithPosition:ccp() ]
     [self.title runAction:
      [CCRepeatForever actionWithAction:
       [CCSequence actions:
@@ -67,7 +74,6 @@
 }
 
 - (void)titleEffect {
-
     self.emitter = [CCParticleFlower node];
     [self addChild:self.emitter];
     self.emitter.autoRemoveOnFinish = YES; 
