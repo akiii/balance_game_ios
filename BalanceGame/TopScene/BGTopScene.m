@@ -45,11 +45,11 @@
     mainLayer.onPressedRankingButton = ^(){
         if (![BGFacebookManager sharedManager].setUsers) {
             [[BGFacebookManager sharedManager] requestUsers];
-            [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){
-                [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGRankingScene scene] withColor:ccc3(0, 0, 0)]];
+            [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){                
+                [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGRankingScene sceneWithFacebookId:[[[BGFacebookManager sharedManager].usersDictionary objectForKey:@"me"] objectForKey:@"id"]] withColor:ccc3(0, 0, 0)]];
             };
         }else {
-            [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGRankingScene scene] withColor:ccc3(0, 0, 0)]];
+            [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGRankingScene sceneWithFacebookId:[BGFacebookManager sharedManager].currentUser.uid] withColor:ccc3(0, 0, 0)]];
         }
     };
     
