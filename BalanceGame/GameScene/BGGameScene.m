@@ -11,7 +11,7 @@
 #import "BGGameCityLayer.h"
 #import "BGGameMainLayer.h"
 
-#import "BGSelectCourseScene.h"
+#import "BGSelectFacebookFriendScene.h"
 
 #import "BGBGMPlayer.h"
 
@@ -109,7 +109,7 @@
     
     mainLayer.onPressedRestartButton = ^(){
         STOP_BGM;
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;

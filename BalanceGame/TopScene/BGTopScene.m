@@ -46,7 +46,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene sceneWithSelectedUser:nil] withColor:ccc3(0, 0, 0)]];
     }else if (buttonIndex == 1) {
         if (((AppController *)[UIApplication sharedApplication].delegate).session.state == FBSessionStateCreated) {
             [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectUseFacebookScene scene] withColor:ccc3(0, 0, 0)]];

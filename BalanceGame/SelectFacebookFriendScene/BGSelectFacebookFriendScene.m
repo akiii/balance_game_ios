@@ -8,6 +8,7 @@
 
 #import "BGSelectFacebookFriendScene.h"
 #import "BGSelectFacebookFriendTableLayer.h"
+#import "BGRFacebookUser.h"
 
 #import "BGSelectCourseScene.h"
 
@@ -19,8 +20,8 @@
     BGSelectFacebookFriendTableLayer *tableLayer = [BGSelectFacebookFriendTableLayer node];
     [scene addChild:tableLayer];
     
-    tableLayer.onPressedFacebookFriend = ^(){
-        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene scene] withColor:ccc3(0, 0, 0)]];
+    tableLayer.onPressedFacebookFriend = ^(BGRFacebookUser *selectedUser){
+        [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectCourseScene sceneWithSelectedUser:selectedUser] withColor:ccc3(0, 0, 0)]];
     };
     
     return scene;

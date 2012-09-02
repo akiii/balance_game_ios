@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BGRFacebookUser.h"
 
 @interface BGSelectCourseScene : CCScene {
     
 }
-+ (BGSelectCourseScene *)scene;
++ (BGSelectCourseScene *)sceneWithSelectedUser:(BGRFacebookUser *)selectedUser;
 @end

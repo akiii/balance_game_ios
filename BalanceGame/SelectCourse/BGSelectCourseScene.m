@@ -14,7 +14,7 @@
 
 @implementation BGSelectCourseScene
 
-+ (BGSelectCourseScene *)scene{
++ (BGSelectCourseScene *)sceneWithSelectedUser:(BGRFacebookUser *)selectedUser{
     BGSelectCourseScene *scene = [self node];
     
     BGSelectCourseMainLayer *mainLayer = [BGSelectCourseMainLayer node];
