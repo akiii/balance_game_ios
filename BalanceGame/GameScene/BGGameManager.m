@@ -220,7 +220,7 @@
 - (void)postScoreWithSelectedUser:(BGRFacebookUser *)selectedUser{
     if (selectedUser != nil) {
         BGRFacebookUser *me = [BGFacebookManager sharedManager].currentUser;
-        NSString *urlStr = @"http://akiiisuke.com:3011/scores/post_score/";
+        NSString *urlStr = @"http://akiiisuke.com:3010/scores/post_score/";
         urlStr = [urlStr stringByAppendingPathComponent:me.uid];
         urlStr = [urlStr stringByAppendingPathComponent:selectedUser.uid];
         urlStr = [urlStr stringByAppendingPathComponent:[NSString stringWithFormat:@"%d", (int)_comatibilityParcent]];
