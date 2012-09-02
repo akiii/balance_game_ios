@@ -9,6 +9,8 @@
 #import "BGFacebookManager.h"
 #import "AppDelegate.h"
 
+#import "BGRFacebookUser.h"
+
 static BGFacebookManager *shared = nil;
 
 @implementation BGFacebookManager
@@ -41,7 +43,13 @@ static BGFacebookManager *shared = nil;
                 self.currentUser = [[[BGFacebookUser alloc] init] autorelease];
                 self.currentUser.userId = [result objectForKey:@"id"];
                 self.currentUser.name = [result objectForKey:@"name"];
-                self.currentUser.pictureUrl = [result objectForKey:@"picture"];                
+                self.currentUser.pictureUrl = [result objectForKey:@"picture"];
+                
+                BGRFacebookUser *fu = [[[BGRFacebookUser alloc] init] autorelease];
+                fu.uid = [result objectForKey:@"id"];
+                fu.name = [result objectForKey:@"name"];
+                fu.picture_url = [result objectForKey:@"picture"];
+                [fu remoteCreateAsync:^(NSError *error) {}];
             });
             
             [reqFriends startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -61,6 +69,12 @@ static BGFacebookManager *shared = nil;
                             u.name = [d objectForKey:@"name"];
                             u.pictureUrl = [d objectForKey:@"picture"];
                             [self.friends addObject:u];
+                            
+                            BGRFacebookUser *fu = [[[BGRFacebookUser alloc] init] autorelease];
+                            fu.uid = [d objectForKey:@"id"];
+                            fu.name = [d objectForKey:@"name"];
+                            fu.picture_url = [d objectForKey:@"picture"];
+                            [fu remoteCreateAsync:^(NSError *error) {}];
                         }
                         self.setUsers = YES;
                         if (self.onSetUsers) self.onSetUsers();
