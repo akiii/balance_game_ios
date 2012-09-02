@@ -17,7 +17,7 @@
 
 @implementation BGGameScene
 
-+ (BGGameScene *)sceneWithTower:(BGGameTower *)tower{
++ (BGGameScene *)sceneWithTower:(BGGameTower *)tower selectedUser:(BGRFacebookUser *)selectedUser{
     BGGameScene *scene = [self node];
     
     PLAY_BGM(@"Fairwind_loop.mp3");
@@ -51,6 +51,11 @@
     
     manager.onNoticeAllClear = ^(){
         [mainLayer allClear:manager.comatibilityParcent];
+        [manager postScoreWithSelectedUser:selectedUser];
+    };
+    
+    manager.onNoticeGameOver = ^(){
+        [manager postScoreWithSelectedUser:selectedUser];
     };
     
     mainLayer.onOkButtonPressed = ^(){
