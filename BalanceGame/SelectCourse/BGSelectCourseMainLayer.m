@@ -12,10 +12,20 @@
 
 @implementation BGSelectCourseMainLayer
 @synthesize onPressedButton;
+@synthesize courseBG;
 
 - (id)init{
     if (self = [super init]) {
         CGSize screenSize = [CCDirector sharedDirector].winSize;
+        
+        //背景ここから
+        
+        self.courseBG = [CCSprite spriteWithFile:@"course_bg.png"];
+        self.courseBG.position = ccp(screenSize.width/2, screenSize.height/2);
+        
+        [self addChild:self.courseBG];
+        
+        //背景ここまで
         
         CCLabelTTF *title = [CCLabelTTF labelWithString:@"ばしょをせんたくしてね" fontName:@"American Typewriter" fontSize:22];
         title.position = ccp(screenSize.width/2, screenSize.height - SPACE - title.contentSize.height/2);
