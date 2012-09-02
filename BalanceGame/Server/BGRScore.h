@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSRails.h"
 
-@interface BGRScore : NSObject
-
+@interface BGRScore : NSRRemoteObject
+@property (assign) int first_user_id;
+@property (assign) int second_user_id;
+@property (assign) int value;
 @end

@@ -157,6 +157,7 @@
 		B881558B15F27CEA005CDC6F /* NSRRemoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B881558315F27CEA005CDC6F /* NSRRemoteObject.m */; };
 		B881558C15F27CEA005CDC6F /* NSRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B881558515F27CEA005CDC6F /* NSRRequest.m */; };
 		B881559315F27EC5005CDC6F /* BGRFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B881559215F27EC5005CDC6F /* BGRFacebookUser.m */; };
+		B881559615F2F6EF005CDC6F /* BGRScore.m in Sources */ = {isa = PBXBuildFile; fileRef = B881559515F2F6EF005CDC6F /* BGRScore.m */; };
 		B8887F4015EB6C9D0072D737 /* BGGameBalloon.m in Sources */ = {isa = PBXBuildFile; fileRef = B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */; };
 		B888809415EC845D0072D737 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B888809315EC845D0072D737 /* questions.plist */; };
 		B888809F15EDA08A0072D737 /* BGBGMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B888809E15EDA08A0072D737 /* BGBGMPlayer.m */; };
@@ -601,6 +602,8 @@
 		B881558515F27CEA005CDC6F /* NSRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRRequest.m; sourceTree = "<group>"; };
 		B881559115F27EC5005CDC6F /* BGRFacebookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRFacebookUser.h; sourceTree = "<group>"; };
 		B881559215F27EC5005CDC6F /* BGRFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRFacebookUser.m; sourceTree = "<group>"; };
+		B881559415F2F6EF005CDC6F /* BGRScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRScore.h; sourceTree = "<group>"; };
+		B881559515F2F6EF005CDC6F /* BGRScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRScore.m; sourceTree = "<group>"; };
 		B8887F3E15EB6C9D0072D737 /* BGGameBalloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameBalloon.h; sourceTree = "<group>"; };
 		B8887F3F15EB6C9D0072D737 /* BGGameBalloon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameBalloon.m; sourceTree = "<group>"; };
 		B888809315EC845D0072D737 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
@@ -1264,6 +1267,8 @@
 			children = (
 				B881559115F27EC5005CDC6F /* BGRFacebookUser.h */,
 				B881559215F27EC5005CDC6F /* BGRFacebookUser.m */,
+				B881559415F2F6EF005CDC6F /* BGRScore.h */,
+				B881559515F2F6EF005CDC6F /* BGRScore.m */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -1806,6 +1811,7 @@
 				B881558B15F27CEA005CDC6F /* NSRRemoteObject.m in Sources */,
 				B881558C15F27CEA005CDC6F /* NSRRequest.m in Sources */,
 				B881559315F27EC5005CDC6F /* BGRFacebookUser.m in Sources */,
+				B881559615F2F6EF005CDC6F /* BGRScore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

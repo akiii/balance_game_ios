@@ -9,5 +9,5 @@
 #import "BGRScore.h"
 
 @implementation BGRScore
-
+@synthesize first_user_id, second_user_id, value;
 @end
