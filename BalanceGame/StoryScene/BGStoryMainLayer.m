@@ -20,10 +20,11 @@
 
 @implementation BGStoryMainLayer
 
-@synthesize titleName;
-@synthesize scrollLabel;
-@synthesize myMask;
+//@synthesize titleName;
+//@synthesize scrollLabel;
+//@synthesize myMask;
 @synthesize onPressedSkipButton;
+@synthesize letter;
 
 int labelPositionY;
 
@@ -31,40 +32,17 @@ int labelPositionY;
     [super onEnter];
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
-    // 文字を表示する
-    titleName = @"むかしむかしあるところにそれはそれは\r\nファンキーなおじいさんとおばあさんが\n住んでおりました。ある日おじいさんは\nザギンでシースーに、おばあさんは渋谷の\nディスコで一晩中踊りに行きました。\nいつもは何人ものキャッチに声を\nかけられるおばあさんですが、\n今日はちょっと様子が違います。";
+    //手紙の描画
     
-    // 文字数が多い場合 lineBreakMode で調整 (テクスチャサイズが大きくなる為)
-    /*
-     NSLog(@"titleName length %d", [titleName length]);
-     title =  [CCLabelTTF labelWithString:titleName dimensions:CGSizeMake(1200,12) alignment:CCTextAlignmentLeft lineBreakMode:CCLineBreakModeTailTruncation fontName:@"Arial" fontSize:12];
-     */
+    self.letter = [CCSprite spriteWithFile:@"story_letter.png"];
+    self.letter.anchorPoint = ccp(0.5, 1);
+    self.letter.position = ccp(screenSize.width/2 + 10, -10);
     
-    scrollLabel =  [CCLabelTTF labelWithString:titleName fontName:@"Marker felt" fontSize:22];
-    labelPositionY = 10;
-    scrollLabel.anchorPoint = ccp(0.5, 1);
-    scrollLabel.position = ccp(screenSize.width/2, labelPositionY);
-    scrollLabel.color = ccc3(48, 0, 0);
+    [self addChild:self.letter];
     
-    [self addChild:scrollLabel];
-    NSLog(@"titleLable.contentSize.height: %f", scrollLabel.contentSize.height);
-
-/*    
-    // マスクのスプライトを作成する
-    CCSprite *mask = [CCSprite spriteWithFile:@"BGStoryMask.png"];        
-    mask.position = ccp(0, 0);
-    mask.anchorPoint = ccp(0, 0);
-    
-    // マスクを適用する
-    myMask = [CCMask createMaskForObject:scrollLabel withMask:mask];
-    myMask.position = ccp(0, 0);
-    myMask.anchorPoint = ccp(0, 0);
-    [self addChild:myMask z:100];
-    [myMask mask];
-*/     
-    
-    // 文字をスクロールさせる為のスケジューラの呼び出し
-    [self schedule:@selector(update:) interval:0.05];
+    [self.letter runAction:[CCSequence actions:
+                            [CCMoveTo actionWithDuration:25 position:ccp(screenSize.width/2, 850)],
+                           [CCCallBlock actionWithBlock:^(id sender){self.onPressedSkipButton();}],nil ]];
     
     //----スキップボタン----
     
@@ -85,6 +63,7 @@ int labelPositionY;
  
 }
 
+/* もういらない文字の動き
 - (void)update:(ccTime)dt {
     
     CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -109,6 +88,6 @@ int labelPositionY;
 //    [myMask mask];
     
 }
-
+*/
 
 @end

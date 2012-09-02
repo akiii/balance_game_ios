@@ -15,9 +15,10 @@
     
 }
 
+@property (nonatomic, retain) CCSprite *letter;
 @property (nonatomic, copy) void (^onPressedSkipButton)();
-@property (nonatomic, retain) CCLabelTTF *scrollLabel;
-@property (nonatomic, retain) CCMask *myMask;
-@property (nonatomic, retain) NSString *titleName;
+//@property (nonatomic, retain) CCLabelTTF *scrollLabel;
+//@property (nonatomic, retain) CCMask *myMask;
+//@property (nonatomic, retain) NSString *titleName;
 
 @end
