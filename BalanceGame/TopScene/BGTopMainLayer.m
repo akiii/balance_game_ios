@@ -13,6 +13,7 @@
 #define MOVE_TIME 0.22
 
 @interface BGTopMainLayer()
+@property (nonatomic, retain) CCSprite *title;
 @property (nonatomic, retain) CCMenu *buttons;
 @end
 
@@ -23,7 +24,10 @@
 @synthesize buttons;
 
 - (void)onEnter{
-    [super onEnter];  
+    [super onEnter];
+    
+    [self removeAllChildrenWithCleanup:YES];
+    
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     self.title = [CCSprite spriteWithFile:@"title_logo.png"];
