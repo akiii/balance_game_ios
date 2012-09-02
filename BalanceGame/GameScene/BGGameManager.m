@@ -83,17 +83,12 @@
             if (!_onLeftTouchArea || !_onRightTouchArea) {
                 if (self.onShowTouchWarning) self.onShowTouchWarning(YES);
                 _awayTouchTime -= dt;
-                if (_awayTouchTime < 0) {
-                    [self gameOver];
-                }
             }else {
                 _awayTouchTime = 3.0;
                 if (self.onShowTouchWarning) self.onShowTouchWarning(NO);
             }
             if (_remainGameTime > 0) {
                 _remainGameTime -= dt;
-            }else {
-                [self gameOver];
             }
             break;
             
@@ -188,14 +183,14 @@
                 STOP_LOOP_SE(@"alert.mp3");
             }
             
-            if (_towerAngle > 50) {
+            if (_towerAngle > 50 || _remainGameTime < 0 || _awayTouchTime < 0) {
                 [self gameOver];
+                if (self.onNoticeGameOver) self.onNoticeGameOver(acceleration);
             }
             if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
             break;
             
         case GameStateOver:
-            if (self.onSendAcceleration) self.onSendAcceleration(acceleration);
             break;
             
         case GameStateAllClear:
@@ -211,7 +206,6 @@
 - (void)gameOver{
     _comatibilityParcent = ((int)((150 - _totalPlayGameTime) * _totalTowerAngles / _totalGameFrameCount) % 50) + 10 * _currentQuestionCount;
     _currentGameState = GameStateOver;
-    if (self.onNoticeGameOver) self.onNoticeGameOver();
     STOP_LOOP_SE(@"alert.mp3");
     PLAY_SE(@"explosion.mp3");
     [self runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCCallBlock actionWithBlock:^(){
