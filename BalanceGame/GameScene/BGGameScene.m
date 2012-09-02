@@ -10,9 +10,11 @@
 #import "BGGameManager.h"
 #import "BGGameCityLayer.h"
 #import "BGGameMainLayer.h"
+#import "BGGameResultLayer.h"
 
 #import "BGSelectCourseScene.h"
 #import "BGSelectFacebookFriendScene.h"
+#import "BGTopScene.h"
 
 #import "BGBGMPlayer.h"
 
@@ -31,7 +33,7 @@
     
     BGGameMainLayer *mainLayer = [BGGameMainLayer layerWithTower:tower];
     [scene addChild:mainLayer];
-    
+        
     manager.onShowTouchWarning = ^(BOOL flag){
         [mainLayer getTouchWarningState:flag];
     };
@@ -53,10 +55,23 @@
     manager.onNoticeAllClear = ^(){
         [mainLayer allClear:manager.comatibilityParcent];
         [manager postScoreWithSelectedUser:selectedUser];
+        
+        BGGameResultLayer *resultLayer = [BGGameResultLayer layerWithSuccess:YES score:manager.comatibilityParcent selectedUser:selectedUser towerNumber:1];
+        resultLayer.onPressedRestartButton = ^(){
+            [[CCDirector sharedDirector] pushScene:[BGTopScene scene]];
+        };
+        [scene addChild:resultLayer];
     };
     
-    manager.onNoticeGameOver = ^(){
+    manager.onNoticeGameOver = ^(UIAcceleration *acceleration){
+        [mainLayer gameOver];
         [manager postScoreWithSelectedUser:selectedUser];
+        
+        BGGameResultLayer *resultLayer = [BGGameResultLayer layerWithSuccess:NO score:manager.comatibilityParcent selectedUser:selectedUser towerNumber:1];
+        resultLayer.onPressedRestartButton = ^(){
+            [[CCDirector sharedDirector] pushScene:[BGTopScene scene]];
+        };
+        [scene addChild:resultLayer];
     };
     
     mainLayer.onOkButtonPressed = ^(){
