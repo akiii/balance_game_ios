@@ -17,7 +17,7 @@
 
 @implementation BGTopMainLayer
 @synthesize title;
-@synthesize onPressedStartButton;
+@synthesize onPressedStartButton, onPressedRankingButton;
 @synthesize emitter;
 @synthesize buttons;
 
@@ -42,7 +42,12 @@
     }];
     startButton.position = ccp(screenSize.width/2, 50);
     
-    self.buttons = [CCMenu menuWithItems:startButton, nil];
+    CCMenuItemImage *rankingButton = [CCMenuItemImage itemWithNormalImage:@"heart100.png" selectedImage:@"heart100.png" block:^(id sender) {
+        if (self.onPressedRankingButton) self.onPressedRankingButton();
+    }];
+    rankingButton.position = ccp(screenSize.width/4, 50);
+    
+    self.buttons = [CCMenu menuWithItems:startButton, rankingButton, nil];
     self.buttons.position = ccp(0, 0);
     [self addChild:self.buttons];
 }
