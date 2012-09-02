@@ -15,6 +15,7 @@
 #import "BGSelectUseFacebookScene.h"
 #import "BGSelectFacebookFriendScene.h"
 #import "BGSelectCourseScene.h"
+#import "BGRankingScene.h"
 
 #import "BGBGMPlayer.h"
 #import "BGSEPlayer.h"
@@ -41,6 +42,17 @@
         [alert release];        
     };
     
+    mainLayer.onPressedRankingButton = ^(){
+        if (![BGFacebookManager sharedManager].setUsers) {
+            [[BGFacebookManager sharedManager] requestUsers];
+            [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){
+                [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGRankingScene scene] withColor:ccc3(0, 0, 0)]];
+            };
+        }else {
+            [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGRankingScene scene] withColor:ccc3(0, 0, 0)]];
+        }
+    };
+    
     return scene;
 }
 
@@ -51,10 +63,14 @@
         if (((AppController *)[UIApplication sharedApplication].delegate).session.state == FBSessionStateCreated) {
             [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectUseFacebookScene scene] withColor:ccc3(0, 0, 0)]];
         }else {
-            [[BGFacebookManager sharedManager] requestUsers];
-            [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){
+            if (![BGFacebookManager sharedManager].setUsers) {
+                [[BGFacebookManager sharedManager] requestUsers];
+                [BGFacebookManager sharedManager].onGotUsersDictionary = ^(){
+                    [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
+                };
+            }else {
                 [[CCDirector sharedDirector] pushScene:[CCTransitionFade transitionWithDuration:1.0 scene:[BGSelectFacebookFriendScene scene] withColor:ccc3(0, 0, 0)]];
-            };
+            }
         }
     }
 }
