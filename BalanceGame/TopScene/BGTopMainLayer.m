@@ -38,7 +38,6 @@
     [self.title runAction:[CCSequence actions:
                            [CCSpawn actions:[CCMoveTo actionWithDuration:1.7 position:ccp(screenSize.width/2, screenSize.height - (screenSize.height/3))],
                             [CCScaleTo actionWithDuration:1.7 scale:1],nil],
-                           [CCCallBlock actionWithBlock:^(id sender){PLAY_SE(@"bigshot1.wav");}],
                            [CCCallFunc actionWithTarget:self selector:@selector(titleEffect)],
                             [CCCallFunc actionWithTarget:self selector:@selector(shakeTitle)],nil]];
     
