@@ -13,5 +13,6 @@
 @interface BGGameResultLayer : CCLayer {
     
 }
+@property (nonatomic, copy) void (^onPressedRestartButton)();
 + (BGGameResultLayer *)layerWithSuccess:(BOOL)success score:(int)score selectedUser:(BGRFacebookUser *)selectedUser towerNumber:(int)towerNumber;
 @end
