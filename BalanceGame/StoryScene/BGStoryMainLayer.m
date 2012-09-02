@@ -36,21 +36,18 @@ int labelPositionY;
     
     self.letter = [CCSprite spriteWithFile:@"story_letter.png"];
     self.letter.anchorPoint = ccp(0.5, 1);
-    self.letter.position = ccp(screenSize.width/2 + 10, 0);
+    self.letter.position = ccp(screenSize.width/2 + 16, 0);
     
     [self addChild:self.letter];
     
     [self.letter runAction:[CCSequence actions:
-                            [CCMoveTo actionWithDuration:20 position:ccp(screenSize.width/2, 800)],
+                            [CCMoveTo actionWithDuration:23 position:ccp(screenSize.width/2, 800)],
                            [CCCallBlock actionWithBlock:^(id sender){self.onPressedSkipButton();}],nil ]];
     
     //----スキップボタン----
     
     CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"skip_button.png" selectedImage:@"skip_button.png" block:^(id sender){
-        if (self.onPressedSkipButton) {
             self.onPressedSkipButton();
-            //                [self removeChild:myMask cleanup:YES];
-        }
     }];
     
     startButton.position = ccp(screenSize.width/2, 50);
