@@ -141,6 +141,8 @@
 		B810AD5B15E71CDE00D374DD /* BGTopBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5A15E71CDE00D374DD /* BGTopBackgroundLayer.m */; };
 		B810AD5E15E71CF100D374DD /* BGTopMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */; };
 		B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD6015E74C1F00D374DD /* BGGameTower.m */; };
+		B82B995815F3EE3500198F2B /* BGRankingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B995715F3EE3500198F2B /* BGRankingScene.m */; };
+		B82B995B15F3EE5800198F2B /* BGRankingMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B995A15F3EE5800198F2B /* BGRankingMainLayer.m */; };
 		B85B303A15E9F56A00A71141 /* BGGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B303915E9F56900A71141 /* BGGameManager.m */; };
 		B881545315F05906005CDC6F /* BGStoryBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B881544E15F05906005CDC6F /* BGStoryBackgroundLayer.m */; };
 		B881545415F05906005CDC6F /* BGStoryMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B881545015F05906005CDC6F /* BGStoryMainLayer.m */; };
@@ -602,6 +604,10 @@
 		B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTopMainLayer.m; sourceTree = "<group>"; };
 		B810AD5F15E74C1F00D374DD /* BGGameTower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameTower.h; sourceTree = "<group>"; };
 		B810AD6015E74C1F00D374DD /* BGGameTower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameTower.m; sourceTree = "<group>"; };
+		B82B995615F3EE3500198F2B /* BGRankingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRankingScene.h; sourceTree = "<group>"; };
+		B82B995715F3EE3500198F2B /* BGRankingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRankingScene.m; sourceTree = "<group>"; };
+		B82B995915F3EE5800198F2B /* BGRankingMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRankingMainLayer.h; sourceTree = "<group>"; };
+		B82B995A15F3EE5800198F2B /* BGRankingMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRankingMainLayer.m; sourceTree = "<group>"; };
 		B85B303815E9F56900A71141 /* BGGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameManager.h; sourceTree = "<group>"; };
 		B85B303915E9F56900A71141 /* BGGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameManager.m; sourceTree = "<group>"; };
 		B881544D15F05906005CDC6F /* BGStoryBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGStoryBackgroundLayer.h; sourceTree = "<group>"; };
@@ -906,6 +912,7 @@
 				B8DB183F15EF6D260040BB67 /* BGFacebookManager.m */,
 				B881555715F27C5D005CDC6F /* Server */,
 				B810AD5515E71C9600D374DD /* TopScene */,
+				B82B995415F3EE2500198F2B /* RankingScene */,
 				B881544C15F05906005CDC6F /* StoryScene */,
 				B8DB182C15EF5DC30040BB67 /* SelectUseFasebookScene */,
 				B8DB184615EF85740040BB67 /* SelectFacebookFriendScene */,
@@ -1323,6 +1330,17 @@
 				B810AD5D15E71CF100D374DD /* BGTopMainLayer.m */,
 			);
 			path = TopScene;
+			sourceTree = "<group>";
+		};
+		B82B995415F3EE2500198F2B /* RankingScene */ = {
+			isa = PBXGroup;
+			children = (
+				B82B995615F3EE3500198F2B /* BGRankingScene.h */,
+				B82B995715F3EE3500198F2B /* BGRankingScene.m */,
+				B82B995915F3EE5800198F2B /* BGRankingMainLayer.h */,
+				B82B995A15F3EE5800198F2B /* BGRankingMainLayer.m */,
+			);
+			path = RankingScene;
 			sourceTree = "<group>";
 		};
 		B881544C15F05906005CDC6F /* StoryScene */ = {
@@ -1970,6 +1988,8 @@
 				B8DD159415F336CC007CEBA4 /* BGJsonUTF8Stream.m in Sources */,
 				B8DD159515F336CC007CEBA4 /* BGJsonWriter.m in Sources */,
 				B8DD15A215F380E5007CEBA4 /* BGGameResultLayer.m in Sources */,
+				B82B995815F3EE3500198F2B /* BGRankingScene.m in Sources */,
+				B82B995B15F3EE5800198F2B /* BGRankingMainLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
