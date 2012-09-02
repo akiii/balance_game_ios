@@ -89,6 +89,8 @@
 	// make main window visible
 	[window_ makeKeyAndVisible];
     
+    [[NSRConfig defaultConfig] setAppURL:@"http://akiiisuke.com:3010/"];
+    
     if (!_session.isOpen) {
         _session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"publish_stream", nil]];
         if (_session.state == FBSessionStateCreatedTokenLoaded) {
@@ -97,8 +99,6 @@
             }];
         }
     }
-    
-    [[NSRConfig defaultConfig] setAppURL:@"http://akiiisuke.com:3010"];
     
 	return YES;
 }
