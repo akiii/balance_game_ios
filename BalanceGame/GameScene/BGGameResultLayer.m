@@ -138,7 +138,7 @@
     parcent.position = ccp(175, 115);
     [self addChild:parcent];
     
-    CCMenuItemImage *retryButton = [CCMenuItemImage itemWithNormalImage:@"restart_button.png" selectedImage:@"restart_button.png" block:^(id sender) {
+    CCMenuItemImage *retryButton = [CCMenuItemImage itemWithNormalImage:@"totop_button.png" selectedImage:@"totop_button.png" block:^(id sender) {
         if ([BGFacebookManager sharedManager].currentUser != nil) {
             [imageView removeFromSuperview];
             if (self.selectedUser != nil) {
