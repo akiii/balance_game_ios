@@ -36,12 +36,12 @@ int labelPositionY;
     
     self.letter = [CCSprite spriteWithFile:@"story_letter.png"];
     self.letter.anchorPoint = ccp(0.5, 1);
-    self.letter.position = ccp(screenSize.width/2 + 10, -10);
+    self.letter.position = ccp(screenSize.width/2 + 10, 0);
     
     [self addChild:self.letter];
     
     [self.letter runAction:[CCSequence actions:
-                            [CCMoveTo actionWithDuration:25 position:ccp(screenSize.width/2, 850)],
+                            [CCMoveTo actionWithDuration:20 position:ccp(screenSize.width/2, 800)],
                            [CCCallBlock actionWithBlock:^(id sender){self.onPressedSkipButton();}],nil ]];
     
     //----スキップボタン----
