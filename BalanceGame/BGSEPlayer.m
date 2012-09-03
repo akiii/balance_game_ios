@@ -49,7 +49,7 @@ static BGSEPlayer *shared = nil;
     if (loop) {
         player.numberOfLoops = -1;
     }else {
-        player.numberOfLoops = 1;
+        player.numberOfLoops = 0;
         [player pause];
         player.currentTime = 0;
     }
