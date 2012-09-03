@@ -56,7 +56,7 @@
         [mainLayer allClear:manager.comatibilityParcent];
         [manager postScoreWithSelectedUser:selectedUser];
         
-        BGGameResultLayer *resultLayer = [BGGameResultLayer layerWithSuccess:YES score:manager.comatibilityParcent selectedUser:selectedUser towerNumber:1];
+        BGGameResultLayer *resultLayer = [BGGameResultLayer layerWithSuccess:YES score:manager.comatibilityParcent selectedUser:selectedUser towerNumber:tower.number];
         resultLayer.onPressedRestartButton = ^(){
             [[CCDirector sharedDirector] pushScene:[BGTopScene scene]];
         };
@@ -67,7 +67,7 @@
         [mainLayer gameOver];
         [manager postScoreWithSelectedUser:selectedUser];
         
-        BGGameResultLayer *resultLayer = [BGGameResultLayer layerWithSuccess:NO score:manager.comatibilityParcent selectedUser:selectedUser towerNumber:1];
+        BGGameResultLayer *resultLayer = [BGGameResultLayer layerWithSuccess:NO score:manager.comatibilityParcent selectedUser:selectedUser towerNumber:tower.number];
         resultLayer.onPressedRestartButton = ^(){
             [[CCDirector sharedDirector] pushScene:[BGTopScene scene]];
         };
