@@ -86,6 +86,7 @@
     mainLayer.onNextButtonPressed = ^(){
         PLAY_SE(@"yattaa_01.wav");
         [manager unschedule:@selector(timer:)];
+        [mainLayer getTouchWarningState:NO];
         ccTime time;
         if (manager.currentQuestionCount < 3) {
             time = 3.0;
