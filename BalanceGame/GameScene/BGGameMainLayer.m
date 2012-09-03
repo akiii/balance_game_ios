@@ -76,7 +76,7 @@ enum _BGGameMainLayerZ{
     [self addChild:self.rightTouchArea z:BGGameMainLayerZTouchArea];
     
     self.timegageBase = [CCSprite spriteWithFile:@"timegauge_bg.png"];
-    self.timegageBase.position = ccp(screenSize.width/2, 50);
+    self.timegageBase.position = ccp(screenSize.width/2, self.timegageBase.contentSize.height/2);
     [self addChild:self.timegageBase];
     
     self.timegageBar = [CCSprite spriteWithFile:@"timegauge_bar.png"];
