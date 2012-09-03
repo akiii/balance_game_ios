@@ -53,7 +53,7 @@
     
     [self addChild:titleTower];
 
-    [titleTower runAction:[CCFadeIn actionWithDuration:2.2]];
+    [titleTower runAction:[CCFadeIn actionWithDuration:2.7]];
 }
 
 @end
