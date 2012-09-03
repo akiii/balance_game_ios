@@ -127,19 +127,35 @@
     
     CCSprite *heart;
     if (self.score < 30) {
+        
         heart = [CCSprite spriteWithFile:@"heart0.png"];
+        
+        CCLabelTTF *parcent = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", self.score] fontName:@"American Typewriter" fontSize:24];
+        parcent.color = ccc3(204, 153, 255);
+        parcent.position = ccp(175, 112);
+        [self addChild:parcent];
+        
     }else if (self.score < 80) {
+        
         heart = [CCSprite spriteWithFile:@"heart50.png"];
+        
+        CCLabelTTF *parcent = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", self.score] fontName:@"American Typewriter" fontSize:24];
+        parcent.color = ccc3(255, 153, 204);
+        parcent.position = ccp(175, 112);
+        [self addChild:parcent];
+        
     }else {
         heart = [CCSprite spriteWithFile:@"heart100.png"];
+        
+        CCLabelTTF *parcent = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", self.score] fontName:@"American Typewriter" fontSize:24];
+        parcent.color = ccc3(255, 0, 153);
+        parcent.position = ccp(175, 112);
+        [self addChild:parcent];
+        
     }
     heart.position = ccp(175, 155);
     [self addChild:heart];
     
-    CCLabelTTF *parcent = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", self.score] fontName:@"American Typewriter" fontSize:24];
-    parcent.color = ccc3(0, 0, 0);
-    parcent.position = ccp(175, 112);
-    [self addChild:parcent];
     
     CCMenuItemImage *retryButton = [CCMenuItemImage itemWithNormalImage:@"totop_button.png" selectedImage:@"totop_button.png" block:^(id sender) {
         if ([BGFacebookManager sharedManager].currentUser != nil) {
