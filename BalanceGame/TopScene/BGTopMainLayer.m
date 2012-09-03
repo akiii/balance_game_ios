@@ -46,7 +46,7 @@
     }];
     startButton.position = ccp(screenSize.width/2, 50);
     
-    CCMenuItemImage *rankingButton = [CCMenuItemImage itemWithNormalImage:@"heart100.png" selectedImage:@"heart100.png" block:^(id sender) {
+    CCMenuItemImage *rankingButton = [CCMenuItemImage itemWithNormalImage:@"oukan.png" selectedImage:@"oukan.png" block:^(id sender) {
         if (self.onPressedRankingButton) self.onPressedRankingButton();
     }];
     rankingButton.position = ccp(screenSize.width/4, 50);
