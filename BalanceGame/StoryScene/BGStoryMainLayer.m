@@ -36,7 +36,7 @@ int labelPositionY;
     
     self.letter = [CCSprite spriteWithFile:@"story_letter.png"];
     self.letter.anchorPoint = ccp(0.5, 1);
-    self.letter.position = ccp(screenSize.width/2 + 16, 0);
+    self.letter.position = ccp(screenSize.width/2 + 10, 0);
     
     [self addChild:self.letter];
     

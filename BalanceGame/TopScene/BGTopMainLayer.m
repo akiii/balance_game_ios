@@ -79,14 +79,32 @@
 - (void)titleEffect {
     self.emitter = [CCParticleFlower node];
     [self addChild:self.emitter];
-    self.emitter.autoRemoveOnFinish = YES; 
+//    self.emitter.autoRemoveOnFinish = YES; 
     self.emitter.position = ccp(120, 220);
     self.emitter.duration = 0.7;
-    [self.emitter runAction:[CCMoveTo actionWithDuration:0.7 position:ccp(360, 220)]];
+    [self.emitter runAction:[CCSequence actions:
+                             [CCMoveTo actionWithDuration:0.7 position:ccp(360, 220)],
+                             [CCCallFunc actionWithTarget:self selector:@selector(blinkStars)],nil]];
     
     self.emitter.texture = [[CCTextureCache sharedTextureCache] addImage: @"stars-grayscale.png"];
                                 
 }
+
+
+- (void)blinkStars {
+    
+
+    [self.emitter runAction:[CCRepeatForever actionWithAction:[CCSequence actions:
+                             [CCPlace actionWithPosition:ccp(50, 320 - 50)],
+                             [CCDelayTime actionWithDuration:1.2],
+                             [CCPlace actionWithPosition:ccp(80, 320 - 65)],
+                             [CCDelayTime actionWithDuration:0.6],
+                             [CCPlace actionWithPosition:ccp(190, 320 - 60)],
+                             [CCDelayTime actionWithDuration:1.7],
+                                                               nil]
+                             ]];
+}
+
 - (void)notActivateButtons{
     for (CCMenuItemImage *b in self.buttons.children) {
         [b setIsEnabled:NO];
