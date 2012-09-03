@@ -41,7 +41,7 @@ int labelPositionY;
     [self addChild:self.letter];
     
     [self.letter runAction:[CCSequence actions:
-                            [CCMoveTo actionWithDuration:23 position:ccp(screenSize.width/2, 800)],
+                            [CCMoveTo actionWithDuration:30 position:ccp(screenSize.width/2, 800)],
                            [CCCallBlock actionWithBlock:^(id sender){self.onPressedSkipButton();}],nil ]];
     
     //----スキップボタン----

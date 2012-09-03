@@ -32,7 +32,7 @@
     
     [self addChild:backCity];
     
-    [backCity runAction:[CCMoveTo actionWithDuration:3.5 position:ccp(720, 0)]];
+    [backCity runAction:[CCMoveTo actionWithDuration:7 position:ccp(720, 0)]];
     
     //前の街
     
@@ -42,7 +42,7 @@
     
     [self addChild:frontCity];
     
-    [frontCity runAction:[CCMoveTo actionWithDuration:3.5 position:ccp(750, 0)]];
+    [frontCity runAction:[CCMoveTo actionWithDuration:7 position:ccp(750, 0)]];
     
     //タワー
     
@@ -53,7 +53,7 @@
     
     [self addChild:titleTower];
 
-    [titleTower runAction:[CCFadeIn actionWithDuration:2]];
+    [titleTower runAction:[CCFadeIn actionWithDuration:1.7]];
 }
 
 @end
