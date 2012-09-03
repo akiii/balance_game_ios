@@ -75,12 +75,17 @@
         [scene addChild:resultLayer];
     };
     
+    manager.onNoticeTimer = ^(){
+        [mainLayer changeTimegame:manager.remainGameTime];
+    };
+    
     mainLayer.onOkButtonPressed = ^(){
         [manager pressedBalloonOkButton];
     };
     
     mainLayer.onNextButtonPressed = ^(){
         PLAY_SE(@"yattaa_01.wav");
+        [manager unschedule:@selector(timer:)];
         ccTime time;
         if (manager.currentQuestionCount < 3) {
             time = 3.0;
@@ -89,6 +94,7 @@
         }
         [mainLayer clearWithShowTime:time];
         [scene runAction:[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallBlock actionWithBlock:^(){
+            [manager schedule:@selector(timer:)];
             if (manager.currentQuestionCount == 2) {
                 [backgroundLayer night];
             }

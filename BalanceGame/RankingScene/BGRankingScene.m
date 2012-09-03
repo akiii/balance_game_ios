@@ -11,14 +11,14 @@
 
 @implementation BGRankingScene
 
-+ (BGRankingScene *)sceneWithFacebookId:(NSString *)facebookId{
++ (BGRankingScene *)sceneWithFacebookId:(NSString *)facebookId name:(NSString *)name{
     BGRankingScene *scene = [self node];
     
-    BGRankingMainLayer *mainLayer = [BGRankingMainLayer layerWithFacebookId:facebookId];
+    BGRankingMainLayer *mainLayer = [BGRankingMainLayer layerWithFacebookId:facebookId name:name];
     [scene addChild:mainLayer];
     
-    mainLayer.onPressedFacebookUser = ^(NSString *fid){
-        [[CCDirector sharedDirector] pushScene:[BGRankingScene sceneWithFacebookId:fid]];
+    mainLayer.onPressedFacebookUser = ^(NSString *fid, NSString *name){
+        [[CCDirector sharedDirector] pushScene:[BGRankingScene sceneWithFacebookId:fid name:name]];
     };
     
     return scene;

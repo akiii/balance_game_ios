@@ -24,10 +24,11 @@ enum _BGGameMainLayerZ{
 @property (nonatomic, retain) CCMenuItemImage *nextButton;
 @property (nonatomic, retain) CCSprite *leftTouchArea, *rightTouchArea;
 @property (nonatomic, retain) CCLabelTTF *touchWarningLabel, *gameOverLabel;
+@property (nonatomic, retain) CCSprite *timegageBase, *timegageBar;
 @end
 
 @implementation BGGameMainLayer
-@synthesize tower, balloon, nextButton, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel;
+@synthesize tower, balloon, nextButton, leftTouchArea, rightTouchArea, touchWarningLabel, gameOverLabel, timegageBase, timegageBar;
 @synthesize onOkButtonPressed, onNextButtonPressed, isOnLeftArea, onSetLeftAreaState, isOnRightArea, onSetRightAreaState, onSendAcceleration, onGetCurrentGameState, onPressedRestartButton;
 
 + (BGGameMainLayer *)layerWithTower:(BGGameTower *)t{
@@ -73,6 +74,14 @@ enum _BGGameMainLayerZ{
     self.rightTouchArea = [CCSprite spriteWithFile:@"touch_normal_button_blue.png"];
     self.rightTouchArea.position = ccp(screenSize.width - self.rightTouchArea.contentSize.width/2, screenSize.height/2);
     [self addChild:self.rightTouchArea z:BGGameMainLayerZTouchArea];
+    
+    self.timegageBase = [CCSprite spriteWithFile:@"timegauge_bg.png"];
+    self.timegageBase.position = ccp(screenSize.width/2, self.timegageBase.contentSize.height/2);
+    [self addChild:self.timegageBase];
+    
+    self.timegageBar = [CCSprite spriteWithFile:@"timegauge_bar.png"];
+    self.timegageBar.position = self.timegageBase.position;
+    [self addChild:self.timegageBar];
     
     [self moveTowerWithAngle:0 acceleration:nil parcent:0];
 }
@@ -200,12 +209,18 @@ enum _BGGameMainLayerZ{
     });
 }
 
+- (void)changeTimegame:(ccTime)remainTime{
+    float originX = self.timegageBase.position.x - self.timegageBase.contentSize.width/2;
+    self.timegageBar.scaleX = remainTime / 30.0;
+    self.timegageBar.position = ccp(originX + self.timegageBar.contentSize.width/2 * self.timegageBar.scaleX, self.timegageBase.position.y + 3);
+}
+
 - (void)allClear:(int)parcent{
-    self.leftTouchArea.visible = self.rightTouchArea.visible = NO;
+    self.leftTouchArea.visible = self.rightTouchArea.visible = self.timegageBase.visible = self.timegageBar.visible = NO;
 }
 
 - (void)gameOver{
-    self.leftTouchArea.visible = self.rightTouchArea.visible = NO;
+    self.leftTouchArea.visible = self.rightTouchArea.visible = self.timegageBase.visible = self.timegageBar.visible = NO;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

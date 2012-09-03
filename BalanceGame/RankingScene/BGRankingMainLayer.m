@@ -14,22 +14,24 @@
 @property (nonatomic, retain) UINavigationBar *bar;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *scores;
+@property (nonatomic, retain) NSString *name;
 @end
 
 @implementation BGRankingMainLayer
-@synthesize bar, tableView, scores, onPressedFacebookUser;
+@synthesize bar, tableView, scores, onPressedFacebookUser, name;
 
-+ (BGRankingMainLayer *)layerWithFacebookId:(NSString *)facebookId{
-    return [[[self alloc] initWithFacebookId:facebookId] autorelease];
++ (BGRankingMainLayer *)layerWithFacebookId:(NSString *)facebookId name:(NSString *)n{
+    return [[[self alloc] initWithFacebookId:facebookId name:n] autorelease];
 }
 
-- (id)initWithFacebookId:(NSString *)facebookId{
+- (id)initWithFacebookId:(NSString *)facebookId name:(NSString *)n{
     if (self = [super init]) {
         NSString *urlString = [NSString stringWithFormat:@"%@/%@", @"http://akiiisuke.com:3010/scores/ranking", facebookId];
         [AFJsonReader requestWithUrl:urlString block:^(NSDictionary *jsonDic){
             NSLog(@"json dic : %@", jsonDic);
-            self.scores = [jsonDic objectForKey:@"rankings"];            
+            self.scores = [jsonDic objectForKey:@"rankings"];
         }];
+        self.name = n;
     }
     return self;
 }
@@ -38,7 +40,7 @@
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     self.bar = [[[UINavigationBar alloc] init] autorelease];
-    UINavigationItem *title = [[[UINavigationItem alloc] initWithTitle:@"Ranking"] autorelease];
+    UINavigationItem *title = [[[UINavigationItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ の Ranking", self.name]] autorelease];
 
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(backButtonPressed:)] autorelease];
     title.leftBarButtonItem = backButton;
@@ -91,9 +93,9 @@
     scoreNum.text = [NSString stringWithFormat:@"%@%%", [dic objectForKey:@"value"]];
     [cell addSubview:scoreNum];
     
-    UILabel *name = [[[UILabel alloc] initWithFrame:CGRectMake(height * 2, 0, screenSize.width - height * 3, height)] autorelease];
-    name.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"name"]];
-    [cell addSubview:name];
+    UILabel *nameLabl = [[[UILabel alloc] initWithFrame:CGRectMake(height * 2, 0, screenSize.width - height * 3, height)] autorelease];
+    nameLabl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"name"]];
+    [cell addSubview:nameLabl];
 
     dispatch_queue_t q_global = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_queue_t q_main = dispatch_get_main_queue();
@@ -114,17 +116,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [self.tableView removeFromSuperview];
-//    double delayInSeconds = 0.5;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    NSLog(@"index path : %d", indexPath.row);
-    BGRFacebookUser *u = [self.scores objectAtIndex:indexPath.row];
-
-    if (self.onPressedFacebookUser) self.onPressedFacebookUser([[self.scores objectAtIndex:indexPath.row] objectForKey:@"uid"]);
-//    BGRFacebookUser *u = [[BGFacebookManager sharedManager].friends objectAtIndex:indexPath.row];
-//    NSLog(@"facebooooooook : %@, %@", u.uid, u.name);
-//    });
+    if (self.onPressedFacebookUser) self.onPressedFacebookUser([[self.scores objectAtIndex:indexPath.row] objectForKey:@"uid"], [[self.scores objectAtIndex:indexPath.row] objectForKey:@"name"]);
 }
 
 - (void)dealloc{
