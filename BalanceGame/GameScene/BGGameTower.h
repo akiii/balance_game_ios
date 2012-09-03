@@ -12,6 +12,7 @@
 @interface BGGameTower : CCSprite {
     
 }
+@property (assign) int number;
 - (void)shakeWithAngle:(float)angle;
 - (void)fallWithAcceleration:(UIAcceleration *)acceleration;
 @end

@@ -15,7 +15,7 @@
 @end
 
 @implementation BGGameTower
-@synthesize fire, smoke;
+@synthesize fire, smoke, number;
 
 - (void)shakeWithAngle:(float)angle{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
