@@ -30,8 +30,6 @@
     BGStoryMainLayer *mainLayer = [BGStoryMainLayer node];
     [scene addChild:mainLayer];
     
-    PLAY_BGM(@"bgm1.mp3");
-    
     mainLayer.onPressedSkipButton = ^(){
         
         STOP_BGM;
