@@ -11,6 +11,7 @@
 #import "BGFacebookManager.h"
 #import "BGRFacebookUser.h"
 
+#import "BGSEPlayer.h"
 
 @interface BGGameResultLayer()
 @property (assign) BOOL success;
@@ -73,9 +74,11 @@
     if (self.success) {
         labelString = [NSString stringWithFormat:@"%@%@", labelString, @"を救いました！"];
         comment = [CCSprite spriteWithFile:@"congratulations.png"];
+        PLAY_SE(@"omedetou_01.wav");
     }else {
         labelString = [NSString stringWithFormat:@"%@%@", labelString, @"を崩壊させました."];
         comment = [CCSprite spriteWithFile:@"gameover.png"];
+        PLAY_SE(@"gameover.wav");
     }
     CCLabelTTF *label = [CCLabelTTF labelWithString:labelString fontName:@"American Typewriter" fontSize:20];
     label.position = ccp(215, 225);

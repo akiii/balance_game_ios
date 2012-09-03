@@ -17,6 +17,7 @@
 #import "BGTopScene.h"
 
 #import "BGBGMPlayer.h"
+#import "BGSEPlayer.h"
 
 @implementation BGGameScene
 
@@ -83,6 +84,7 @@
     };
     
     mainLayer.onNextButtonPressed = ^(){
+        PLAY_SE(@"yattaa_01.wav");
         [manager unschedule:@selector(timer:)];
         ccTime time;
         if (manager.currentQuestionCount < 3) {

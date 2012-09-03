@@ -144,6 +144,7 @@
 
 - (void)pressedBalloonOkButton{
     _currentGameState = GameStatePlaing;
+     PLAY_SE(@"readygo_01.wav");
     if (self.onNotShowBalloon) self.onNotShowBalloon();
     _isBalloonHidden = YES;
 }

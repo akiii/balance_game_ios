@@ -9,6 +9,7 @@
 #import "BGGameMainLayer.h"
 #import "BGGameBalloon.h"
 #import "BGGameFireworks.h"
+#import "BGSEPlayer.h"
 
 enum _BGGameMainLayerZ{
     BGGameMainLayerZTower       = 0,
