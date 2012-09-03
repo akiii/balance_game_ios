@@ -135,17 +135,6 @@
 				<key>2</key>
 				<dict>
 					<key>Word</key>
-					<string>星のかたちに動かしてください</string>
-					<key>Images</key>
-					<array>
-						<string>picture_2_1.png</string>
-						<string>picture_2_2.png</string>
-						<string>picture_2_3.png</string>
-					</array>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>Word</key>
 					<string>ピンクの人は腕を伸ばしその腕を１周するように動かしてください</string>
 					<key>Images</key>
 					<array>
@@ -154,7 +143,7 @@
 						<string>picture_3_3.png</string>
 					</array>
 				</dict>
-				<key>4</key>
+				<key>3</key>
 				<dict>
 					<key>Word</key>
 					<string>余っている手で円をつくりそこの中を通すように動かしてください</string>
@@ -165,7 +154,7 @@
 						<string>picture_7_3.png</string>
 					</array>
 				</dict>
-				<key>5</key>
+				<key>4</key>
 				<dict>
 					<key>Word</key>
 					<string>手をつなぎ、その裏を通すように１周する</string>
@@ -174,6 +163,17 @@
 						<string>picture_8_1.png</string>
 						<string>picture_8_2.png</string>
 						<string>picture_8_3.png</string>
+					</array>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>Word</key>
+					<string>お互いの内側の足をあげてピンクの人から足の下を通してください</string>
+					<key>Images</key>
+					<array>
+						<string>picture_9_1.png</string>
+						<string>picture_9_2.png</string>
+						<string>picture_9_3.png</string>
 					</array>
 				</dict>
 			</dict>
