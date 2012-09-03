@@ -60,7 +60,7 @@ enum _BGGameMainLayerZ{
     self.nextButton = [CCMenuItemImage itemWithNormalImage:@"finished_button.png" selectedImage:@"finished_button.png" block:^(id sender){
         if (self.onNextButtonPressed) self.onNextButtonPressed();
     }];
-    self.nextButton.position = ccp(screenSize.width/2, self.nextButton.contentSize.height/2);
+    self.nextButton.position = ccp(screenSize.width/2, 35);
     [self notShowNextButton];
     
     CCMenu *menu = [CCMenu menuWithItems:nextButton, nil];
@@ -76,7 +76,7 @@ enum _BGGameMainLayerZ{
     [self addChild:self.rightTouchArea z:BGGameMainLayerZTouchArea];
     
     self.timegageBase = [CCSprite spriteWithFile:@"timegauge_bg.png"];
-    self.timegageBase.position = ccp(screenSize.width/2, self.timegageBase.contentSize.height/2);
+    self.timegageBase.position = ccp(screenSize.width/2, self.timegageBase.contentSize.height/2 - 10);
     [self addChild:self.timegageBase];
     
     self.timegageBar = [CCSprite spriteWithFile:@"timegauge_bar.png"];
@@ -212,7 +212,7 @@ enum _BGGameMainLayerZ{
 - (void)changeTimegame:(ccTime)remainTime{
     float originX = self.timegageBase.position.x - self.timegageBase.contentSize.width/2;
     self.timegageBar.scaleX = remainTime / 30.0;
-    self.timegageBar.position = ccp(originX + self.timegageBar.contentSize.width/2 * self.timegageBar.scaleX, self.timegageBase.position.y + 3);
+    self.timegageBar.position = ccp(originX + 10 + self.timegageBar.contentSize.width/2 * self.timegageBar.scaleX, self.timegageBase.position.y + 3);
 }
 
 - (void)allClear:(int)parcent{
