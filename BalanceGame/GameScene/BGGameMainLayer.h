@@ -31,6 +31,7 @@
 - (void)clearWithShowTime:(ccTime)time;
 - (void)showFireworksForever:(BOOL)forever;
 - (void)moveTowerWithAngle:(float)angle acceleration:(UIAcceleration *)acceleration parcent:(int)parcent;
+- (void)changeTimegame:(ccTime)remainTime;
 - (void)allClear:(int)parcent;
 - (void)gameOver;
 @end

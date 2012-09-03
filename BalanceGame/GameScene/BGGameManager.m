@@ -17,7 +17,7 @@
 
 @implementation BGGameManager
 @synthesize currentGameState = _currentGameState, questionsOrder = _questionsOrder, currentQuestionCount = _currentQuestionCount, gameTime = _gameTime, awayTouchTime = _awayTouchTime, onLeftTouchArea = _onLeftTouchArea, onRightTouchArea = _onRightTouchArea, isBalloonHidden = _isBalloonHidden, towerAngle = _towerAngle, remainGameTime = _remainGameTime, comatibilityParcent = _comatibilityParcent, totalTowerAngles = _totalTowerAngles, totalPlayGameTime = _totalPlayGameTime, totalGameFrameCount = _totalGameFrameCount;
-@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear, onNoticeGameOver;
+@synthesize onShowTouchWarning, onShowBalloon, onNotShowBalloon, onSendAcceleration, onNoticeAllClear, onNoticeGameOver, onNoticeTimer;
 
 - (id)init{
     if (self = [super init]) {
@@ -56,6 +56,8 @@
 
 - (void)timer:(ccTime)dt{
     _gameTime += dt;
+    
+    if (self.onNoticeTimer) onNoticeTimer();
     
     switch (_currentGameState) {
         case GameStateTouch:
