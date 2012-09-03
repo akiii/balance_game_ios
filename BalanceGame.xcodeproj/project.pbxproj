@@ -140,6 +140,8 @@
 		B810AD6115E74C1F00D374DD /* BGGameTower.m in Sources */ = {isa = PBXBuildFile; fileRef = B810AD6015E74C1F00D374DD /* BGGameTower.m */; };
 		B82B995815F3EE3500198F2B /* BGRankingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B995715F3EE3500198F2B /* BGRankingScene.m */; };
 		B82B995B15F3EE5800198F2B /* BGRankingMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B995A15F3EE5800198F2B /* BGRankingMainLayer.m */; };
+		B82B997D15F44E4400198F2B /* oukan.png in Resources */ = {isa = PBXBuildFile; fileRef = B82B997B15F44E3700198F2B /* oukan.png */; };
+		B82B997E15F44E4400198F2B /* oukan-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B82B997C15F44E3C00198F2B /* oukan-hd.png */; };
 		B85B303A15E9F56A00A71141 /* BGGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B303915E9F56900A71141 /* BGGameManager.m */; };
 		B881545315F05906005CDC6F /* BGStoryBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B881544E15F05906005CDC6F /* BGStoryBackgroundLayer.m */; };
 		B881545415F05906005CDC6F /* BGStoryMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B881545015F05906005CDC6F /* BGStoryMainLayer.m */; };
@@ -622,6 +624,8 @@
 		B82B995715F3EE3500198F2B /* BGRankingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRankingScene.m; sourceTree = "<group>"; };
 		B82B995915F3EE5800198F2B /* BGRankingMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRankingMainLayer.h; sourceTree = "<group>"; };
 		B82B995A15F3EE5800198F2B /* BGRankingMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRankingMainLayer.m; sourceTree = "<group>"; };
+		B82B997B15F44E3700198F2B /* oukan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oukan.png; sourceTree = "<group>"; };
+		B82B997C15F44E3C00198F2B /* oukan-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oukan-hd.png"; sourceTree = "<group>"; };
 		B85B303815E9F56900A71141 /* BGGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGGameManager.h; sourceTree = "<group>"; };
 		B85B303915E9F56900A71141 /* BGGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGGameManager.m; sourceTree = "<group>"; };
 		B881544D15F05906005CDC6F /* BGStoryBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGStoryBackgroundLayer.h; sourceTree = "<group>"; };
@@ -1456,6 +1460,8 @@
 		B88880AB15EDA0DA0072D737 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B82B997B15F44E3700198F2B /* oukan.png */,
+				B82B997C15F44E3C00198F2B /* oukan-hd.png */,
 				D02351BC15F40E1D0049A33A /* course_bg-hd.png */,
 				D02351C015F41F060049A33A /* title_tower.png */,
 				D02351C115F41F060049A33A /* title_tower-hd.png */,
@@ -1893,6 +1899,8 @@
 				D02351D515F441270049A33A /* omedetou_01.wav in Resources */,
 				D02351D715F443930049A33A /* readygo_01.wav in Resources */,
 				D02351D915F447F50049A33A /* yattaa_01.wav in Resources */,
+				B82B997D15F44E4400198F2B /* oukan.png in Resources */,
+				B82B997E15F44E4400198F2B /* oukan-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
