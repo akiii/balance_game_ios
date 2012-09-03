@@ -13,6 +13,6 @@
 @interface BGRankingMainLayer : CCLayer <UITableViewDelegate, UITableViewDataSource> {
     
 }
-+ (BGRankingMainLayer *)layerWithFacebookId:(NSString *)facebookId;
-@property (nonatomic, retain) void (^onPressedFacebookUser)(NSString *facebookId);
++ (BGRankingMainLayer *)layerWithFacebookId:(NSString *)facebookId name:(NSString *)name;
+@property (nonatomic, retain) void (^onPressedFacebookUser)(NSString *facebookId, NSString *name);
 @end
