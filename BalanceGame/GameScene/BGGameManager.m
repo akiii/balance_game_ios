@@ -218,9 +218,13 @@
 
 - (void)postScoreWithSelectedUser:(BGRFacebookUser *)selectedUser{
     if (selectedUser != nil) {
-        BGRFacebookUser *me = [BGFacebookManager sharedManager].currentUser;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/%@/%@/%@", base_post_url, me.uid, selectedUser.uid, [NSString stringWithFormat:@"%d", (int)_comatibilityParcent]];
-        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+        BGRFacebookUser *me = [BGFacebookManager sharedManager].currentUser;        
+        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://akiiisuke.com:3010/scores/post_score"]];
+        [req setHTTPMethod:@"POST"];
+        
+        NSData *params = [[NSString stringWithFormat:@"first_facebook_uid=%@&second_facebook_uid=%@&value=%d", me.uid, selectedUser.uid, (int)_comatibilityParcent] dataUsingEncoding:NSUTF8StringEncoding];;
+        [req setHTTPBody:params];
+        
         [NSURLConnection connectionWithRequest:req delegate:self];
     }
 }
