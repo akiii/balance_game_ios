@@ -61,18 +61,17 @@
         imageUrl = friend.picture_url;
     }else {
         NSDictionary *friendDic = [((NSArray *)[[BGFacebookManager sharedManager].usersDictionary objectForKey:kFriends]) objectAtIndex:indexPath.row];
-        cell.textLabel.text = [friendDic objectForKey:@"name"];
-        imageUrl = [friendDic objectForKey:@"picture"];
+        cell.textLabel.text = friendDic[@"name"];
+        imageUrl = friendDic[@"picture"][@"data"][@"url"];
     }
     
-//    dispatch_queue_t q_global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_queue_t q_global = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_queue_t q_main = dispatch_get_main_queue();
     
     cell.imageView.image = nil;
     
     dispatch_async(q_global, ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString: imageUrl]]];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: imageUrl]]];
         dispatch_async(q_main, ^{
             cell.imageView.image = image;
             [cell layoutSubviews];

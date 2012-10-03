@@ -39,15 +39,15 @@ static BGFacebookManager *shared = nil;
             dispatch_queue_t q = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
             dispatch_async(q, ^(){
                 self.currentUser = [[[BGRFacebookUser alloc] init] autorelease];
-                self.currentUser.uid = [result objectForKey:@"id"];
-                self.currentUser.name = [result objectForKey:@"name"];
-                self.currentUser.picture_url = [result objectForKey:@"picture"];
+                self.currentUser.uid = result[@"id"];
+                self.currentUser.name = result[@"name"];
+                self.currentUser.picture_url = result[@"picture"][@"data"][@"url"];
                 [self.currentUser remoteCreateAsync:^(NSError *error) {}];
             });
             
             [reqFriends startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
-                    NSArray *fs = [result objectForKey:@"data"];
+                    NSArray *fs = result[@"data"];
                     [self.usersDictionary setObject:fs forKey:kFriends];
                     
                     if (self.onGotUsersDictionary) self.onGotUsersDictionary();
@@ -58,9 +58,9 @@ static BGFacebookManager *shared = nil;
                     dispatch_async(q, ^(){
                         for (NSDictionary *d in fs) {
                             BGRFacebookUser *u = [[[BGRFacebookUser alloc] init] autorelease];
-                            u.uid = [d objectForKey:@"id"];
-                            u.name = [d objectForKey:@"name"];
-                            u.picture_url = [d objectForKey:@"picture"];
+                            u.uid = d[@"id"];
+                            u.name = d[@"name"];
+                            u.picture_url = d[@"picture"][@"data"][@"url"];
                             [self.friends addObject:u];
                             
                             if ([[fs objectAtIndex:fs.count-1] isEqual:d]) {
