@@ -8,11 +8,13 @@
 
 #import "BGRankingMainLayer.h"
 #import "BGFacebookManager.h"
+#import "CCUIViewWrapper.h"
 #import "AFJsonReader.h"
 
 @interface BGRankingMainLayer()
-@property (nonatomic, retain) UINavigationBar *bar;
-@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) CCUIViewWrapper *bar;
+@property (nonatomic, retain) UITableView *uiTableView;
+@property (nonatomic, retain) CCUIViewWrapper *tableView;
 @property (nonatomic, retain) NSMutableArray *scores;
 @property (nonatomic, retain) NSString *name;
 @end
@@ -39,21 +41,29 @@
 - (void)onEnter{
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
-    self.bar = [[[UINavigationBar alloc] init] autorelease];
+    UINavigationBar *uiBar = [[[UINavigationBar alloc] init] autorelease];
     UINavigationItem *title = [[[UINavigationItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ の Ranking", self.name]] autorelease];
 
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(backButtonPressed:)] autorelease];
     title.leftBarButtonItem = backButton;
     
-    [self.bar pushNavigationItem:title animated:YES];
-    self.bar.frame = CGRectMake(0, 0, screenSize.width, 48);
-    self.bar.tintColor = [UIColor blackColor];
-    [[CCDirector sharedDirector].view addSubview:self.bar];    
-        
-    self.tableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 48, screenSize.width, screenSize.height - 48) style:UITableViewStylePlain] autorelease];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [[CCDirector sharedDirector].view addSubview:self.tableView];
+    [uiBar pushNavigationItem:title animated:YES];
+    uiBar.frame = CGRectMake(0, 0, screenSize.width, 48);
+    uiBar.tintColor = [UIColor blackColor];
+    
+    self.bar = [CCUIViewWrapper wrapperForUIView:uiBar];
+    self.bar.position = ccp(uiBar.frame.size.height/2 - screenSize.width/2, uiBar.frame.size.width/2 + uiBar.frame.size.height/2);
+    self.bar.rotation = -90;
+    [self addChild:self.bar];
+    
+    self.uiTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 48, screenSize.width, screenSize.height - 48) style:UITableViewStylePlain] autorelease];
+    self.uiTableView.delegate = self;
+    self.uiTableView.dataSource = self;
+    
+    self.tableView = [CCUIViewWrapper wrapperForUIView:self.uiTableView];
+    self.tableView.position = ccp(self.uiTableView.frame.size.height/2 - screenSize.width/2 + 48, self.uiTableView.frame.size.width/2 + self.uiTableView.frame.size.height/2 + 48);
+    self.tableView.rotation = -90;
+    [self addChild:self.tableView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -73,7 +83,7 @@
     CGSize screenSize = [CCDirector sharedDirector].winSize;
 
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.uiTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if(!cell){
@@ -121,14 +131,15 @@
 
 - (void)dealloc{
     self.bar = nil;
+    self.uiTableView = nil;
     self.tableView = nil;
     self.scores = nil;
     [super dealloc];
 }
 
 - (void)backButtonPressed:(id)sender{
-    [self.bar removeFromSuperview];
-    [self.tableView removeFromSuperview];
+    [self removeChild:self.bar cleanup:YES];
+    [self removeChild:self.tableView cleanup:YES];
     [[CCDirector sharedDirector] popScene];
 }
 
