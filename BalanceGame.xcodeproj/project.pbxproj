@@ -238,6 +238,7 @@
 		B88881A215EDF7470072D737 /* picture_8_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B888817215EDF7470072D737 /* picture_8_2.png */; };
 		B88881A315EDF7470072D737 /* picture_8_3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B888817315EDF7470072D737 /* picture_8_3-hd.png */; };
 		B88881A415EDF7470072D737 /* picture_8_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B888817415EDF7470072D737 /* picture_8_3.png */; };
+		B8942BFB161C8E6900BFABE7 /* CCUIViewWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8942BFA161C8E6900BFABE7 /* CCUIViewWrapper.m */; };
 		B8A10FCA15EE2C8C005D1063 /* LavaFlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A10FC915EE2C8C005D1063 /* LavaFlow.plist */; };
 		B8DB17EF15EEF2030040BB67 /* Fairwind_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8DB17EE15EEF2030040BB67 /* Fairwind_loop.mp3 */; };
 		B8DB17F315EF26CF0040BB67 /* BGSelectCourseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DB17F215EF26CF0040BB67 /* BGSelectCourseScene.m */; };
@@ -745,6 +746,8 @@
 		B888817215EDF7470072D737 /* picture_8_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_8_2.png; sourceTree = "<group>"; };
 		B888817315EDF7470072D737 /* picture_8_3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture_8_3-hd.png"; sourceTree = "<group>"; };
 		B888817415EDF7470072D737 /* picture_8_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_8_3.png; sourceTree = "<group>"; };
+		B8942BF9161C8E6900BFABE7 /* CCUIViewWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUIViewWrapper.h; sourceTree = "<group>"; };
+		B8942BFA161C8E6900BFABE7 /* CCUIViewWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUIViewWrapper.m; sourceTree = "<group>"; };
 		B8A10FC915EE2C8C005D1063 /* LavaFlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LavaFlow.plist; sourceTree = "<group>"; };
 		B8DB17EE15EEF2030040BB67 /* Fairwind_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fairwind_loop.mp3; sourceTree = "<group>"; };
 		B8DB17F115EF26CF0040BB67 /* BGSelectCourseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSelectCourseScene.h; sourceTree = "<group>"; };
@@ -962,6 +965,8 @@
 				B8DB183C15EF6CC70040BB67 /* BGFacebookUser.m */,
 				B8DB183E15EF6D260040BB67 /* BGFacebookManager.h */,
 				B8DB183F15EF6D260040BB67 /* BGFacebookManager.m */,
+				B8942BF9161C8E6900BFABE7 /* CCUIViewWrapper.h */,
+				B8942BFA161C8E6900BFABE7 /* CCUIViewWrapper.m */,
 				B881555715F27C5D005CDC6F /* Server */,
 				B810AD5515E71C9600D374DD /* TopScene */,
 				B82B995415F3EE2500198F2B /* RankingScene */,
@@ -2086,6 +2091,7 @@
 				B8DD15A215F380E5007CEBA4 /* BGGameResultLayer.m in Sources */,
 				B82B995815F3EE3500198F2B /* BGRankingScene.m in Sources */,
 				B82B995B15F3EE5800198F2B /* BGRankingMainLayer.m in Sources */,
+				B8942BFB161C8E6900BFABE7 /* CCUIViewWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
