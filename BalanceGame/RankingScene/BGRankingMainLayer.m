@@ -11,6 +11,8 @@
 #import "CCUIViewWrapper.h"
 #import "AFJsonReader.h"
 
+#define SIZE_OF_NAVBAR  CGSizeMake([CCDirector sharedDirector].winSize.width, 48)
+
 @interface BGRankingMainLayer()
 @property (nonatomic, retain) CCUIViewWrapper *bar;
 @property (nonatomic, retain) UITableView *uiTableView;
@@ -30,7 +32,6 @@
     if (self = [super init]) {
         NSString *urlString = [NSString stringWithFormat:@"%@/%@", @"http://akiiisuke.com:3010/scores/ranking", facebookId];
         [AFJsonReader requestWithUrl:urlString block:^(NSDictionary *jsonDic){
-            NSLog(@"json dic : %@", jsonDic);
             self.scores = [jsonDic objectForKey:@"rankings"];
         }];
         self.name = n;
@@ -48,20 +49,20 @@
     title.leftBarButtonItem = backButton;
     
     [uiBar pushNavigationItem:title animated:YES];
-    uiBar.frame = CGRectMake(0, 0, screenSize.width, 48);
+    uiBar.frame = CGRectMake(0, 0, SIZE_OF_NAVBAR.width, SIZE_OF_NAVBAR.height);
     uiBar.tintColor = [UIColor blackColor];
     
     self.bar = [CCUIViewWrapper wrapperForUIView:uiBar];
-    self.bar.position = ccp(uiBar.frame.size.height/2 - screenSize.width/2, uiBar.frame.size.width/2 + uiBar.frame.size.height/2);
+    self.bar.position = ccp(SIZE_OF_NAVBAR.height/2 - screenSize.width/2, SIZE_OF_NAVBAR.width/2 + SIZE_OF_NAVBAR.height/2);
     self.bar.rotation = -90;
     [self addChild:self.bar];
     
-    self.uiTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 48, screenSize.width, screenSize.height - 48) style:UITableViewStylePlain] autorelease];
+    self.uiTableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, SIZE_OF_NAVBAR.height, screenSize.width, screenSize.height - SIZE_OF_NAVBAR.height) style:UITableViewStylePlain] autorelease];
     self.uiTableView.delegate = self;
     self.uiTableView.dataSource = self;
     
     self.tableView = [CCUIViewWrapper wrapperForUIView:self.uiTableView];
-    self.tableView.position = ccp(self.uiTableView.frame.size.height/2 - screenSize.width/2 + 48, self.uiTableView.frame.size.width/2 + self.uiTableView.frame.size.height/2 + 48);
+    self.tableView.position = ccp(self.uiTableView.frame.size.height/2 - screenSize.width/2 + SIZE_OF_NAVBAR.height, self.uiTableView.frame.size.width/2 + self.uiTableView.frame.size.height/2 + SIZE_OF_NAVBAR.height);
     self.tableView.rotation = -90;
     [self addChild:self.tableView];
 }
