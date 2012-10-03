@@ -76,6 +76,17 @@
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
+    [[NSRConfig defaultConfig] setAppURL:@"http://akiiisuke.com:3010/"];
+    
+    if (!_session.isOpen) {
+        _session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"publish_stream", nil]];
+        if (_session.state == FBSessionStateCreatedTokenLoaded) {
+            [_session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                _session = session;
+            }];
+        }
+    }
+    
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	[director_ pushScene: [IntroLayer scene]];
 
@@ -90,17 +101,6 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-    
-    [[NSRConfig defaultConfig] setAppURL:@"http://akiiisuke.com:3010/"];
-    
-    if (!_session.isOpen) {
-        _session = [[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"publish_stream", nil]];
-        if (_session.state == FBSessionStateCreatedTokenLoaded) {
-            [_session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                _session = session;
-            }];
-        }
-    }
     
 	return YES;
 }
